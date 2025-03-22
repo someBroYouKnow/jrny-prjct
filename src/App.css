@@ -1,0 +1,19 @@
+*, body{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+.header{
+  border:15px solid red;
+  width:100vw;
+   
+  
+}
+.navbar-list{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  color:white;
+  flex-direction: row;
+}
