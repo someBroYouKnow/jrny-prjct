@@ -1,19 +1,36 @@
-*, body{
-  box-sizing: border-box;
-  margin:0;
-  padding:0;
+
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
 }
 
-.header{
-  border:15px solid red;
-  width:100vw;
-   
-  
+.container {
+  border: 10px solid white;
+  min-height: 100vh;
+  background-image: url('/jrny_landing_bg.png');
+  background-size: cover;  /* Ensures the image covers the entire container */
+  background-position: center;  /* Centers the image within the container */
+  background-repeat: no-repeat;  /* Prevents the image from repeating */
 }
-.navbar-list{
-  display:flex;
-  align-items: center;
+
+
+.header {
+  border: 15px solid red;
+  width: 100%;
+  display: flex;
   justify-content: space-between;
-  color:white;
-  flex-direction: row;
+  align-items: center;
+  position: sticky; /* Sticky positioning */
+  top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure the header stays above other content */
+  background-color: #000; /* You can set a background color to prevent text from bleeding under */
+  padding: 10px 20px;
+}
+
+
+.navbar-div{
+  min-width: 40%;
 }
