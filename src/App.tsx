@@ -9,19 +9,58 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   useEffect(() => {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".r-underline",
-        start: "top 80%",
-        end: "bottom top",
-        scrub: true,
+    const updateUnderlineWidth = () => {
+      const underline = document.querySelector(".r-underline");
+      const slab = document.querySelector(".r-slab");
+  
+      if (underline && slab) {
+        const windowWidth = window.innerWidth;
+        const underlineRect = underline.getBoundingClientRect();
+  
+        // Set r-underline width dynamically
+        const newWidth = windowWidth - 20 - underlineRect.left;
+        underline.style.width = `${newWidth}px`;
+  
+        // Ensure r-slab starts exactly at the left of r-underline
+        slab.style.left = "0px";
       }
-    });
+    };
+  
+    updateUnderlineWidth();
+    window.addEventListener("resize", updateUnderlineWidth);
+  
+    return () => {
+      window.removeEventListener("resize", updateUnderlineWidth);
+    };
+  }, []);
+
+  useEffect(() => {
+    const slab = document.querySelector(".r-slab");
+    const underline = document.querySelector(".r-underline");
     
-    tl.to(".r-slab", {
-      x: "100%",
-      ease: "power2.inOut"
-    });
+    if (!slab || !underline) return;
+    
+    const maxMove = underline.offsetWidth - slab.offsetWidth;
+    console.log(maxMove, {underline})
+    
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const maxScroll = 20; // Even a small scroll makes it move fully
+      const progress = Math.min(scrollY / maxScroll, 1);
+      const newX = progress * maxMove;
+      
+      gsap.to(".r-slab", {
+        x: newX,
+        ease: "power2.out",
+        duration: 0.1, // Faster response time
+        overwrite: true,
+      });
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
