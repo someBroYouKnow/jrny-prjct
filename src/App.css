@@ -72,6 +72,16 @@ body {
   width: 39rem;
 }
 
+.r-vertical-line {
+  position: absolute;
+  right: -10px;
+  top: 100%; /* Starts exactly where .r-underline ends */
+  width: 6px;
+  background-color: #ff4900;
+  height: 40vh; /* Adjust based on hero-container height */
+}
+
+
 
  
 .r-slab {

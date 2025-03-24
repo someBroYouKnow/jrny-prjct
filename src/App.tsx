@@ -9,39 +9,45 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   useEffect(() => {
-    const updateUnderlineWidth = () => {
-      const underline = document.querySelector(".r-underline");
-      const slab = document.querySelector(".r-slab");
+    const updatePositions = () => {
+      const underline = document.querySelector(".r-underline") as HTMLElement;
+      const slab = document.querySelector(".r-slab") as HTMLElement;
+      const verticalLine = document.querySelector(".r-vertical-line") as HTMLElement;
   
-      if (underline && slab) {
-        const windowWidth = window.innerWidth;
+      if (underline && slab && verticalLine) {
         const underlineRect = underline.getBoundingClientRect();
+        const parentRect = underline.parentElement?.getBoundingClientRect();
+        if (!parentRect) return;
   
-        // Set r-underline width dynamically
-        const newWidth = windowWidth - 20 - underlineRect.left;
+        // Calculate the exact width of r-underline
+        const newWidth = window.innerWidth - 15 - underlineRect.left;
         underline.style.width = `${newWidth}px`;
   
         // Ensure r-slab starts exactly at the left of r-underline
         slab.style.left = "0px";
+  
+        // Position vertical line at the end of r-underline
+        verticalLine.style.left = `${newWidth+ 10}px`;
+        verticalLine.style.top = `${underlineRect.bottom - parentRect.top}px`; // Align precisely
       }
     };
   
-    updateUnderlineWidth();
-    window.addEventListener("resize", updateUnderlineWidth);
+    updatePositions();
+    window.addEventListener("resize", updatePositions);
   
     return () => {
-      window.removeEventListener("resize", updateUnderlineWidth);
+      window.removeEventListener("resize", updatePositions);
     };
   }, []);
 
   useEffect(() => {
-    const slab = document.querySelector(".r-slab");
-    const underline = document.querySelector(".r-underline");
+    const slab = document.querySelector(".r-slab") as HTMLElement;
+    const underline = document.querySelector(".r-underline") as HTMLElement;
     
     if (!slab || !underline) return;
     
     const maxMove = underline.offsetWidth - slab.offsetWidth;
-    console.log(maxMove, {underline})
+    console.log(maxMove, { underline });
     
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -86,6 +92,7 @@ export default function App() {
                   <span className="r-underline">
                     <span className="r-slab"></span>
                   </span>
+                  <span className="r-vertical-line"></span>
                 </span>
               </span>
             </h1>
