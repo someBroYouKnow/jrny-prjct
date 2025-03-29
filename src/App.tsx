@@ -12,25 +12,33 @@ export default function App() {
     const updatePositions = () => {
       const underline = document.querySelector(".r-underline") as HTMLElement;
       const slab = document.querySelector(".r-slab") as HTMLElement;
-      const verticalLine = document.querySelector(
-        ".r-vertical-line"
-      ) as HTMLElement;
-
+      const verticalLine = document.querySelector(".r-vertical-line") as HTMLElement;
+    
       if (underline && slab && verticalLine) {
         const underlineRect = underline.getBoundingClientRect();
         const parentRect = underline.parentElement?.getBoundingClientRect();
         if (!parentRect) return;
-
-        // Calculate the exact width of r-underline
-        const newWidth = window.innerWidth - 10 - underlineRect.left;
+    
+        // Calculate width to reach window edge with 10px margin
+        const rightEdgeMargin = 10;
+        const newWidth = window.innerWidth - underlineRect.left - rightEdgeMargin;
+    
+        // Set underline width
         underline.style.width = `${newWidth}px`;
-
-        // Ensure r-slab starts exactly at the left of r-underline
+    
+        // Position slab at start
         slab.style.left = "0px";
-
-        // Position vertical line at the end of r-underline
-        verticalLine.style.left = `${newWidth + 10}px`;
-        verticalLine.style.top = `${underlineRect.bottom - parentRect.top}px`; // Align precisely
+    
+        // Position vertical line at end of underline (window edge - margin)
+       // verticalLine.style.top = `${underlineRect.bottom - parentRect.top}px`;
+    
+        // Ensure elements stay within viewport
+        const viewportRight = window.innerWidth - rightEdgeMargin;
+        const underlineRightEdge = underlineRect.left + newWidth;
+        
+        if (underlineRightEdge > viewportRight) {
+          underline.style.width = `${viewportRight - underlineRect.left}px`;
+        }
       }
     };
 
@@ -41,6 +49,41 @@ export default function App() {
       window.removeEventListener("resize", updatePositions);
     };
   }, []);
+
+  // Add this new useEffect for vertical line animation
+useEffect(() => {
+  const verticalLine = document.querySelector(".r-vertical-line") as HTMLElement;
+  const verticalSlab = document.createElement('div');
+  verticalSlab.classList.add('r-vertical-slab');
+  
+  if (verticalLine) {
+    verticalLine.appendChild(verticalSlab);
+    
+    // Set initial position
+    gsap.set(verticalSlab, {
+      y: '-100%',
+      height: '0%'
+    });
+
+    // Create scroll animation
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const maxScroll = 20;
+      const progress = Math.min(scrollY / maxScroll, 1);
+      
+      gsap.to(verticalSlab, {
+        y: `${-100 + progress * 100}%`,
+        height: `${progress * 100}%`,
+        ease: "power2.out",
+        duration: 3,
+        overwrite: true
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }
+}, []);
 
   useEffect(() => {
     const slab = document.querySelector(".r-slab") as HTMLElement;
@@ -85,6 +128,9 @@ export default function App() {
 
       <div className="container">
         <div className="hero-container">
+        <span className="r-vertical-line">
+        <span className="r-vertical-slab"></span> 
+        </span>
           <div className="video-card-container">
             <div className="video-card">
               <img className="landing-video-png" src="landing-video-card.png" alt="Reel" />
@@ -107,7 +153,6 @@ export default function App() {
                   <span className="r-underline">
                     <span className="r-slab"></span>
                   </span>
-                  <span className="r-vertical-line"></span>
                 </span>
               </span>
             </h1>
@@ -125,22 +170,28 @@ export default function App() {
 
         {/* Skewed Div */}
         <div className="skewed-div">
+          {/* <div className="skewed-bg"><img src="jrny-hero-bg.png" alt="" /></div> */}
           <div className="triangle top-right"></div>
           <div className="triangle bottom-left"></div>
         </div>
 
         <div className="card-container">
-          <span className="card-underline"></span> {/* New line */}
-          <p className="card-paragraph">
-            JRNY Experiential partners with you to create immersive events that
+          <span className="card-underline"></span>  
+          
+          <div className="card-para-div">
+            <span className="card-paragraph-start">JRNY Experential</span><span className="card-paragraph"> partners with you to create immersive events that
             engage, inspire, and connect. Together, we craft unforgettable
             experiences that leave a lasting impact.
-          </p>
+          </span>      
+          <span className="card-para-div-crossline"><img src="underline-cross.png" alt="" /></span>
+          </div>
+
+
           <div className="cards-section">
-            <div className="profile-card"></div>
-            <div className="profile-card"></div>
-            <div className="profile-card"></div>
-            <div className="profile-card"></div>
+            <div className="profile-card generic"></div>
+            <div className="profile-card generic"></div>
+            <div className="profile-card generic"></div>
+            <div className="profile-card generic"></div>
           </div>
         </div>
 

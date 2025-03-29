@@ -3,6 +3,7 @@
 body {
   min-height: 100vh;
   min-width:100vw;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   background-color: black;
@@ -10,8 +11,7 @@ body {
 
 .container { 
   min-height: 100vh;
-
-  background-image: url('/jrny_landing_bg.png');
+  background-color: black;
   background-size: cover;  /* Ensures the image covers the entire container */
   background-position: center;  /* Centers the image within the container */
   background-repeat: no-repeat;  /* Prevents the image from repeating */
@@ -25,11 +25,22 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
   background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
   backdrop-filter: blur(3px); /* Glass effect */
   -webkit-backdrop-filter: blur(3px); /* Safari support */
   padding: 10px 20px;
+}
+ 
+
+.r-vertical-line{ 
+  position: absolute;
+  right: 8px;
+  top: 0;
+  background-color: #ff4900;
+  height: 100%;
+  z-index: 2;
+  width: 8px; /* Adjust thickness */
 }
 
 .navbar-div{
@@ -55,7 +66,6 @@ body {
   font-weight: 700;
 }
 
-
 .button::before,
 .button::after {
   content: "";
@@ -77,15 +87,23 @@ body {
   left:  -7px;
 }
 
+ 
+.container{
+  width:100%;
+}
 
 .hero-container {
   display:flex; 
-  max-height:80vh;
-  min-height:40vh;  
-  padding-top:10rem;
-  gap:6rem;
-  margin-left:6.6rem;
-
+  max-height:94vh;
+  min-height:94vh;  
+  width:100%;
+  padding-top:5rem;
+  padding-left:8rem;
+  gap:6rem;  
+  background-image: url('/jrny_landing_bg.png');
+  background-size: cover;
+background-position:bottom;
+background-repeat: no-repeat; 
 }
 
 .video-card-container{
@@ -176,7 +194,7 @@ body {
 
 .landing-title{
   font-family: 'Armstrong';
-  font-size: 6.5rem;
+  font-size: 4.5rem;
 }
 
 .landing-buttons{
@@ -213,6 +231,18 @@ body {
   text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
 }
 
+.card-paragraph{
+  text-align: center;
+  background: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes the background visible through the text */
+  background-clip: text;
+  text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
+}
+
+ .text-span-red{
+  color: #FF4900;
+ }
 
 .r-container {
   display: inline-block;
@@ -221,7 +251,7 @@ body {
 
 .r-underline {
   position: absolute;
-  bottom: 43.2px;
+  bottom: 29.2px;
   left: 80%;
   height: 6px;
   background-color: #ff4900;
@@ -230,11 +260,34 @@ body {
 
 .r-vertical-line {
   position: absolute;
-  right: -10px;
-  top: 100%; /* Starts exactly where .r-underline ends */
+  right: 0;
+  top:458px;
   width: 6px;
   background-color: #ff4900;
-  height: 40vh; /* Adjust based on hero-container height */
+  overflow:hidden;
+  height: 50%; /* Adjust based on hero-container height */
+}
+
+.r-vertical-slab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(90deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
+  z-index: 2;
+}
+
+.r-vertical-slab::before,
+.r-vertical-slab::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #FF4900 10%,    #FF4900 97%);
+  z-index: 1;
+  padding:3px;
+  filter: blur(1.7rem);
 }
 
 
@@ -261,42 +314,31 @@ body {
   padding:3px;
   filter: blur(1.7rem);
 }
-
-
-
-.r-slab::after {
-}
-
+ 
 .cleanse{
   min-height:300vh;
   width:100vw;
 
 }
-
-/* .hero-container{
-  border:1px solid blue; */
-
+ 
 
 .skewed-div { 
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 100px;
   background-color: #FF4900;
-  transform: skewY(-8deg);
-  overflow: hidden;
-  margin-top: 5rem;
+  transform: skewY(-6deg);  
 }
 
-.skewed-div::before {
-  content: "";
-  position: absolute;
-  top: -55%;
-  left: 0;
-  width: 100%;  /* Adjust based on how much should be covered */
-  height: 100%;
-  background-color: black;
-  transform: skewY(182deg);
-  z-index: 2; /* Ensures it appears above .skewed-div */ 
+
+
+.skewed-bg{
+  position:absolute;
+  z-index:-1;
+  bottom:180px;
+  border: 10px solid white;
+  height:auto;
+  width:80%;
 }
 
 .triangle { 
@@ -335,23 +377,62 @@ body {
 }
 
 
-.card-paragraph {
-  max-width:46vw;
+.card-para-div {
+  position: relative;
+  max-width:60vw;
   min-height:max-content;
   margin-top:2rem;
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 500;
-  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+  font-size: 3rem;  
   line-height: 2.5rem; /* Scales naturally with font size */
   letter-spacing: 1px;
   text-align: center;
+  text-align: center;
+}
+
+.card-para-div-crossline{
+  position:absolute;
+  transform: skewY(8deg);
+  right:0px;
+  bottom:3px;
+}
+
+.card-paragraph-start{
+  color: #FF4900;
 }
 
 
 .profile-card{
   width: 288px;
-  height:440px;
-  border:5px solid white;
+  height:440px; 
+  border:2px solid orange;
+  position: relative;
+}
+
+.profile-card:hover{
+  cursor:grabbing;
+}
+
+.profile-card::before,
+.profile-card::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
+.profile-card::before {
+  width: 2px;
+  height: 10px;
+  top: -4px;
+  left: -3px;
+}
+
+.profile-card::after {
+  width: 10px;
+  height: 2px;
+  top: 0px;
+  left:  -7px;
 }
 
 .card-container {
