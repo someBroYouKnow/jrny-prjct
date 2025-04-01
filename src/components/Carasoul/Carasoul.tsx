@@ -1,37 +1,138 @@
-import './carasoul.css'
+import "./carasoul.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import React from "react";
 
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 export default function Carasoul() {
-  return (
-    <div>
+    const cards = [
+        {
+          profilePic: "carousol_john.png",
+          profileName: "John Doe",
+          profileDesignation: "Director, ABC",
+          compliment:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        },
+        {
+          profilePic: "carousol_john.png",
+          profileName: "Jane Smith",
+          profileDesignation: "Manager, XYZ",
+          compliment:
+            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        },
+        {
+          profilePic: "carousol_john.png",
+          profileName: "Mike Johnson",
+          profileDesignation: "CEO, LMN",
+          compliment:
+            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        },
+        {
+          profilePic: "carousol_john.png",
+          profileName: "Emily Brown",
+          profileDesignation: "CTO, DEF",
+          compliment:
+            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        },
+      ];
+
+      const images = cards.map(card=>(
+        <span className="carousol-img-box">
+            <img src={`${card.profilePic}`} alt="picture" />
+        </span>
+      ))
+
+      
+      const CustomDot=({
+        index,
+        onClick,
+        active
+      }:{index:any, onClick:any, active:any})=>{
+        return (
+            <button
+            onClick={e=>{
+                onClick();
+                e.preventDefault();
+            }}
+            className={`carousol-img ${active? 'carousol-img--active':''}`}
+            >
+                {React.Children.toArray(images)[index]}
+
+            </button>
+        )
+      }
+
+      return (
+        <div className='carousel-component'>
         
-        <Card profilePic={'carousol_john.png'} profileName={"John Doe"} profileDesignation={"Director, ABC"} compliment={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."} /> 
-    </div>
-  )
-}
-
-interface CardProps{
-    profilePic:string;
-    profileName: string;
-    profileDesignation: string;
-    compliment: string;
-}
-
-const Card = ({profilePic, profileName, profileDesignation,  compliment}:CardProps) =>{
-
-
-    return (
-        <div className="profile-card-container">
-            <div className="profile-container">
-                <img src={`${profilePic}` } alt="Profile picture" />
-                <div className="profile-infor">
-                    <span className="profile-name">{profileName}</span>
-                    <span className="designation">{profileDesignation}</span>
-                </div>
-            </div>
-            <div className="compliment">
-                {compliment}
-            </div>
+      <Carousel
+          showDots 
+          customDot={<CustomDot />}
+          renderDotsOutside={true}
+          focusOnSelect={true}
+            responsive={responsive}  
+            centerMode={true}
+            infinite={true} 
+            containerClass="carousel-container"
+          >
+            {cards.map((card, index) => (
+              <Card
+                key={index} 
+                profilePic={card.profilePic}
+                profileName={card.profileName}
+                profileDesignation={card.profileDesignation}
+                compliment={card.compliment}
+ 
+              />
+            ))}
+          </Carousel>
         </div>
-    )
+      );
+    }
+
+    
+   
+interface CardProps {
+  profilePic: string;
+  profileName: string;
+  profileDesignation: string;
+  compliment: string; 
 }
+
+const Card = ({
+  profilePic,
+  profileName,
+  profileDesignation,
+  compliment 
+}: CardProps) => {
+  return (
+    <div className={`profile-card-container`}>
+      <div className="profile-container">
+        <img src={`${profilePic}`} alt="Profile picture" />
+        <div className="profile-infor">
+          <span className="profile-name">{profileName}</span>
+          <span className="designation">{profileDesignation}</span>
+        </div>
+      </div>
+      <div className={`compliment `}>{compliment}</div>
+    </div>
+  );
+};

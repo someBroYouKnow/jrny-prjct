@@ -1,11 +1,22 @@
-
-
-
 .profile-card-container{
     display:flex;
     flex-direction: column;
     gap:1rem; 
     width:23vw;
+}
+
+.carousel-component{
+    min-width:90vw;
+    max-width: 95vw;
+    min-height:450px;  
+    position:relative; 
+    display:flex;
+    justify-content: flex-end;
+    border:2px solid white;
+}
+
+.carousel-container{
+    width:100%;
 }
 
 .profile-container{
@@ -19,6 +30,33 @@
     font-family: 'Helvetica Neue';
     height:45px;
     width:45px;
+}
+
+.react-multi-carousel-dot-list{
+    bottom:none !important;
+    top:21px;
+    background-color: none;
+    display:flex;
+    gap:1rem;
+}
+
+.carousol-img-box{
+    min-height: 32px;
+    min-width: 32px;
+    max-width: 32px; 
+}
+
+.carousol-img{
+    border:none;
+    min-height:30px;
+    min-width:30px;
+    max-width: 30px;
+    max-height: 30px;
+    object-fit: contain; 
+}
+
+.carousol-img--active{
+    border:3px solid #FF4900;
 }
 
 .profile-infor{
@@ -49,7 +87,10 @@
     border-radius: 0 0 2rem 0;  
     backdrop-filter: blur(10px);  
     background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity for better effect */
-    position: relative;  
+    position: relative; 
+    color:#63656F; 
+    max-height: 250px;
+    overflow-y: hidden;
 }
 
 .compliment::before,
@@ -83,9 +124,13 @@
 
 }
 
+.react-multi-carousel-item--active .compliment{
+    color:#ffffff !important; 
+}
+
 
 @media(max-width:1000px){
     .profile-card-container{
-        width:70vw;
+        /* width:70vw; */
     }
 }
