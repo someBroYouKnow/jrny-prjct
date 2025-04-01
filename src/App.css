@@ -241,7 +241,7 @@ background-repeat: no-repeat;
   text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
 }
 
-.testimonial-top, .testimonial-bottom{
+.testimonial-top, .testimonial-span{
   text-align: center;
   font-family: 'Helvetica Neue';
   background: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%);
@@ -607,3 +607,32 @@ background-repeat: no-repeat;
   max-width: 40vw;
   margin:0 auto;
 } 
+
+.jrny-span{
+  color:#FF4900;
+  background-color: none !important;
+}
+
+.carousol-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  width:100%;
+  margin-bottom:13rem;
+}
+
+.carousol-logo{
+  position:relative;
+}
+
+.testimonial-logo-trusted{
+  font-family: 'Helvetica Neue';
+  color:#FF5B00;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+

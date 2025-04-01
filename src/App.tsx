@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Logo } from "./components/shared/navbar/Logo";
 import { NavBar } from "./components/shared/navbar/Navbar";
 import { PartnerShow } from "./components/PartnerShow/PartnerShow";
+import Carasoul from "./components/Carasoul/Carasoul";
  
 gsap.registerPlugin(ScrollTrigger);
 
@@ -257,8 +258,9 @@ export default function App() {
           </div>
 
           <div className="testimonial-bottom">
-            We created JRNY to enhance journeys, ensuring people cherish the
+            <span className="testimonial-span">We created </span><span className="jrny-span">JRNY</span> <span className="testimonial-span"> to enhance journeys, ensuring people cherish the
             moments that matter.
+            </span>
           </div>
 
           <div className="carousol-container">
@@ -269,6 +271,7 @@ export default function App() {
             <div className="carousol">
               <div className="profile-section"></div>
               <div className="carousol-card-section"></div>
+              <Carasoul />
             </div>
           </div>
         </div>

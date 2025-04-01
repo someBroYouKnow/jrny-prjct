@@ -1,0 +1,91 @@
+
+
+
+.profile-card-container{
+    display:flex;
+    flex-direction: column;
+    gap:1rem; 
+    width:23vw;
+}
+
+.profile-container{
+    display:flex;
+    gap:1rem; 
+}
+
+.profile-container img{
+    object-fit: cover;
+    border-radius: 50%;
+    font-family: 'Helvetica Neue';
+    height:45px;
+    width:45px;
+}
+
+.profile-infor{
+    display:flex;
+    flex-direction: column; 
+}
+
+.profile-infor span{
+    display:inline-block;
+}
+
+.profile-name{
+    color:#FF4900;
+    font-weight: 500;
+    font-size:1rem;
+}
+
+.designation{
+    font-weight:400;
+    color:#808186;
+}
+
+.compliment {
+    width: 90%;
+    height: auto; 
+    padding: 0.5rem 0.4rem;
+    word-break: keep-all;
+    border-radius: 0 0 2rem 0;  
+    backdrop-filter: blur(10px);  
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity for better effect */
+    position: relative;  
+}
+
+.compliment::before,
+.compliment::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
+.compliment::before {
+  width: 2px;
+  height: 10px;
+  top: -6px;
+  left: -2px;
+}
+
+.compliment::after {
+  width: 10px;
+  height: 2px;
+  top: -2px;
+  left: -6px;
+}
+
+
+.compliment-active{
+    border: 2px solid #FF4900;
+}
+
+.compliment-active::before, .compliment-active::after{
+    background-color: #FF4900;
+
+}
+
+
+@media(max-width:1000px){
+    .profile-card-container{
+        width:70vw;
+    }
+}
