@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./partnerShow.css";
@@ -23,30 +23,45 @@ export function PartnerShow() {
 }
 
 function PartnerRow() {
-  const slider = useRef(null);
-  const firstText = useRef(null);
-  const secondText = useRef(null);
-  let xPercent = 0;
-  let direction = -1;
+    const slider = useRef(null);
+    const firstText = useRef(null);
+    const secondText = useRef(null);
+  
+    const [xPercent, setXPercent] = useState(-100);
+    const [direction, setDirection] = useState(-1); // Default moving left
+  
+    useEffect(() => {
+      const animate = () => {
+        setXPercent((prevX) => {
+          let newX = prevX + 0.15 * direction;
+  
+          if (newX <= -100){
+            setDirection(direction===-1?1:-1)
 
-  useEffect(() => {
-    requestAnimationFrame(animation);
-  }, []);
+            return 0;}  // Reset when it reaches -100%
+          if (newX > 0) {
+              setDirection(direction===-1?1:-1)
+            return -100;
+        }   // Ensure loop continues
+  
+          return newX;
+        });
+  
+        requestAnimationFrame(animate);
+      };
+  
+      requestAnimationFrame(animate);
+    }, []); // Re-run if direction changes
+  
+    useEffect(() => {
+      if(true ){
 
-  const animation = () => {
-    if (xPercent <= -100) {
-      xPercent = 0;
-    }
-    if (xPercent > 0) {
-        xPercent = -100;
-    }
-    gsap.set(firstText.current, { xPercent: xPercent });
-    gsap.set(secondText.current, { xPercent: xPercent });
-    xPercent += 0.15 * direction;
-    requestAnimationFrame(animation);
-  };
-
-  return ( 
+          gsap.set(firstText.current, { xPercent });
+          gsap.set(secondText.current, { xPercent });
+        }  
+    }, [document.querySelector(".firstText")]);  
+  
+    return (
       <div ref={slider} className="partner-row">
         <p ref={firstText} className="partner-row-first">
           <img src="partner-icon.png" alt="Partner" />
@@ -54,19 +69,17 @@ function PartnerRow() {
           <img src="partner-icon.png" alt="Partner" />
           <img src="partner-icon.png" alt="Partner" />
           <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" /> 
+          <img src="partner-icon.png" alt="Partner" />
         </p>
-
+  
         <p ref={secondText} className="partner-row-second">
           <img src="partner-icon.png" alt="Partner" />
           <img src="partner-icon.png" alt="Partner" />
           <img src="partner-icon.png" alt="Partner" />
           <img src="partner-icon.png" alt="Partner" />
           <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" /> 
+          <img src="partner-icon.png" alt="Partner" />
         </p>
       </div>
-
- 
-  );
-}
+    );
+  }
