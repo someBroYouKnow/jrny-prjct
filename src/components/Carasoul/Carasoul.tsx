@@ -1,7 +1,7 @@
 import "./carasoul.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React from "react";
+import React, { useState } from "react";
 
 const responsive = {
   superLargeDesktop: {
@@ -23,6 +23,8 @@ const responsive = {
 };
 
 export default function Carasoul() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
     const cards = [
         {
           profilePic: "carousol_john.png",
@@ -80,6 +82,21 @@ export default function Carasoul() {
         )
       }
 
+      
+
+      const changeSlide = (previousSlide: number, currentSlide: number, dataSize: number) => {
+        let activeSlide = 0
+        // right arrow
+        if (previousSlide < currentSlide) activeSlide = currentSlide - 2 === dataSize ? 0 : currentSlide - 2
+        // left arrow
+        else activeSlide = currentSlide + (currentSlide <= dataSize && currentSlide >= 2 ? -2 : dataSize - 2);
+        console.log({currentSlide, previousSlide, activeSlide});
+        setActiveIndex(activeSlide)
+    }
+
+ 
+ 
+
       return (
         <div className='carousel-component'>
         
@@ -92,7 +109,8 @@ export default function Carasoul() {
             centerMode={true}
             infinite={true} 
             containerClass="carousel-container"
-          >
+            afterChange={(previousSlide, { currentSlide }) => changeSlide(previousSlide, currentSlide, cards.length)}
+           >
             {cards.map((card, index) => (
               <Card
                 key={index} 
@@ -100,7 +118,7 @@ export default function Carasoul() {
                 profileName={card.profileName}
                 profileDesignation={card.profileDesignation}
                 compliment={card.compliment}
- 
+                active={((activeIndex+cards.length-1)%cards.length)===index}
               />
             ))}
           </Carousel>
@@ -115,13 +133,15 @@ interface CardProps {
   profileName: string;
   profileDesignation: string;
   compliment: string; 
+  active:boolean;
 }
 
 const Card = ({
   profilePic,
   profileName,
   profileDesignation,
-  compliment 
+  compliment ,
+  active
 }: CardProps) => {
   return (
     <div className={`profile-card-container`}>
@@ -132,7 +152,7 @@ const Card = ({
           <span className="designation">{profileDesignation}</span>
         </div>
       </div>
-      <div className={`compliment `}>{compliment}</div>
+      <div className={`compliment ${active ? 'compliment-active':''}`}>{compliment}</div>
     </div>
   );
 };

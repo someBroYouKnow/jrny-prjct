@@ -11,8 +11,7 @@
     min-height:450px;  
     position:relative; 
     display:flex;
-    justify-content: flex-end;
-    border:2px solid white;
+    justify-content: flex-end; 
 }
 
 .carousel-container{
@@ -89,8 +88,7 @@
     background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity for better effect */
     position: relative; 
     color:#63656F; 
-    max-height: 250px;
-    overflow-y: hidden;
+    max-height: 250px; 
 }
 
 .compliment::before,
@@ -114,18 +112,30 @@
   left: -6px;
 }
 
-
-.compliment-active{
-    border: 2px solid #FF4900;
+/* Hover Animation */
+.compliment:hover {
+    color: white;
+    border-color: #FF4900;
 }
 
-.compliment-active::before, .compliment-active::after{
+.compliment:hover::before {
+    transform: scaleX(1);
     background-color: #FF4900;
-
 }
 
-.react-multi-carousel-item--active .compliment{
-    color:#ffffff !important; 
+.compliment:hover::after {
+    transform: scaleY(1);
+    background-color: #FF4900;
+}
+
+.compliment-active{ 
+    color:white;
+    border:2px solid #FF4900; 
+    transition: border 0.2s ease;
+} 
+
+.compliment-active::after, .compliment-active::before{
+    background-color: #FF4900;
 }
 
 
