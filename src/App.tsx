@@ -6,6 +6,7 @@ import { Logo } from "./components/shared/navbar/Logo";
 import { NavBar } from "./components/shared/navbar/Navbar";
 import { PartnerShow } from "./components/PartnerShow/PartnerShow";
 import Carasoul from "./components/Carasoul/Carasoul";
+import Contact from "./components/Contact/Contact";
  
 gsap.registerPlugin(ScrollTrigger);
 
@@ -279,29 +280,29 @@ export default function App() {
         <div className="slanted-div-rev"></div>
 
         <div className="penultimate-container">
-          <h1 className="right-choice-h1">Why JRNY is the Right Choice</h1>
+          <h1 className="right-choice-h1">Why <span className="jrny-span">JRNY</span> is the Right Choice</h1>
           <p className="right-choice-p">
             JRNY is the right choice because we specialize in crafting
             unforgettable journeys that leave a lasting impact.
           </p>
-          <button className="about-us-home">About Us</button>
+          <button className="about-us-home button">About Us</button>
 
           <div className="features">
             <div className="feature-container">
-              <div>INNOVATION</div>
-              <div></div>
+              <span className="feature-title">INNOVATION</span>
+              <div className="feature-caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
             </div>
             <div className="feature-container">
-              <div>CUSTOMIZATION</div>
-              <div></div>
+              <span className="feature-title">CUSTOMIZATION</span>
+              <div className="feature-caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
             </div>
             <div className="feature-container">
-              <div>EXCELLENCE</div>
-              <div></div>
+              <span className="feature-title">EXCELLENCE</span>
+              <div className="feature-caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</div>
             </div>
             <div className="feature-container">
-              <div>GLOBAL REACH</div>
-              <div></div>
+              <span className="feature-title">GLOBAL REACH </span>
+              <div className="feature-caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
             </div>
           </div>
           <div className="testimonial-caption">
@@ -309,31 +310,12 @@ export default function App() {
               Begin creating journeys that leave a lasting impression, ensuring
               every moment is unforgettable.
             </div>
-            <div className="contact-us-button">Contact Us</div>
+            <div className="contact-us-button button">Contact Us</div>
           </div>
 
-          <div className="footer-line"></div>
+          <div className="footer-line"><img src="landing_line.png" alt="" /></div>
           <div className="footer-container">
-            <h1 className="footer-heading">
-              Let’s shape your JRNY into something unforgettable.
-            </h1>
-            <div className="footer">
-              <div className="form">
-                <input type="text" className="footer-input" />
-                <input type="text" className="footer-input" />
-                <input type="text" className="footer-input" />
-                <button className="send-mail">Send Mail</button>
-              </div>
-              <div className="socials-container">
-                <div className="social-icons"></div>
-                <div className="social-divs">
-                  <div className="social-div-container">Email</div>
-                  <div className="social-div-container">Phone</div>
-                  <div className="social-div-container">Location</div>
-                  <div className="social-div-container"></div>
-                </div>
-              </div>
-            </div>
+            <Contact />
           </div>
         </div>
       </div>

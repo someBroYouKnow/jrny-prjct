@@ -7,6 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: black;
+  font-family: 'Helvetica Neue';
 }
 
 .container { 
@@ -48,9 +49,9 @@ body {
 }
 
 .button {
-  width: 250px; /* ~185px in 1920px */
-  height: 65px; /* ~48px in 1080px */
-  padding:1rem ;
+  width: 200px; /* ~185px in 1920px */
+  height: 50px; /* ~48px in 1080px */
+  padding:0.3rem 1rem ;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,6 +88,31 @@ body {
   left:  -7px;
 }
 
+.button-alt{
+  color:#FF4900;
+  background-color: white;
+}
+
+.button-alt::before,
+.button-alt::after {
+  content: "";
+  position: absolute;
+  background-color: #FF4900;
+}
+
+.button-alt::before {
+  width: 2px;
+  height: 10px;
+  top: -4px;
+  left: -3px;
+}
+
+.button-alt::after {
+  width: 10px;
+  height: 2px;
+  top: 0px;
+  left:  -7px;
+}
  
 .container{
   width:100%;
@@ -241,7 +267,7 @@ background-repeat: no-repeat;
   text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
 }
 
-.testimonial-top, .testimonial-span{
+.testimonial-top, .testimonial-span, .caption-title{
   text-align: center;
   font-family: 'Helvetica Neue';
   background: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%);
@@ -635,4 +661,88 @@ background-repeat: no-repeat;
   transform: translateX(-50%) translateY(-50%);
 }
 
+.penultimate-container{
+  margin-top:6rem;
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+  align-items: center;
+}
 
+.right-choice-h1{
+  font-size:3.5rem;
+  font-weight: 400;
+}
+
+.right-choice-p{
+  font-size:1.1rem;
+  font-weight: 400;
+  max-width:45vw;
+  color:#808186;
+}
+
+.about-us-home, .contact-us-button{
+  color:#FF4900;
+  background-color: white;;
+}
+
+.about-us-home::before, .about-us-home::after,
+.contact-us-button::before, .contact-us-button::after{
+  background-color: #FF4900;
+}
+
+.features{
+  display:flex;
+  gap:1rem;
+  flex-wrap: wrap;
+  width:90%;
+  padding:0.2rem;
+  margin:0 auto;  
+}
+
+.feature-container{
+  display:flex; 
+  flex-direction: column;
+  flex-grow: 1;
+  gap:1rem;
+  min-width:max(400px,49%);
+  max-width: 49%;
+  padding:0.6rem 1rem;
+  margin-right:auto;
+  margin-left:auto;
+  backdrop-filter: blur(8px);  
+  background-color: rgba(255, 255, 255, 0.1); /* Adjust opacity for better effect */
+}
+  
+.feature-title{
+  font-family: 'Armstrong';
+  font-weight: 520;
+  font-size:2.3rem;
+  color:#ff4900;
+}
+
+.feature-caption{
+  flex-grow:1; 
+  line-height: 20px;
+  font-size:0.98rem;
+  padding:0.4rem 0.1rem;
+}
+
+.caption-title{
+  max-width: 44vw;
+  font-size:2.5rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+}
+
+.testimonial-caption{
+  display:flex;
+  flex-direction: column;
+  gap:2rem;
+  align-items: center;
+}
+
+.footer-container{
+  min-width:100%;
+  max-width:100%;
+}
