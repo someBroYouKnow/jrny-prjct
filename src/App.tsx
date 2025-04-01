@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Logo } from "./components/shared/navbar/Logo";
 import { NavBar } from "./components/shared/navbar/Navbar";
+import { PartnerShow } from "./components/PartnerShow/PartnerShow";
  
 gsap.registerPlugin(ScrollTrigger);
 
@@ -338,60 +339,3 @@ export default function App() {
 } 
 
  
-
-export function PartnerShow() {
-
-  return (
-    <div className="partner-show" >
-      <div className="shadow-left"></div>
-
-      <PartnerRow />
-      <PartnerRow />
-      <PartnerRow />
-
-      <div className="shadow-right"></div>
-    </div>
-  );
-}
-
-function PartnerRow(){
-
-  const firstText = useRef(null);
-  const secondText = useRef(null);
-  let xPercent = 0;
-  let direction = -1;
-  
-  useEffect(()=>{
-    requestAnimationFrame(animation);
-  }, [])
-
-  const animation= () => {
-    if(xPercent <=-100){
-      xPercent=0;
-    }
-    gsap.set(firstText.current, {xPercent:xPercent})
-    gsap.set(secondText.current, {xPercent:xPercent})
-    xPercent+=0.1*direction;
-    requestAnimationFrame(animation);
-  }
-
-  return (
-    <div className="partner-row" >
-    <p ref={firstText} className="partner-row-first">
-    <img src="partner-icon.png" alt="Partner" />
-        <img src="partner-icon.png" alt="Partner" />
-        <img src="partner-icon.png" alt="Partner" />
-        <img src="partner-icon.png" alt="Partner" />
-    </p>
-
-    <p ref={secondText} className="partner-row-second">
-    <img src="partner-icon.png" alt="Partner" />
-        <img src="partner-icon.png" alt="Partner" />
-        <img src="partner-icon.png" alt="Partner" />
-        <img src="partner-icon.png" alt="Partner" />
-    </p>
-
-  </div>
-  )
-
-}

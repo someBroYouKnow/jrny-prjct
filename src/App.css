@@ -576,18 +576,13 @@ background-repeat: no-repeat;
   margin-top:4rem;
 }
 
-.testimonial-top{
-  max-width: 40vw;
-  margin:0 auto;
-  font-size:2rem;
-  line-height: 40px;
-}
-
+/* Partner slide show css */
 .partners-slideshow{
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .partnered{
@@ -597,75 +592,18 @@ background-repeat: no-repeat;
   width:fit-content;
   margin:0 auto;
   display: inline-block;
-
 }
 
-.partner-show {
-  position: relative;
-  width: 500px;
-  height: 400px;
-  overflow: hidden;
-  background-color: black;
-  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
-  padding: 20px;
-  display: flex; 
+.testimonial-top{
+  max-width: 40vw;
   margin:0 auto;
-  flex-direction: column;
-  justify-content: space-between; /* Ensures rows fill the div */
-  align-items: center;
+  font-size:2rem;
+  line-height: 40px;
 }
 
-.partner-row {
-  display: flex;
-  gap: 6rem;
-  white-space: nowrap;
-}
-
-.partner-row-first, .partner-row-second{
-  display:flex;
-  gap:6rem;
-}
-
-.partner-row img {
-  width: 50px;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Shadows */
-.shadow-left,
-.shadow-right {
-  position: absolute;
-  top: 0;
-  width: 50px;
-  height: 100%;
-  background: linear-gradient(to right, black, transparent);
-  pointer-events: none;
-}
-
-.shadow-left {
-  left: 0;
-}
-
-.shadow-right {
-  right: 0;
-  background: linear-gradient(to left, black, transparent);
-}
-
-.partner-row:nth-child(3){
-  margin-left:9rem;  
-}
-
-.partner-row:nth-child(2){
-margin-left:1rem;
-}
-
-.partner-row:nth-child(1){
-  margin-left:6rem;
-}
 
 .testimonial-bottom{
   font-size: 2rem;
   max-width: 40vw;
   margin:0 auto;
-}
+} 
