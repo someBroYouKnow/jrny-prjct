@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("/fonts/helvetica/HelveticaNeueMedium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Armstrong";
+  src: url("/fonts/armstrong/armstrong.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

@@ -1,0 +1,146 @@
+.profile-card-container{
+    display:flex;
+    flex-direction: column;
+    gap:1rem; 
+    width:23vw;
+}
+
+.carousel-component{
+    min-width:90vw;
+    max-width: 95vw;
+    min-height:450px;  
+    position:relative; 
+    display:flex;
+    justify-content: flex-end; 
+}
+
+.carousel-container{
+    width:100%;
+}
+
+.profile-container{
+    display:flex;
+    gap:1rem; 
+}
+
+.profile-container img{
+    object-fit: cover;
+    border-radius: 50%;
+    font-family: 'Helvetica Neue';
+    height:45px;
+    width:45px;
+}
+
+.react-multi-carousel-dot-list{
+    bottom:none !important;
+    top:21px;
+    background-color: none;
+    display:flex;
+    gap:1rem;
+}
+
+.carousol-img-box{
+    min-height: 32px;
+    min-width: 32px;
+    max-width: 32px; 
+}
+
+.carousol-img{
+    border:none;
+    min-height:30px;
+    min-width:30px;
+    max-width: 30px;
+    max-height: 30px;
+    object-fit: contain; 
+}
+
+.carousol-img--active{
+    border:3px solid #FF4900;
+}
+
+.profile-infor{
+    display:flex;
+    flex-direction: column; 
+}
+
+.profile-infor span{
+    display:inline-block;
+}
+
+.profile-name{
+    color:#FF4900;
+    font-weight: 500;
+    font-size:1rem;
+}
+
+.designation{
+    font-weight:400;
+    color:#808186;
+}
+
+.compliment {
+    width: 90%;
+    height: auto; 
+    padding: 0.5rem 0.4rem;
+    word-break: keep-all;
+    border-radius: 0 0 2rem 0;  
+    backdrop-filter: blur(10px);  
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity for better effect */
+    position: relative; 
+    color:#63656F; 
+    max-height: 250px; 
+}
+
+.compliment::before,
+.compliment::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
+.compliment::before {
+  width: 2px;
+  height: 10px;
+  top: -6px;
+  left: -2px;
+}
+
+.compliment::after {
+  width: 10px;
+  height: 2px;
+  top: -2px;
+  left: -6px;
+}
+
+/* Hover Animation */
+.compliment:hover {
+    color: white;
+    border-color: #FF4900;
+}
+
+.compliment:hover::before {
+    transform: scaleX(1);
+    background-color: #FF4900;
+}
+
+.compliment:hover::after {
+    transform: scaleY(1);
+    background-color: #FF4900;
+}
+
+.compliment-active{ 
+    color:white;
+    border:2px solid #FF4900; 
+    transition: border 0.2s ease;
+} 
+
+.compliment-active::after, .compliment-active::before{
+    background-color: #FF4900;
+}
+
+
+@media(max-width:1000px){
+    .profile-card-container{
+        /* width:70vw; */
+    }
+}
