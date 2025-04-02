@@ -20,7 +20,7 @@ export default function Contact() {
                 <input placeholder='Email' type="email" className="footer-input" />
                 </div>
                 </div>
-                <div className="footer-input-div">
+                <div className="footer-input-div footer-textarea">
                 <textarea placeholder='Message' className="footer-input form-textarea" />
                 </div>
                 <button className="send-mail button button-alt">Send Mail</button>

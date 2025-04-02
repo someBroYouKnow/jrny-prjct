@@ -6,11 +6,11 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router";
-import Contact from './components/Contact/Contact.tsx';
 import LandingPage from './pages/LandingPage.tsx';
 import Portfolio from './pages/Portfolio.tsx';
 import Blogs from './pages/Blogs.tsx';
 import AboutUs from './pages/AboutUs.tsx';
+import ContactUs from './pages/ContactUs.tsx';
 
 
 const router = createBrowserRouter([
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       },
       ,{
         path:"contact-us",
-        Component:  Contact 
+        Component:  ContactUs 
       },
       {
         path:"portfolio",

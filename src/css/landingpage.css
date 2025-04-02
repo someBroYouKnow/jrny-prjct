@@ -711,3 +711,8 @@
     min-width:100%;
     max-width:100%;
   }
+
+  /* 
+  clip-path: polygon(81% 25%, 100% 0, 100% 49%, 15% 71%, 0 91%, 0 74%, 0 51%);
+ this is the clip path i am looking for. the one with triangles 
+  */
