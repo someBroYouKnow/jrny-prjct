@@ -125,11 +125,16 @@ export default function LandingPage() {
   }, []);
   return (
     <>
+    <div className="landing-container">
+
+
       <div className="hero-container">
         <span className="r-vertical-line">
           <span className="r-vertical-slab"></span>
         </span>
+        <div className="landing-show-reel">
         <ShowReel />
+        </div>
         <div className="landing-text-container">
           <span className="part-of-span">Been a part of 20+ journeys</span>
           <h1 className="landing-title">
@@ -158,9 +163,6 @@ export default function LandingPage() {
 
       {/* Skewed Div */}
       <div className="skewed-div">
-        {/* <div className="skewed-bg"><img src="jrny-hero-bg.png" alt="" /></div> */}
-        <div className="triangle top-right"></div>
-        <div className="triangle bottom-left"></div>
       </div>
 
       <div className="card-container">
@@ -258,6 +260,7 @@ export default function LandingPage() {
       </div>
       <div className="footer-container">
         <Contact />
+      </div>
       </div>
     </>
   );

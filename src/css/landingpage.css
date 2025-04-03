@@ -1,3 +1,7 @@
+.landing-container{
+  padding-top:3rem;
+}
+
 
 .r-vertical-line{ 
     position: absolute;
@@ -95,6 +99,11 @@
     background-size: cover;
   background-position:bottom;
   background-repeat: no-repeat; 
+  }
+
+  .landing-show-reel{
+    max-width: 40vw;
+    width:38vw;
   }
   
   
@@ -246,9 +255,9 @@
   .skewed-div { 
     position: relative;
     width: 100%;
-    height: 100px;
-    background-color: #FF4900;
-    transform: skewY(-6deg);  
+    height:700px; 
+    background-color: #FF4900; 
+    clip-path: polygon(87% 21%, 100% 0, 100% 47%, 7% 70%, 0 86%, 0 50%);
   }
   
   
@@ -261,23 +270,7 @@
     height:auto;
     width:80%;
   }
-  
-  .triangle { 
-    position: absolute;
-    width: 20%;
-    height: 10%; 
-  }
-  
-  .top-right {
-    top: 0;
-    right: 0; 
-  }
-  
-  .bottom-left {
-    bottom: 0;
-    left: 0;
-  }
-  
+
   
   .card-container{ 
     margin-top:3rem;
