@@ -12,6 +12,7 @@ import Blogs from './pages/Blogs.tsx';
 import AboutUs from './pages/AboutUs.tsx';
 import ContactUs from './pages/ContactUs.tsx';
 import PortfolioItem from './pages/PortfolioItem.tsx';
+import BlogItem from './pages/BlogItem.tsx';
 
 
 const router = createBrowserRouter([
@@ -33,9 +34,12 @@ const router = createBrowserRouter([
           { path: ":portfolioId", Component: PortfolioItem }
         ]
       },
-      {
-        path:"blogs",
-        Component:  Blogs 
+      { 
+        path: "blog",
+        children: [
+          { index: true, Component: Blogs },
+          { path: ":blogId", Component: BlogItem }
+        ]
       },
       {
         path:"about-us",

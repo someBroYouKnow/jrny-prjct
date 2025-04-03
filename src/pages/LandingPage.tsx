@@ -180,7 +180,7 @@ export default function LandingPage() {
         </div>
 
         <div className="cards-section">
-          <div className="profile-card generic">
+          <div className="profile-card ">
             <img src="/jrny_example_profile_card.jpg" alt="" />
             <div className="profile-caption">
               <div className="heading">John Doe</div>

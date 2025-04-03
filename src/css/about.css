@@ -61,6 +61,13 @@
   gap:1.25rem;
 }
 
+@media(max-width:1000px){
+  .about-motto{
+    flex-direction: column;
+    
+  }
+}
+
 .about-motto-box{
   display:flex;
   flex-direction: column;
