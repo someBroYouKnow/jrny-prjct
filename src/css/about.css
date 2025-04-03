@@ -20,7 +20,7 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 70vh;
+  min-height: 65vh;
 }
 
 .about-landing-content{
@@ -81,9 +81,10 @@
 }
 
 .about-main-tag{
-  max-width: 50vw;
+  max-width: 35vw;
   margin:auto;
-
+  text-align: center;
+  line-height: 2rem;
 }
 
 .about-main-description{

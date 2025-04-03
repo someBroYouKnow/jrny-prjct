@@ -266,6 +266,9 @@ export default function LandingPage() {
 export const RightChoice = () => {
   return (
     <>
+    <div className="right-choice-container">
+
+
       <h1 className="right-choice-h1">
         Why <span className="jrny-span">JRNY</span> is the Right Choice
       </h1>
@@ -325,6 +328,7 @@ export const RightChoice = () => {
 
       <div className="footer-line">
         <img src="landing_line.png" alt="" />
+      </div>
       </div>
     </>
   );
