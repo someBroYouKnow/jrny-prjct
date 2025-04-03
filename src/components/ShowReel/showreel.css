@@ -1,17 +1,16 @@
 .video-card-container {
   position: relative;
-  width: 70%;
-  
+  width: 98%;
   display: flex;
   flex-direction: column;
+  
 }
 
-.video-card {
-  height: auto;
+.video-card { 
   width: 90%;
+  padding:0.7rem;
   display: flex;
   flex-direction: column;
-  padding: 12px;
   background: rgba(255,255,255,0.1);
   position: relative;
 }
@@ -23,8 +22,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
-  max-height: calc(100% - 70px); /* Reserves space for footer */
+  
+  max-height: calc(100% - 70px); 
+  height: calc(100% - 70px); 
 }
 
 .landing-video-png {
@@ -37,14 +37,14 @@
 
 /* Footer with proper spacing */
 .video-card-footer {
-  height: 60px;
+  height: fit-content;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding:0.5rem 1rem;
+  padding-bottom: 0.1rem;
   position: relative;
-  margin-top: auto; /* Pushes footer to bottom */
 }
 
 .video-footer-underline {

@@ -43,7 +43,7 @@ export default function AboutUs() {
           </div>
           <div className="about-landing-buttons">
             <button className="button button-alt">Contact Us</button>
-            <button className="button"><Link to='/portfolio'>Our Portfolio</Link></button>
+            <button className="button about-portfolio-button"><Link to='/portfolio'>Our Portfolio</Link></button>
           </div>
           <div className="about-landing-description">
           At JRNY, we believe every experience should be more than just a moment—it should be a memory that lasts. We are passionate about designing journeys that connect, inspire, and leave a lasting impact. Whether it's through seamless user experiences, immersive storytelling, or meaningful interactions, we make sure every step of the journey is unforgettable.

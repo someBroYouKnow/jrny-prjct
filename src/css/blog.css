@@ -36,11 +36,8 @@
 
 .blog-tile-container {
     display: grid;
-    gap: 1.5rem;
-    padding: 1rem;
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
+    gap: 1.5rem; 
+    width: 100%; 
   
     /* Mobile first: 2 columns (half viewport width) */
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -63,14 +60,13 @@
   @media (min-width: 1000px) {
     .blog-tile-container {
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 2rem;
-      padding: 2rem;
+      gap: 2rem; 
     }
   
     .blog-tile {
-      /* At 1440px: (1440 - (2rem * 2 padding) - (3 gaps * 2rem)) / 4 = 288px */
-      max-width: 288px;
-      margin: 0 auto;
+      width: calc(80vw / 4);
+      max-width: calc(85vw / 4);
+      margin-right: auto;
     }
   }
   
