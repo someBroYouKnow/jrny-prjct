@@ -232,16 +232,6 @@
     text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
   }
   
-  .testimonial-top, .testimonial-span, .caption-title{
-    text-align: center;
-    font-family: 'Helvetica Neue';
-    background: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Makes the background visible through the text */
-    background-clip: text;
-    text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
-  
-  }
   
    .text-span-red{
     color: #FF4900;

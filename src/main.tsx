@@ -11,6 +11,7 @@ import Portfolio from './pages/Portfolio.tsx';
 import Blogs from './pages/Blogs.tsx';
 import AboutUs from './pages/AboutUs.tsx';
 import ContactUs from './pages/ContactUs.tsx';
+import PortfolioItem from './pages/PortfolioItem.tsx';
 
 
 const router = createBrowserRouter([
@@ -21,13 +22,16 @@ const router = createBrowserRouter([
       {
         index:true,Component: LandingPage
       },
-      ,{
+      {
         path:"contact-us",
         Component:  ContactUs 
       },
-      {
-        path:"portfolio",
-        Component:  Portfolio 
+      { 
+        path: "portfolio",
+        children: [
+          { index: true, Component: Portfolio },
+          { path: ":portfolioId", Component: PortfolioItem }
+        ]
       },
       {
         path:"blogs",

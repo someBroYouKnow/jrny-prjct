@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./partnerShow.css";
 
 gsap.registerPlugin(ScrollTrigger);
-export function PartnerShow() {
+export default function PartnerShow() {
   return (
     <div className="partner-show-container">
     <div className="partner-show">  

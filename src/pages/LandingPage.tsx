@@ -1,6 +1,6 @@
 import Carasoul from "../components/Carasoul/Carasoul";
 import Contact from "../components/Contact/Contact";
-import { PartnerShow } from "../components/PartnerShow/PartnerShow";
+import PartnerShow  from "../components/PartnerShow/PartnerShow";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

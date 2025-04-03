@@ -1,5 +1,4 @@
 import "./App.css";
-import { useEffect, useRef } from "react";
 import { Logo } from "./components/shared/navbar/Logo";
 import { NavBar } from "./components/shared/navbar/Navbar";
 import { Outlet } from "react-router";
