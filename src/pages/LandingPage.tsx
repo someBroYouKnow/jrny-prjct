@@ -141,7 +141,7 @@ export default function LandingPage() {
                   <div className="video-card-footer">
                     <span className="video-footer-reel">Show Reel</span>
                     <span className="play-reel-button">
-                      <img src="play-icon.png" alt="play" />
+                      <img src="/play-icon.png" alt="play" />
                     </span>
                     <span className="video-footer-underline">
                       <img
@@ -198,13 +198,13 @@ export default function LandingPage() {
                   leave a lasting impact.
                 </span>
                 <span className="card-para-div-crossline">
-                  <img src="underline-cross.png" alt="" />
+                  <img src="/underline-cross.png" alt="" />
                 </span>
               </div>
     
               <div className="cards-section">
                 <div className="profile-card generic">
-                  <img src="jrny_example_profile_card.jpg" alt="" />
+                  <img src="/jrny_example_profile_card.jpg" alt="" />
                   <div className="profile-caption">
                     <div className="heading">John Doe</div>
                     <div className="description">Event Specialist & Designer</div>

@@ -27,10 +27,10 @@ export default function Contact() {
               </div>
               <div className="socials-container">
                 <div className="social-icons">
-                  <img src="favicon/whatsapp.png" alt="whatsapp" />
-                  <img src="favicon/linkedin.png" alt="linkedin" />
-                  <img src="favicon/instagram.png" alt="instagram" />
-                  <img src="favicon/facebook.png" alt="facebook" />
+                  <img src="/favicon/whatsapp.png" alt="whatsapp" />
+                  <img src="/favicon/linkedin.png" alt="linkedin" />
+                  <img src="/favicon/instagram.png" alt="instagram" />
+                  <img src="/favicon/facebook.png" alt="facebook" />
                 </div>
                 <div className="social-divs">
                   <div className="social-div-container">

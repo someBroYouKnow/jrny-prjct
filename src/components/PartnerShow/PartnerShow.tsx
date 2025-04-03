@@ -50,21 +50,21 @@ function PartnerRow() {
   return ( 
       <div ref={slider} className="partner-row">
         <p ref={firstText} className="partner-row-first">
-          <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" /> 
+          <img src="/partner-icon.png" alt="Partner" />
+          <img src="/partner-icon.png" alt="Partner" />
+          <img src="/partner-icon.png" alt="Partner" />
+          <img src="/partner-icon.png" alt="Partner" />
+          <img src="/partner-icon.png" alt="Partner" />
+          <img src="/partner-icon.png" alt="Partner" /> 
         </p>
 
         <p ref={secondText} className="partner-row-second">
-          <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" />
-          <img src="partner-icon.png" alt="Partner" /> 
+          <img src="/partner-icon.png" alt="Partner" />
+          <img src="/partner-icon.png" alt="Partner" />
+          <img src="/partner-icon.png" alt="Partner" />
+          <img src="/partner-icon.png" alt="Partner" />
+          <img src="/partner-icon.png" alt="Partner" />
+          <img src="/partner-icon.png" alt="Partner" /> 
         </p>
       </div>
 

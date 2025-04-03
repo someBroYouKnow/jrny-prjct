@@ -9,43 +9,52 @@ export default function Portfolio() {
   return (
     <>
       <div className="portfolio-container">
-        <div className="portfolio-landing-container">
-          <div className="portfolio-top-section">
-            <div className="portfolio-our-projects">
-              <div className="our-projects-heading">
-                <span className="our-projects-span">
-                  Our <span className="jrny-span">Projects</span>
-                </span>
-              </div>
-              <p className="our-projects-p">
-                We create immersive and impactful digital experiences, from
-                virtual conferences to interactive brand activations. Our work
-                transforms ideas into unforgettable moments that engage and
-                inspire audiences. Explore our portfolio to see the journeys
-                we’ve crafted.
-              </p>
-            </div>
-            <div className="portfolio-partner-show">
-              <PartnerShow />
-            </div>
-          </div>
-          <PortfolioMiddleList />
-        </div>
-
-        <div className="portfolio-tags">
-          <span className="tags">Virtual Networking</span>
-          <span className="tags"> Event Branding and Digital Identity</span>
-          <span className="tags">Event Analytics</span>
-          <span className="tags"></span>
-          <span className="tags"></span>
-          <span className="tags"></span>
-        </div>
-        <div className="portfolio-contact">
-          <Contact />
-        </div>
+        < PortfolioContent />
       </div>
     </>
   );
+}
+
+export const PortfolioContent = ()=>{
+  return (
+    <>
+    <div className="portfolio-landing-container">
+
+<div className="portfolio-top-section">
+  <div className="portfolio-our-projects">
+    <div className="our-projects-heading">
+      <span className="our-projects-span">
+        Our <span className="jrny-span">Projects</span>
+      </span>
+    </div>
+    <p className="our-projects-p">
+      We create immersive and impactful digital experiences, from
+      virtual conferences to interactive brand activations. Our work
+      transforms ideas into unforgettable moments that engage and
+      inspire audiences. Explore our portfolio to see the journeys
+      we’ve crafted.
+    </p>
+  </div>
+  <div className="portfolio-partner-show">
+    <PartnerShow />
+  </div>
+</div>
+<PortfolioMiddleList />
+</div>
+
+<div className="portfolio-tags">
+<span className="tags">Virtual Networking</span>
+<span className="tags"> Event Branding and Digital Identity</span>
+<span className="tags">Event Analytics</span>
+<span className="tags"></span>
+<span className="tags"></span>
+<span className="tags"></span>
+</div>
+<div className="portfolio-contact">
+<Contact />
+</div>
+    </>
+  )
 }
 
 interface PortfolioTileProps{
@@ -62,7 +71,7 @@ const PortfolioTile = ({videoLink, thumbnail, tileTitle}:PortfolioTileProps) =>{
   return (
     <div className="portfolio-tile-box">
       <div className="tile-thumbnail">
-        <img src={thumbnail ?? 'landing-video-card.png'} alt="" />
+        <img src={thumbnail ?? '/landing-video-card.png'} alt="" />
       </div>
       <div className="tile-title">
         {tileTitle}
