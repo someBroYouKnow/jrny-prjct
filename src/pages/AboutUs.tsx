@@ -52,6 +52,7 @@ export default function AboutUs() {
       </div>
 
       <div className="tags">
+        sex
         <span className="tag">Virtual Networking</span>
       </div>
 

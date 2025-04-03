@@ -9,11 +9,17 @@
   background-position: top right; /* Positions image at the top-left */
   background-repeat: no-repeat; /* Prevents tiling */
   background-size: auto; /* Keeps original image size */
-  
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
 }
 
 .about-show-reel{
-
+  width:50%;
+  align-self: stretch; /* Makes item fill container height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-landing-container{
