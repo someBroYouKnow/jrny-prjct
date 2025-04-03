@@ -27,14 +27,14 @@ export default function Carasoul() {
 
     const cards = [
         {
-          profilePic: "carousol_john.png",
+          profilePic: "/carousol_john.png",
           profileName: "John Doe",
           profileDesignation: "Director, ABC",
           compliment:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         },
         {
-          profilePic: "carousol_john.png",
+          profilePic: "/carousol_john.png",
           profileName: "Jane Smith",
           profileDesignation: "Manager, XYZ",
           compliment:
