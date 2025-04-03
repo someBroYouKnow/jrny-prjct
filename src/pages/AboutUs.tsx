@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import './../css/about.css';
 import Contact from '../components/Contact/Contact';
 import { RightChoice } from './LandingPage';
+import ShowReel from '../components/ShowReel/ShowReel';
 
 const AboutUsMottoArray =[
   {title:"MISSION",
@@ -34,7 +35,7 @@ export default function AboutUs() {
     <div className="about-us-container">
       <div className="about-landing-container">
         <div className="about-show-reel">
-
+          <ShowReel />
         </div>
         <div className="about-landing-content">
           <div className="about-landing-header">
@@ -53,6 +54,7 @@ export default function AboutUs() {
       <div className="tags">
         <span className="tag">Virtual Networking</span>
       </div>
+
 
       <div className="about-main-container">
         <div className="about-motto">
