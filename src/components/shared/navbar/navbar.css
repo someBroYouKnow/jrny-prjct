@@ -29,6 +29,14 @@
   overflow: visible;
 }
 
+.navbar-list-item a{
+  color:white ;
+}
+
+.navbar-list-item:hover a{
+  color:#FF4900 ;
+}
+
 .navbar-list-item img{
   position:absolute;
   bottom:-90%;
