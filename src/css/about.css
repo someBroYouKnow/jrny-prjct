@@ -1,0 +1,75 @@
+.about-us-container {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 100vw;
+  padding: 0 7rem;
+  padding-top: 6rem;
+  gap: 8rem;
+  background-image: url("/bg/about.png");
+  background-position: top right; /* Positions image at the top-left */
+  background-repeat: no-repeat; /* Prevents tiling */
+  background-size: auto; /* Keeps original image size */
+  
+}
+
+/* Base grid styles */
+.about-people-tile-container {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem 2rem;
+  
+  /* Mobile-first: 2 columns by default */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* minmax prevents overflow */
+}
+
+/* Desktop: 4 columns when viewport ≥ 1000px */
+@media (min-width: 1000px) {
+  .about-people-tile-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Tile styling */
+.person-tile {   
+  transition: transform 0.3s ease;
+  background: none;
+  aspect-ratio: 288/304;  
+}
+
+
+.person-image {
+  width: 20vw;  /* 288px in a 1440px-wide screen → (288/1440) * 100 = 20vw */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Prevent overflow */
+  border-bottom-right-radius: 1rem;
+  object-fit: cover;
+}
+
+.person-info {
+  display:flex;
+  justify-content: space-between;
+}
+
+.person-credentials{
+  display:flex;
+  flex-direction: column;
+  gap:0.000001rem;
+}
+
+.person-name{
+  font-size: 1rem;
+  color:#ff4900;
+}
+
+.person-designation{
+  font-size:0.8rem;
+  color:#808186;
+}
+
+/* Optional: Adjust gaps for smaller screens */
+@media (max-width: 600px) {
+  .about-people-tile-container {
+    gap: 1rem;
+  }
+}
+

@@ -271,7 +271,21 @@ export default function LandingPage() {
             <div className="slanted-div-rev"></div>
     
             <div className="penultimate-container">
-              <h1 className="right-choice-h1">Why <span className="jrny-span">JRNY</span> is the Right Choice</h1>
+                <RightChoice />
+            </div>
+              <div className="footer-container">
+                <Contact />
+              </div>
+    
+    </>
+  )
+}
+
+export const RightChoice = () =>{
+
+  return (
+    <>
+                  <h1 className="right-choice-h1">Why <span className="jrny-span">JRNY</span> is the Right Choice</h1>
               <p className="right-choice-p">
                 JRNY is the right choice because we specialize in crafting
                 unforgettable journeys that leave a lasting impact.
@@ -305,11 +319,6 @@ export default function LandingPage() {
               </div>
     
               <div className="footer-line"><img src="landing_line.png" alt="" /></div>
-              <div className="footer-container">
-                <Contact />
-              </div>
-            </div>
-    
     </>
   )
 }
