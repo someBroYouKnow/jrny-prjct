@@ -14,11 +14,9 @@ export default function LandingPage() {
     const updatePositions = () => {
       const underline = document.querySelector(".r-underline") as HTMLElement;
       const slab = document.querySelector(".r-slab") as HTMLElement;
-      const verticalLine = document.querySelector(
-        ".r-vertical-line"
-      ) as HTMLElement;
+ 
 
-      if (underline && slab && verticalLine) {
+      if (underline && slab ) {
         const underlineRect = underline.getBoundingClientRect();
         const parentRect = underline.parentElement?.getBoundingClientRect();
         if (!parentRect) return;
@@ -33,9 +31,6 @@ export default function LandingPage() {
 
         // Position slab at start
         slab.style.left = "0px";
-
-        // Position vertical line at end of underline (window edge - margin)
-        // verticalLine.style.top = `${underlineRect.bottom - parentRect.top}px`;
 
         // Ensure elements stay within viewport
         const viewportRight = window.innerWidth - rightEdgeMargin;
@@ -127,7 +122,6 @@ export default function LandingPage() {
     <>
     <div className="landing-container">
 
-
       <div className="hero-container">
         <span className="r-vertical-line">
           <span className="r-vertical-slab"></span>
@@ -213,9 +207,11 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="slanted-div"></div>
+      <div className="skewed-div-1"></div>
 
       <div className="journeys-div">
+
+        <span className="r-vertical-line-journeys-div"></span>
         <div className="testimonial-top">
           We have worked closely with over 20 companies, helping them design and
           deliver meaningful experiences.
@@ -253,9 +249,12 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="slanted-div-rev"></div>
+      <div className="skewed-div-2"></div>
 
       <div className="penultimate-container">
+        <span className="right-choice-line">
+
+        </span>
         <RightChoice />
       </div>
       <div className="footer-container">
