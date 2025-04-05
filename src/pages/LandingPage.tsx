@@ -22,7 +22,7 @@ export default function LandingPage() {
         if (!parentRect) return;
 
         // Calculate width to reach window edge with 10px margin
-        const rightEdgeMargin = 10;
+        const rightEdgeMargin = 0;
         const newWidth =
           window.innerWidth - underlineRect.left - rightEdgeMargin;
 
@@ -50,51 +50,42 @@ export default function LandingPage() {
     };
   }, []);
 
-  // Add this new useEffect for vertical line animation
-  useEffect(() => {
-    const verticalLine = document.querySelector(
-      ".r-vertical-line"
-    ) as HTMLElement;
-    const verticalSlab = document.createElement("div");
-    verticalSlab.classList.add("r-vertical-slab");
-
-    if (verticalLine) {
-      verticalLine.appendChild(verticalSlab);
-
-      // Set initial position
-      gsap.set(verticalSlab, {
-        y: "-100%",
-        height: "0%",
-      });
-
-      // Create scroll animation
-      const handleScroll = () => {
-        const scrollY = window.scrollY;
-        const maxScroll = 20;
-        const progress = Math.min(scrollY / maxScroll, 1);
-
-        gsap.to(verticalSlab, {
-          y: `${-100 + progress * 100}%`,
-          height: `${progress * 100}%`,
-          ease: "power2.out",
-          duration: 3,
-          overwrite: true,
-        });
-      };
-
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  }, []);
+ 
 
   useEffect(() => {
+    //r-underline
     const slab = document.querySelector(".r-slab") as HTMLElement;
     const underline = document.querySelector(".r-underline") as HTMLElement;
-    const verticalLine = document.querySelector(
-      ".r-vertical-line"
-    ) as HTMLElement;
 
-    if (!slab || !underline || !verticalLine) return;
+    // r-vertical-line
+    const verticalSlab = document.querySelector(".r-vertical-slab") as HTMLElement;
+    const verticalLine = document.querySelector(".r-vertical-line") as HTMLElement;
+
+    // skewed-div
+    const skewedSlab = document.querySelector(".skewed-div-slab") as HTMLElement;
+    const skewedDiv = document.querySelector(".skewed-div") as HTMLElement;
+
+    // skewed-div-1
+    const skewedSlab1 = document.querySelector(".skewed-div-slab-1") as HTMLElement;
+    const skewedDiv1 = document.querySelector(".skewed-div-1") as HTMLElement;
+
+    // skewed-div-2
+    const skewedSlab2 = document.querySelector(".skewed-div-slab-2") as HTMLElement;
+    const skewedDiv2 = document.querySelector(".skewed-div-2") as HTMLElement;
+
+    // card underline
+    const cardLineSlab = document.querySelector(".card-underline-slab") as HTMLElement;
+    const cardUnderLine= document.querySelector(".card-underline") as HTMLElement;
+
+    // journeys-div line
+    const journeyLineSlab = document.querySelector(".r-vertical-line-journeys-div-slab") as HTMLElement;
+    const journeyLine = document.querySelector(".r-vertical-line-journeys-div") as HTMLElement;
+
+    // right choice line
+    const rightLineSlab = document.querySelector(".right-choice-line-slab") as HTMLElement;
+    const rightLine = document.querySelector(".r-vertical-line-journeys-div") as HTMLElement;
+
+    if (!slab || !underline ) return;
 
     const maxMove = underline.offsetWidth - slab.offsetWidth;
     console.log(maxMove, { underline });
@@ -157,6 +148,7 @@ export default function LandingPage() {
 
       {/* Skewed Div */}
       <div className="skewed-div">
+        <span className="skewed-div-slab"></span>
       </div>
 
       <div className="card-container">
@@ -207,11 +199,16 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="skewed-div-1"></div>
+      <div className="skewed-div-1">
+      <span className="skewed-div-1-slab"></span>
+
+      </div>
 
       <div className="journeys-div">
 
-        <span className="r-vertical-line-journeys-div"></span>
+        <span className="r-vertical-line-journeys-div">
+          <span className="r-vertical-line-journeys-div-slab"></span>
+        </span>
         <div className="testimonial-top">
           We have worked closely with over 20 companies, helping them design and
           deliver meaningful experiences.
@@ -249,11 +246,13 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="skewed-div-2"></div>
+      <div className="skewed-div-2">
+        <span className="skewed-div-2-slab"></span>
+      </div>
 
       <div className="penultimate-container">
         <span className="right-choice-line">
-
+          <span className="right-choice-line-slab"></span>
         </span>
         <RightChoice />
       </div>

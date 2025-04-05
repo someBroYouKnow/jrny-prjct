@@ -552,8 +552,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 20px;
+  width: 100%; 
+  height: 8px;
   background: linear-gradient(90deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
   z-index: 2;
 }
