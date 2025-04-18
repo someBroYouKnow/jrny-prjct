@@ -13,16 +13,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top:30px;
   position: fixed; /* Makes it independent of container */
   top: 0;
   left: 0;
   z-index: 100;
-  /* background: rgba(0, 0, 0, 0.5); Semi-transparent black */
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5.6px);
   -webkit-backdrop-filter: blur(3px);
   padding: 10px 20px;
-  height: 60px; /* Adjust based on design */
+  height: 100px; /* Adjust based on design */
   
 }
 

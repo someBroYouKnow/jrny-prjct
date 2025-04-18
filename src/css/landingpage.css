@@ -1,13 +1,15 @@
 .landing-container{
+  padding: 0 4rem;
   padding-top:3rem;
   max-width: 100vw;
   min-width: 100vw;
+  position:relative;
 }
 
 
 .r-vertical-line{ 
     position: absolute;
-    right: 8px;
+    right: 8%;
     top: 0;
     background-color: #ff4900;
     height: 100%;
@@ -89,15 +91,28 @@
     display:flex; 
     max-height:94vh;
     min-height:94vh;  
-    width:100%;
+    width:100%; 
     max-width: 100vw;
     padding-top:5rem;
     padding-left:8rem;
-    gap:6rem;  
+    gap:6rem;   
     background-image: url('/jrny_landing_bg.png');
     background-size: cover;
   background-position:bottom;
   background-repeat: no-repeat; 
+  position:relative;
+  }
+
+
+  .svg-content{ 
+    overflow: visible; 
+    border:3px solid white;
+    position:absolute;
+    top:0;
+    left:50%;
+    height:100%;
+    width:100%;
+    z-index: 2;
   }
 
   .landing-show-reel{
@@ -525,11 +540,6 @@
   color: #FF4900;
  }
 
-.r-container {
-  display: inline-block;
-  position: relative;
-}
-
 .r-underline {
   position: absolute;
   bottom: 29.2px;
@@ -540,8 +550,8 @@
 }
 
 .r-vertical-line {
-  position: absolute;
-  right: 0;
+  position: absolute; 
+  right:0;
   top:52%;
   width: 9px;
   background-color: #ff4900; 
@@ -550,10 +560,10 @@
 
 .r-vertical-slab {
   position: absolute;
-  top: 0;
+  top: -100%;
   left: 0;
   width: 100%; 
-  height: 8px;
+  height: 100px;
   background: linear-gradient(90deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
   z-index: 2;
 }
@@ -604,6 +614,30 @@
   height:400px; 
   background-color: #FF4900; 
   clip-path: polygon(0 53%, 86% 35%, 100% 0, 100% 45%, 14% 68%, 0 100%);
+}
+
+.skewed-div-slab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(135deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
+  z-index: 2;
+  transform: rotate(-5deg);
+  transform-origin: left top;
+}
+
+.skewed-div-slab::before,
+.skewed-div-slab::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FF4900 10%, #FF4900 97%);
+  z-index: 1;
+  padding: 3px;
+  filter: blur(1.7rem);
 }
 
 .skewed-div-1{

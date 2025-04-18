@@ -7,50 +7,29 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./../css/landingpage.css";
 import ShowReel from "../components/ShowReel/ShowReel";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
+const ANIMATION_CONFIG = [
+  { selector: ".r-slab", direction: "right", duration: 0.8 },
+  { selector: ".r-vertical-slab", direction: "down", duration: 0.8 }, 
+  { selector: ".card-underline-slab", direction: "down", duration: 0.8 }, 
+  { selector: ".r-vertical-line-journeys-div-slab", direction: "down", duration: 0.8 },
+  { selector: ".right-choice-line-slab", direction: "down", duration: 0.8 }
+];
+
+const getTransformValue = (direction: string) => {
+  switch(direction) {
+    case 'right': return { x: '100%' };
+    case 'left': return { x: '-100%' };
+    case 'down': return { y: '-100%' };
+    default: return { x: '100%' };
+  }
+};
+
+
 export default function LandingPage() {
-  useEffect(() => {
-    const updatePositions = () => {
-      const underline = document.querySelector(".r-underline") as HTMLElement;
-      const slab = document.querySelector(".r-slab") as HTMLElement;
- 
 
-      if (underline && slab ) {
-        const underlineRect = underline.getBoundingClientRect();
-        const parentRect = underline.parentElement?.getBoundingClientRect();
-        if (!parentRect) return;
-
-        // Calculate width to reach window edge with 10px margin
-        const rightEdgeMargin = 0;
-        const newWidth =
-          window.innerWidth - underlineRect.left - rightEdgeMargin;
-
-        // Set underline width
-        underline.style.width = `${newWidth}px`;
-
-        // Position slab at start
-        slab.style.left = "0px";
-
-        // Ensure elements stay within viewport
-        const viewportRight = window.innerWidth - rightEdgeMargin;
-        const underlineRightEdge = underlineRect.left + newWidth;
-
-        if (underlineRightEdge > viewportRight) {
-          underline.style.width = `${viewportRight - underlineRect.left}px`;
-        }
-      }
-    };
-
-    updatePositions();
-    window.addEventListener("resize", updatePositions);
-
-    return () => {
-      window.removeEventListener("resize", updatePositions);
-    };
-  }, []);
-
- 
 
   useEffect(() => {
     //r-underline
@@ -98,7 +77,7 @@ export default function LandingPage() {
 
       gsap.to(".r-slab", {
         x: newX,
-        ease: "power2.out",
+          ease: "power2.out",
         duration: 3, // Faster response time
         overwrite: true,
       });
@@ -107,16 +86,42 @@ export default function LandingPage() {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-    };
+     };
   }, []);
+
   return (
     <>
     <div className="landing-container">
 
+    <section className="svg-content">
+    <svg viewBox="0 0 1536 7500" xmlns="http://www.w3.org/2000/svg">
+  <path 
+    id="mainPath" 
+    d="
+      M1536,0 
+      L1536,200
+      L0,300
+      L0,800
+      L1536,1000
+      L1536,1800
+      L0,2000
+      L0,2500
+ 
+    " 
+    fill="none" 
+    stroke="#FF5B00" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+    stroke-width="10"
+  />
+</svg>
+
+    </section>
+
       <div className="hero-container">
-        <span className="r-vertical-line">
+        {/* <span className="r-vertical-line">
           <span className="r-vertical-slab"></span>
-        </span>
+        </span> */}
         <div className="landing-show-reel">
         <ShowReel />
         </div>
@@ -125,13 +130,7 @@ export default function LandingPage() {
           <h1 className="landing-title">
             Making Moments <br />
             <span className="landing-page-matter-text">
-              MATTE
-              <span className="r-container">
-                R
-                <span className="r-underline">
-                  <span className="r-slab"></span>
-                </span>
-              </span>
+              MATTER
             </span>
           </h1>
           <div className="landing-buttons">
@@ -146,13 +145,10 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Skewed Div */}
-      <div className="skewed-div">
-        <span className="skewed-div-slab"></span>
-      </div>
+ 
 
       <div className="card-container">
-        <span className="card-underline"></span>
+        {/* <span className="card-underline"></span> */}
 
         <div className="card-para-div">
           <span className="card-paragraph-start">JRNY Experential</span>
@@ -162,9 +158,9 @@ export default function LandingPage() {
             and connect. Together, we craft unforgettable experiences that leave
             a lasting impact.
           </span>
-          <span className="card-para-div-crossline">
+          {/* <span className="card-para-div-crossline">
             <img src="/underline-cross.png" alt="" />
-          </span>
+          </span> */}
         </div>
 
         <div className="cards-section">
@@ -199,16 +195,13 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="skewed-div-1">
-      <span className="skewed-div-1-slab"></span>
-
-      </div>
+ 
 
       <div className="journeys-div">
 
-        <span className="r-vertical-line-journeys-div">
+        {/* <span className="r-vertical-line-journeys-div">
           <span className="r-vertical-line-journeys-div-slab"></span>
-        </span>
+        </span> */}
         <div className="testimonial-top">
           We have worked closely with over 20 companies, helping them design and
           deliver meaningful experiences.
@@ -246,14 +239,12 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="skewed-div-2">
-        <span className="skewed-div-2-slab"></span>
-      </div>
+ 
 
       <div className="penultimate-container">
-        <span className="right-choice-line">
+        {/* <span className="right-choice-line">
           <span className="right-choice-line-slab"></span>
-        </span>
+        </span> */}
         <RightChoice />
       </div>
       <div className="footer-container">
