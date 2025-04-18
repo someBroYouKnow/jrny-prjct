@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./../css/landingpage.css";
 import ShowReel from "../components/ShowReel/ShowReel";
+import AnimatedPathWithSlab from "../components/LineSvg/LineSvg";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -94,27 +95,7 @@ export default function LandingPage() {
     <div className="landing-container">
 
     <section className="svg-content">
-    <svg viewBox="0 0 1536 7500" xmlns="http://www.w3.org/2000/svg">
-  <path 
-    id="mainPath" 
-    d="
-      M1536,0 
-      L1536,200
-      L0,300
-      L0,800
-      L1536,1000
-      L1536,1800
-      L0,2000
-      L0,2500
- 
-    " 
-    fill="none" 
-    stroke="#FF5B00" 
-    stroke-linecap="round" 
-    stroke-linejoin="round" 
-    stroke-width="10"
-  />
-</svg>
+    <AnimatedPathWithSlab/>
 
     </section>
 
