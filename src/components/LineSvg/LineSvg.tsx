@@ -100,7 +100,7 @@ const PathWithSlab: React.FC = () => {
         stroke="#FF5B00" 
         strokeLinecap="round" 
         strokeLinejoin="round" 
-        strokeWidth="10"
+        strokeWidth="4"
       />
       
       {/* Slab that strictly follows the path */}

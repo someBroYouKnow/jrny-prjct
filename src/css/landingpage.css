@@ -105,14 +105,13 @@
 
 
   .svg-content{ 
-    overflow: visible; 
-    border:3px solid white;
+    overflow: visible;  
     position:absolute;
     top:0;
     left:0%;
     height:100%;
     width:100%;
-    z-index: 2;
+    z-index: 3;
   }
 
   .landing-show-reel{
