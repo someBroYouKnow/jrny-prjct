@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin'; 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { pathEase } from './pathease';
 
 // Register GSAP plugin
-gsap.registerPlugin(MotionPathPlugin);
+gsap.registerPlugin(MotionPathPlugin , ScrollTrigger);
 
 const PathWithSlab: React.FC = () => {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -35,16 +37,26 @@ const PathWithSlab: React.FC = () => {
     clipPath.appendChild(clipRect);
     svgRef.current.appendChild(clipPath);
 
+    const easeFn = pathEase('#mainPath', {
+      smooth: true, 
+
+    })
+
     // Animate with GSAP
     gsap.to(slabRef.current, {
       motionPath: {
         path: '#mainPath',
         align: '#mainPath',
         alignOrigin: [0.5, 0.5],
+      },   
+      scrollTrigger: {
+        trigger: ".content-svg",  
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1
       },
-      duration: 10,
-      repeat: -1,
-      ease: 'none',
+      ease: easeFn,
+      
       onUpdate: function() {
         const progress = this.progress();
         const { startPoint, endPoint } = getSlabPoints(progress);

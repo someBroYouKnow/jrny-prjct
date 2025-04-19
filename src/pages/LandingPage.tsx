@@ -1,101 +1,24 @@
 import Carasoul from "../components/Carasoul/Carasoul";
 import Contact from "../components/Contact/Contact";
 import PartnerShow from "../components/PartnerShow/PartnerShow";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react"; 
 import "./../css/landingpage.css";
 import ShowReel from "../components/ShowReel/ShowReel";
 import AnimatedPathWithSlab from "../components/LineSvg/LineSvg";
 
-
-gsap.registerPlugin(ScrollTrigger);
-
-const ANIMATION_CONFIG = [
-  { selector: ".r-slab", direction: "right", duration: 0.8 },
-  { selector: ".r-vertical-slab", direction: "down", duration: 0.8 }, 
-  { selector: ".card-underline-slab", direction: "down", duration: 0.8 }, 
-  { selector: ".r-vertical-line-journeys-div-slab", direction: "down", duration: 0.8 },
-  { selector: ".right-choice-line-slab", direction: "down", duration: 0.8 }
-];
-
-const getTransformValue = (direction: string) => {
-  switch(direction) {
-    case 'right': return { x: '100%' };
-    case 'left': return { x: '-100%' };
-    case 'down': return { y: '-100%' };
-    default: return { x: '100%' };
-  }
-};
-
+ 
 
 export default function LandingPage() {
-
-
-  useEffect(() => {
-    //r-underline
-    const slab = document.querySelector(".r-slab") as HTMLElement;
-    const underline = document.querySelector(".r-underline") as HTMLElement;
-
-    // r-vertical-line
-    const verticalSlab = document.querySelector(".r-vertical-slab") as HTMLElement;
-    const verticalLine = document.querySelector(".r-vertical-line") as HTMLElement;
-
-    // skewed-div
-    const skewedSlab = document.querySelector(".skewed-div-slab") as HTMLElement;
-    const skewedDiv = document.querySelector(".skewed-div") as HTMLElement;
-
-    // skewed-div-1
-    const skewedSlab1 = document.querySelector(".skewed-div-slab-1") as HTMLElement;
-    const skewedDiv1 = document.querySelector(".skewed-div-1") as HTMLElement;
-
-    // skewed-div-2
-    const skewedSlab2 = document.querySelector(".skewed-div-slab-2") as HTMLElement;
-    const skewedDiv2 = document.querySelector(".skewed-div-2") as HTMLElement;
-
-    // card underline
-    const cardLineSlab = document.querySelector(".card-underline-slab") as HTMLElement;
-    const cardUnderLine= document.querySelector(".card-underline") as HTMLElement;
-
-    // journeys-div line
-    const journeyLineSlab = document.querySelector(".r-vertical-line-journeys-div-slab") as HTMLElement;
-    const journeyLine = document.querySelector(".r-vertical-line-journeys-div") as HTMLElement;
-
-    // right choice line
-    const rightLineSlab = document.querySelector(".right-choice-line-slab") as HTMLElement;
-    const rightLine = document.querySelector(".r-vertical-line-journeys-div") as HTMLElement;
-
-    if (!slab || !underline ) return;
-
-    const maxMove = underline.offsetWidth - slab.offsetWidth;
-    console.log(maxMove, { underline });
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const maxScroll = 20; // Even a small scroll makes it move fully
-      const progress = Math.min(scrollY / maxScroll, 1);
-      const newX = progress * maxMove;
-
-      gsap.to(".r-slab", {
-        x: newX,
-          ease: "power2.out",
-        duration: 3, // Faster response time
-        overwrite: true,
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-     };
-  }, []);
 
   return (
     <>
     <div className="landing-container">
 
     <section className="svg-content">
+      <div className="content-svg">
+        
     <AnimatedPathWithSlab/>
+      </div>
 
     </section>
 
