@@ -17,53 +17,103 @@ const PathWithSlab: React.FC = () => {
 
     const path = originalPathRef.current;
     const pathLength = path.getTotalLength();
-    const coverWidth = 6;
-    const coverLength = 30;
+    const coverWidth = 5; // Slightly wider main path
+    const coverLength = 150; // 150px long traveling path
+    const glowWidthMultiplier = 6; // Wider glow effect
 
-    // Create glow filter
+    // Create enhanced glow filter with multiple layers
     const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
     filter.id = 'glow-filter';
-    filter.setAttribute('x', '-50%');
-    filter.setAttribute('y', '-50%');
-    filter.setAttribute('width', '200%');
-    filter.setAttribute('height', '200%');
+    filter.setAttribute('x', '-100%');
+    filter.setAttribute('y', '-100%');
+    filter.setAttribute('width', '300%');
+    filter.setAttribute('height', '300%');
 
-    const feGaussianBlur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
-    feGaussianBlur.setAttribute('stdDeviation', '4');
-    feGaussianBlur.setAttribute('result', 'blur');
+    const feGaussianBlur1 = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+    feGaussianBlur1.setAttribute('stdDeviation', '12');
+    feGaussianBlur1.setAttribute('result', 'blur1');
 
-    const feComposite = document.createElementNS('http://www.w3.org/2000/svg', 'feComposite');
-    feComposite.setAttribute('in', 'blur');
-    feComposite.setAttribute('in2', 'SourceAlpha');
-    feComposite.setAttribute('operator', 'in');
-    feComposite.setAttribute('result', 'glow');
+    const feGaussianBlur2 = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+    feGaussianBlur2.setAttribute('stdDeviation', '6');
+    feGaussianBlur2.setAttribute('result', 'blur2');
 
-    filter.appendChild(feGaussianBlur);
-    filter.appendChild(feComposite);
+    const feComposite1 = document.createElementNS('http://www.w3.org/2000/svg', 'feComposite');
+    feComposite1.setAttribute('in', 'blur1');
+    feComposite1.setAttribute('in2', 'SourceAlpha');
+    feComposite1.setAttribute('operator', 'in');
+    feComposite1.setAttribute('result', 'glow1');
 
-    // Create gradient
-    const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
-    gradient.id = 'path-gradient';
-    gradient.setAttribute('gradientTransform', 'rotate(90)');
+    const feComposite2 = document.createElementNS('http://www.w3.org/2000/svg', 'feComposite');
+    feComposite2.setAttribute('in', 'blur2');
+    feComposite2.setAttribute('in2', 'SourceAlpha');
+    feComposite2.setAttribute('operator', 'in');
+    feComposite2.setAttribute('result', 'glow2');
 
-    const stops = [
+    const feMerge = document.createElementNS('http://www.w3.org/2000/svg', 'feMerge');
+    const feMergeNode1 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
+    feMergeNode1.setAttribute('in', 'glow1');
+    const feMergeNode2 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
+    feMergeNode2.setAttribute('in', 'glow2');
+    const feMergeNode3 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
+    feMergeNode3.setAttribute('in', 'SourceGraphic');
+
+    feMerge.appendChild(feMergeNode1);
+    feMerge.appendChild(feMergeNode2);
+    feMerge.appendChild(feMergeNode3);
+
+    filter.appendChild(feGaussianBlur1);
+    filter.appendChild(feGaussianBlur2);
+    filter.appendChild(feComposite1);
+    filter.appendChild(feComposite2);
+    filter.appendChild(feMerge);
+
+    // Create the main gradient (elliptical shape)
+    const mainGradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+    mainGradient.id = 'main-gradient';
+    mainGradient.setAttribute('gradientTransform', 'rotate(90)');
+
+    const mainStops = [
       { offset: '0%', color: '#FF4900' },
-      { offset: '26%', color: '#FFAE68' },
-      { offset: '48.5%', color: '#FFD363' },
+      { offset: '25%', color: '#FFAE68' },
+      { offset: '50%', color: '#FFD363' },
       { offset: '75%', color: '#FFAE68' },
-      { offset: '97%', color: '#FF4900' }
+      { offset: '100%', color: '#FF4900' }
     ];
 
-    stops.forEach(stop => {
+    mainStops.forEach(stop => {
       const stopElement = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
       stopElement.setAttribute('offset', stop.offset);
       stopElement.setAttribute('stop-color', stop.color);
-      gradient.appendChild(stopElement);
+      mainGradient.appendChild(stopElement);
+    });
+
+    const glowGradient = document.createElementNS('http://www.w3.org/2000/svg', 'radialGradient');
+    glowGradient.id = 'glow-gradient';
+    glowGradient.setAttribute('cx', '50%');
+    glowGradient.setAttribute('cy', '50%');
+    glowGradient.setAttribute('r', '50%');
+    glowGradient.setAttribute('gradientTransform', 'rotate(90) scale(1, 0.2)');
+
+    const glowStops = [
+      { offset: '0%', color: '#FF4900', opacity: '0.8' },
+      { offset: '30%', color: '#FFAE68', opacity: '0.6' },
+      { offset: '50%', color: '#FFD363', opacity: '0.4' },
+      { offset: '70%', color: '#FFAE68', opacity: '0.6' },
+      { offset: '100%', color: '#FF4900', opacity: '0.8' }
+    ];
+
+    glowStops.forEach(stop => {
+      const stopElement = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+      stopElement.setAttribute('offset', stop.offset);
+      stopElement.setAttribute('stop-color', stop.color);
+      stopElement.setAttribute('stop-opacity', stop.opacity);
+      glowGradient.appendChild(stopElement);
     });
 
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
     defs.appendChild(filter);
-    defs.appendChild(gradient);
+    defs.appendChild(mainGradient);
+    defs.appendChild(glowGradient);
     svgRef.current.appendChild(defs);
 
     const updatePaths = (progress: number) => {
@@ -73,17 +123,15 @@ const PathWithSlab: React.FC = () => {
 
       if (endLength - startLength < coverLength) {
         if (centerLength < pathLength / 2) {
-          endLength = Math.min(pathLength, startLength + coverLength);
+          endLength = startLength + coverLength;
         } else {
-          startLength = Math.max(0, endLength - coverLength);
+          startLength = endLength - coverLength;
         }
       }
 
-      // Main cover path points
       const coverPoints = [];
-      const segments = 20;
+      const segments = 30;
       
-      // Forward points
       for (let i = 0; i <= segments; i++) {
         const ratio = i / segments;
         const length = startLength + ratio * coverLength;
@@ -96,7 +144,6 @@ const PathWithSlab: React.FC = () => {
         });
       }
       
-      // Backward points
       for (let i = segments; i >= 0; i--) {
         const ratio = i / segments;
         const length = startLength + ratio * coverLength;
@@ -108,17 +155,18 @@ const PathWithSlab: React.FC = () => {
           y: point.y - normal.y * coverWidth / 2
         });
       }
-      
-      // Glow path points (wider)
+
       const glowPoints = [];
-      const glowWidth = coverWidth * 3;
+      const baseGlowWidth = coverWidth * glowWidthMultiplier;
       
-      // Forward points
       for (let i = 0; i <= segments; i++) {
         const ratio = i / segments;
         const length = startLength + ratio * coverLength;
         const point = path.getPointAtLength(length);
         const normal = getNormalAtLength(path, length);
+        
+        const ellipticalFactor = Math.sin(Math.PI * ratio);
+        const glowWidth = baseGlowWidth * (0.3 + 0.7 * ellipticalFactor);
         
         glowPoints.push({
           x: point.x + normal.x * glowWidth / 2,
@@ -126,12 +174,14 @@ const PathWithSlab: React.FC = () => {
         });
       }
       
-      // Backward points
       for (let i = segments; i >= 0; i--) {
         const ratio = i / segments;
         const length = startLength + ratio * coverLength;
         const point = path.getPointAtLength(length);
         const normal = getNormalAtLength(path, length);
+        
+        const ellipticalFactor = Math.sin(Math.PI * ratio);
+        const glowWidth = baseGlowWidth * (0.3 + 0.7 * ellipticalFactor);
         
         glowPoints.push({
           x: point.x - normal.x * glowWidth / 2,
@@ -139,13 +189,12 @@ const PathWithSlab: React.FC = () => {
         });
       }
 
-      // Update paths
       coverPathRef.current?.setAttribute('d', generatePathData(coverPoints));
       glowPathRef.current?.setAttribute('d', generatePathData(glowPoints));
     };
 
     const getNormalAtLength = (path: SVGPathElement, length: number) => {
-      const EPSILON = 0.1;
+      const EPSILON = 1.0;
       const point1 = path.getPointAtLength(Math.max(0, length - EPSILON));
       const point2 = path.getPointAtLength(Math.min(pathLength, length + EPSILON));
       
@@ -180,6 +229,9 @@ const PathWithSlab: React.FC = () => {
       ease: easeFn,
     });
 
+    // Changing the color of the glow path
+    glowPathRef.current?.setAttribute("fill", "url(#glow-gradient)");
+
     return () => {
       gsap.killTweensOf(coverPathRef.current);
     };
@@ -193,18 +245,33 @@ const PathWithSlab: React.FC = () => {
       style={{ width: '100%', height: 'auto' }}
     >
       <defs>
-        <filter id="glow-filter" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="4" result="blur"/>
-          <feComposite in="blur" in2="SourceAlpha" operator="in" result="glow"/>
+        <filter id="glow-filter" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="12" result="blur1"/>
+          <feGaussianBlur stdDeviation="6" result="blur2"/>
+          <feComposite in="blur1" in2="SourceAlpha" operator="in" result="glow1"/>
+          <feComposite in="blur2" in2="SourceAlpha" operator="in" result="glow2"/>
+          <feMerge>
+            <feMergeNode in="glow1"/>
+            <feMergeNode in="glow2"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
 
-        <linearGradient id="path-gradient" gradientTransform="rotate(90)">
+        <linearGradient id="main-gradient" gradientTransform="rotate(90)">
           <stop offset="0%" stop-color="#FF4900"/>
-          <stop offset="26%" stop-color="#FFAE68"/>
-          <stop offset="48.5%" stop-color="#FFD363"/>
+          <stop offset="25%" stop-color="#FFAE68"/>
+          <stop offset="50%" stop-color="#FFD363"/>
           <stop offset="75%" stop-color="#FFAE68"/>
-          <stop offset="97%" stop-color="#FF4900"/>
+          <stop offset="100%" stop-color="#FF4900"/>
         </linearGradient>
+
+        <radialGradient id="glow-gradient" cx="50%" cy="50%" r="50%" gradientTransform="rotate(90) scale(1, 0.2)">
+          <stop offset="0%" stop-color="#FF4900" stop-opacity="0.8"/>
+          <stop offset="30%" stop-color="#FFAE68" stop-opacity="0.6"/>
+          <stop offset="50%" stop-color="#FFD363" stop-opacity="0.4"/>
+          <stop offset="70%" stop-color="#FFAE68" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#FF4900" stop-opacity="0.8"/>
+        </radialGradient>
       </defs>
 
       <path 
@@ -216,20 +283,19 @@ const PathWithSlab: React.FC = () => {
         strokeWidth="4"
       />
       
-      {/* Glow path (behind main path) */}
       <path 
         ref={glowPathRef}
-        fill="url(#path-gradient)"
+        fill="url(#glow-gradient)"
         filter="url(#glow-filter)"
         opacity="0.7"
       />
       
-      {/* Main cover path (on top) */}
       <path 
         ref={coverPathRef}
-        fill="url(#path-gradient)"
+        fill="url(#main-gradient)"
         stroke="#FF5B00"
-        strokeWidth="0.5"
+        strokeWidth="1"
+        strokeOpacity="0.8"
       />
     </svg>
   );
