@@ -1,90 +1,112 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin'; 
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { pathEase } from './pathease';
 
 // Register GSAP plugin
-gsap.registerPlugin(MotionPathPlugin , ScrollTrigger);
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
 const PathWithSlab: React.FC = () => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const slabRef = useRef<SVGRectElement>(null);
+  const coverPathRef = useRef<SVGPathElement>(null);
+  const originalPathRef = useRef<SVGPathElement>(null);
 
   useEffect(() => {
-    if (!svgRef.current || !slabRef.current) return;
+    if (!svgRef.current || !coverPathRef.current || !originalPathRef.current) return;
 
-    const path = svgRef.current.querySelector('#mainPath') as SVGPathElement;
+    const path = originalPathRef.current;
     const pathLength = path.getTotalLength();
-    const slabLength = 20; // Height of your slab
+    const coverWidth = 6; // Width of the cover path (6px)
+    const coverLength = 30; // Length of the white cover (30px)
 
-    // Get start and end points for slab positioning
-    const getSlabPoints = (progress: number) => {
-      const startProgress = Math.max(0, progress - 0.01);
-      const endProgress = Math.min(1, progress + 0.01);
+    // Function to create a precise path segment with exact length
+    const updateCoverPath = (progress: number) => {
+      const centerLength = progress * pathLength;
+      let startLength = Math.max(0, centerLength - coverLength / 2);
+      let endLength = Math.min(pathLength, centerLength + coverLength / 2);
       
-      const startPoint = path.getPointAtLength(startProgress * pathLength);
-      const endPoint = path.getPointAtLength(endProgress * pathLength);
-      
-      return { startPoint, endPoint };
-    };
-
-    // Create a clipped path for the slab
-    const clipPathId = 'slab-clip';
-    const clipPath = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
-    clipPath.id = clipPathId;
-    const clipRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    clipPath.appendChild(clipRect);
-    svgRef.current.appendChild(clipPath);
-
-    const easeFn = pathEase('#mainPath', {
-      smooth: true, 
-
-    })
-
-    // Animate with GSAP
-    gsap.to(slabRef.current, {
-      motionPath: {
-        path: '#mainPath',
-        align: '#mainPath',
-        alignOrigin: [0.5, 0.5],
-      },   
-      scrollTrigger: {
-        trigger: ".content-svg",  
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1
-      },
-      ease: easeFn,
-      
-      onUpdate: function() {
-        const progress = this.progress();
-        const { startPoint, endPoint } = getSlabPoints(progress);
-        
-        // Calculate angle for proper slab orientation
-        const angle = Math.atan2(
-          endPoint.y - startPoint.y, 
-          endPoint.x - startPoint.x
-        ) * 180 / Math.PI;
-        
-        // Update slab position and rotation
-        if (slabRef.current) {
-          slabRef.current.setAttribute('transform', `rotate(${angle} ${endPoint.x} ${endPoint.y})`);
-          slabRef.current.setAttribute('x', String(endPoint.x - 10));
-          slabRef.current.setAttribute('y', String(endPoint.y - slabLength/2));
-          
-          // Update clip path to match line width
-          clipRect.setAttribute('x', String(endPoint.x - 10));
-          clipRect.setAttribute('y', String(endPoint.y - slabLength/2));
-          clipRect.setAttribute('width', '20');
-          clipRect.setAttribute('height', String(slabLength));
+      // Adjust to ensure exact coverLength
+      if (endLength - startLength < coverLength) {
+        if (centerLength < pathLength / 2) {
+          endLength = Math.min(pathLength, startLength + coverLength);
+        } else {
+          startLength = Math.max(0, endLength - coverLength);
         }
       }
+
+      // Calculate points with exact length
+      const points = [];
+      const segments = 20; // Number of segments for smoothness
+      
+      // Forward points (top side)
+      for (let i = 0; i <= segments; i++) {
+        const ratio = i / segments;
+        const length = startLength + ratio * coverLength;
+        const point = path.getPointAtLength(length);
+        const normal = getNormalAtLength(path, length);
+        
+        points.push({
+          x: point.x + normal.x * coverWidth / 2,
+          y: point.y + normal.y * coverWidth / 2
+        });
+      }
+      
+      // Backward points (bottom side)
+      for (let i = segments; i >= 0; i--) {
+        const ratio = i / segments;
+        const length = startLength + ratio * coverLength;
+        const point = path.getPointAtLength(length);
+        const normal = getNormalAtLength(path, length);
+        
+        points.push({
+          x: point.x - normal.x * coverWidth / 2,
+          y: point.y - normal.y * coverWidth / 2
+        });
+      }
+      
+      // Build path data
+      let pathData = points.map((p, i) => 
+        (i === 0 ? 'M' : 'L') + p.x + ',' + p.y
+      ).join(' ') + ' Z';
+      
+      coverPathRef.current?.setAttribute('d', pathData);
+    };
+
+    // Function to get normal vector with precise length measurement
+    const getNormalAtLength = (path: SVGPathElement, length: number) => {
+      const EPSILON = 0.1; // Small offset for derivative calculation
+      const point1 = path.getPointAtLength(Math.max(0, length - EPSILON));
+      const point2 = path.getPointAtLength(Math.min(pathLength, length + EPSILON));
+      
+      const dx = point2.x - point1.x;
+      const dy = point2.y - point1.y;
+      const magnitude = Math.sqrt(dx * dx + dy * dy);
+      
+      return {
+        x: -dy / magnitude, // Perpendicular vector
+        y: dx / magnitude
+      };
+    };
+
+    const easeFn = pathEase('#mainPath', {});
+
+    // GSAP animation
+    gsap.to(coverPathRef.current, {
+      scrollTrigger: {
+        trigger: ".content-svg",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+        onUpdate: (self) => {
+          updateCoverPath(self.progress);
+        }
+      },
+      ease: easeFn,
     });
 
     return () => {
-      // Clean up
-      gsap.killTweensOf(slabRef.current);
+      gsap.killTweensOf(coverPathRef.current);
     };
   }, []);
 
@@ -95,8 +117,9 @@ const PathWithSlab: React.FC = () => {
       xmlns="http://www.w3.org/2000/svg"
       style={{ width: '100%', height: 'auto' }}
     >
-      {/* Main path */}
+      {/* Original path (orange) */}
       <path 
+        ref={originalPathRef}
         id="mainPath" 
         d="
           M1536,200 
@@ -115,14 +138,12 @@ const PathWithSlab: React.FC = () => {
         strokeWidth="4"
       />
       
-      {/* Slab that strictly follows the path */}
-      <rect 
-        ref={slabRef}
-        width="20" 
-        height="20" 
-        fill="#FF5B00" 
-        opacity="0.8"
-        clipPath="url(#slab-clip)"
+      {/* Cover path (white) - exactly 30px long and 6px wide */}
+      <path 
+        ref={coverPathRef}
+        fill="white" 
+        stroke="white"
+        strokeWidth="0.5"
       />
     </svg>
   );
