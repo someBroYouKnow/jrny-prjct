@@ -17,103 +17,93 @@ const PathWithSlab: React.FC = () => {
 
     const path = originalPathRef.current;
     const pathLength = path.getTotalLength();
-    const coverWidth = 5; // Slightly wider main path
-    const coverLength = 150; // 150px long traveling path
-    const glowWidthMultiplier = 6; // Wider glow effect
+    const coverWidth = 5;
+    const coverLength = 150;
+    const glowWidthMultiplier = 6;
 
-    // Create enhanced glow filter with multiple layers
-    const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
-    filter.id = 'glow-filter';
-    filter.setAttribute('x', '-100%');
-    filter.setAttribute('y', '-100%');
-    filter.setAttribute('width', '300%');
-    filter.setAttribute('height', '300%');
+    // Create multiple filters for layered box-shadow effect
+    const createShadowFilter = (id: string, blur: number) => {
+      const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+      filter.id = id;
+      filter.setAttribute('x', '-50%');
+      filter.setAttribute('y', '-50%');
+      filter.setAttribute('width', '200%');
+      filter.setAttribute('height', '200%');
 
-    const feGaussianBlur1 = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
-    feGaussianBlur1.setAttribute('stdDeviation', '12');
-    feGaussianBlur1.setAttribute('result', 'blur1');
+      const feGaussianBlur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+      feGaussianBlur.setAttribute('stdDeviation', String(blur));
+      feGaussianBlur.setAttribute('result', 'blur');
 
-    const feGaussianBlur2 = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
-    feGaussianBlur2.setAttribute('stdDeviation', '6');
-    feGaussianBlur2.setAttribute('result', 'blur2');
+      const feComposite = document.createElementNS('http://www.w3.org/2000/svg', 'feComposite');
+      feComposite.setAttribute('in', 'blur');
+      feComposite.setAttribute('in2', 'SourceAlpha');
+      feComposite.setAttribute('operator', 'in');
+      feComposite.setAttribute('result', 'shadow');
 
-    const feComposite1 = document.createElementNS('http://www.w3.org/2000/svg', 'feComposite');
-    feComposite1.setAttribute('in', 'blur1');
-    feComposite1.setAttribute('in2', 'SourceAlpha');
-    feComposite1.setAttribute('operator', 'in');
-    feComposite1.setAttribute('result', 'glow1');
+      const feFlood = document.createElementNS('http://www.w3.org/2000/svg', 'feFlood');
+      feFlood.setAttribute('flood-color', '#FF5408');
+      feFlood.setAttribute('result', 'color');
 
-    const feComposite2 = document.createElementNS('http://www.w3.org/2000/svg', 'feComposite');
-    feComposite2.setAttribute('in', 'blur2');
-    feComposite2.setAttribute('in2', 'SourceAlpha');
-    feComposite2.setAttribute('operator', 'in');
-    feComposite2.setAttribute('result', 'glow2');
+      const feComposite2 = document.createElementNS('http://www.w3.org/2000/svg', 'feComposite');
+      feComposite2.setAttribute('in', 'color');
+      feComposite2.setAttribute('in2', 'shadow');
+      feComposite2.setAttribute('operator', 'in');
 
-    const feMerge = document.createElementNS('http://www.w3.org/2000/svg', 'feMerge');
-    const feMergeNode1 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
-    feMergeNode1.setAttribute('in', 'glow1');
-    const feMergeNode2 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
-    feMergeNode2.setAttribute('in', 'glow2');
-    const feMergeNode3 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
-    feMergeNode3.setAttribute('in', 'SourceGraphic');
+      filter.appendChild(feGaussianBlur);
+      filter.appendChild(feComposite);
+      filter.appendChild(feFlood);
+      filter.appendChild(feComposite2);
 
-    feMerge.appendChild(feMergeNode1);
-    feMerge.appendChild(feMergeNode2);
-    feMerge.appendChild(feMergeNode3);
+      return filter;
+    };
 
-    filter.appendChild(feGaussianBlur1);
-    filter.appendChild(feGaussianBlur2);
-    filter.appendChild(feComposite1);
-    filter.appendChild(feComposite2);
-    filter.appendChild(feMerge);
+    // Create all shadow filters
+    const shadowFilters = [
+      { id: 'shadow-4px', blur: 4.52 },
+      { id: 'shadow-9px', blur: 9.04 },
+      { id: 'shadow-32px', blur: 31.65 },
+      { id: 'shadow-63px', blur: 63.29 },
+      { id: 'shadow-108px', blur: 108.5 },
+      { id: 'shadow-190px', blur: 189.88 }
+    ];
 
-    // Create the main gradient (elliptical shape)
-    const mainGradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
-    mainGradient.id = 'main-gradient';
-    mainGradient.setAttribute('gradientTransform', 'rotate(90)');
+    // Create blur filter for backdrop effect
+    const blurFilter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+    blurFilter.id = 'blur-filter';
+    blurFilter.setAttribute('x', '-50%');
+    blurFilter.setAttribute('y', '-50%');
+    blurFilter.setAttribute('width', '200%');
+    blurFilter.setAttribute('height', '200%');
 
-    const mainStops = [
-      { offset: '0%', color: '#FF4900' },
-      { offset: '25%', color: '#FFAE68' },
-      { offset: '50%', color: '#FFD363' },
-      { offset: '75%', color: '#FFAE68' },
+    const feGaussianBlur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+    feGaussianBlur.setAttribute('stdDeviation', '26.9');
+    blurFilter.appendChild(feGaussianBlur);
+
+    // Create radial gradient
+    const radialGradient = document.createElementNS('http://www.w3.org/2000/svg', 'radialGradient');
+    radialGradient.id = 'radial-gradient';
+    radialGradient.setAttribute('cx', '50%');
+    radialGradient.setAttribute('cy', '50%');
+    radialGradient.setAttribute('r', '50%');
+    radialGradient.setAttribute('fx', '50%');
+    radialGradient.setAttribute('fy', '50%');
+
+    const gradientStops = [
+      { offset: '0%', color: '#FFCB64' },
       { offset: '100%', color: '#FF4900' }
     ];
 
-    mainStops.forEach(stop => {
+    gradientStops.forEach(stop => {
       const stopElement = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
       stopElement.setAttribute('offset', stop.offset);
       stopElement.setAttribute('stop-color', stop.color);
-      mainGradient.appendChild(stopElement);
-    });
-
-    const glowGradient = document.createElementNS('http://www.w3.org/2000/svg', 'radialGradient');
-    glowGradient.id = 'glow-gradient';
-    glowGradient.setAttribute('cx', '50%');
-    glowGradient.setAttribute('cy', '50%');
-    glowGradient.setAttribute('r', '50%');
-    glowGradient.setAttribute('gradientTransform', 'rotate(90) scale(1, 0.2)');
-
-    const glowStops = [
-      { offset: '0%', color: '#FF4900', opacity: '0.8' },
-      { offset: '30%', color: '#FFAE68', opacity: '0.6' },
-      { offset: '50%', color: '#FFD363', opacity: '0.4' },
-      { offset: '70%', color: '#FFAE68', opacity: '0.6' },
-      { offset: '100%', color: '#FF4900', opacity: '0.8' }
-    ];
-
-    glowStops.forEach(stop => {
-      const stopElement = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-      stopElement.setAttribute('offset', stop.offset);
-      stopElement.setAttribute('stop-color', stop.color);
-      stopElement.setAttribute('stop-opacity', stop.opacity);
-      glowGradient.appendChild(stopElement);
+      radialGradient.appendChild(stopElement);
     });
 
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    defs.appendChild(filter);
-    defs.appendChild(mainGradient);
-    defs.appendChild(glowGradient);
+    shadowFilters.forEach(filter => defs.appendChild(createShadowFilter(filter.id, filter.blur)));
+    defs.appendChild(blurFilter);
+    defs.appendChild(radialGradient);
     svgRef.current.appendChild(defs);
 
     const updatePaths = (progress: number) => {
@@ -229,9 +219,6 @@ const PathWithSlab: React.FC = () => {
       ease: easeFn,
     });
 
-    // Changing the color of the glow path
-    glowPathRef.current?.setAttribute("fill", "url(#glow-gradient)");
-
     return () => {
       gsap.killTweensOf(coverPathRef.current);
     };
@@ -245,32 +232,53 @@ const PathWithSlab: React.FC = () => {
       style={{ width: '100%', height: 'auto' }}
     >
       <defs>
-        <filter id="glow-filter" x="-100%" y="-100%" width="300%" height="300%">
-          <feGaussianBlur stdDeviation="12" result="blur1"/>
-          <feGaussianBlur stdDeviation="6" result="blur2"/>
-          <feComposite in="blur1" in2="SourceAlpha" operator="in" result="glow1"/>
-          <feComposite in="blur2" in2="SourceAlpha" operator="in" result="glow2"/>
-          <feMerge>
-            <feMergeNode in="glow1"/>
-            <feMergeNode in="glow2"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
+        {/* Shadow filters */}
+        <filter id="shadow-4px" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4.52" result="blur"/>
+          <feComposite in="blur" in2="SourceAlpha" operator="in" result="shadow"/>
+          <feFlood flood-color="#FF5408" result="color"/>
+          <feComposite in="color" in2="shadow" operator="in"/>
+        </filter>
+        <filter id="shadow-9px" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="9.04" result="blur"/>
+          <feComposite in="blur" in2="SourceAlpha" operator="in" result="shadow"/>
+          <feFlood flood-color="#FF5408" result="color"/>
+          <feComposite in="color" in2="shadow" operator="in"/>
+        </filter>
+        <filter id="shadow-32px" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="31.65" result="blur"/>
+          <feComposite in="blur" in2="SourceAlpha" operator="in" result="shadow"/>
+          <feFlood flood-color="#FF5408" result="color"/>
+          <feComposite in="color" in2="shadow" operator="in"/>
+        </filter>
+        <filter id="shadow-63px" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="63.29" result="blur"/>
+          <feComposite in="blur" in2="SourceAlpha" operator="in" result="shadow"/>
+          <feFlood flood-color="#FF5408" result="color"/>
+          <feComposite in="color" in2="shadow" operator="in"/>
+        </filter>
+        <filter id="shadow-108px" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="108.5" result="blur"/>
+          <feComposite in="blur" in2="SourceAlpha" operator="in" result="shadow"/>
+          <feFlood flood-color="#FF5408" result="color"/>
+          <feComposite in="color" in2="shadow" operator="in"/>
+        </filter>
+        <filter id="shadow-190px" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="189.88" result="blur"/>
+          <feComposite in="blur" in2="SourceAlpha" operator="in" result="shadow"/>
+          <feFlood flood-color="#FF5408" result="color"/>
+          <feComposite in="color" in2="shadow" operator="in"/>
         </filter>
 
-        <linearGradient id="main-gradient" gradientTransform="rotate(90)">
-          <stop offset="0%" stop-color="#FF4900"/>
-          <stop offset="25%" stop-color="#FFAE68"/>
-          <stop offset="50%" stop-color="#FFD363"/>
-          <stop offset="75%" stop-color="#FFAE68"/>
-          <stop offset="100%" stop-color="#FF4900"/>
-        </linearGradient>
+        {/* Blur filter */}
+        <filter id="blur-filter" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="26.9"/>
+        </filter>
 
-        <radialGradient id="glow-gradient" cx="50%" cy="50%" r="50%" gradientTransform="rotate(90) scale(1, 0.2)">
-          <stop offset="0%" stop-color="#FF4900" stop-opacity="0.8"/>
-          <stop offset="30%" stop-color="#FFAE68" stop-opacity="0.6"/>
-          <stop offset="50%" stop-color="#FFD363" stop-opacity="0.4"/>
-          <stop offset="70%" stop-color="#FFAE68" stop-opacity="0.6"/>
-          <stop offset="100%" stop-color="#FF4900" stop-opacity="0.8"/>
+        {/* Radial gradient */}
+        <radialGradient id="radial-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="0%" stop-color="#FFCB64"/>
+          <stop offset="100%" stop-color="#FF4900"/>
         </radialGradient>
       </defs>
 
@@ -283,16 +291,50 @@ const PathWithSlab: React.FC = () => {
         strokeWidth="4"
       />
       
-      <path 
-        ref={glowPathRef}
-        fill="url(#glow-gradient)"
-        filter="url(#glow-filter)"
-        opacity="0.7"
-      />
+      {/* Glow path with all shadow layers */}
+      <g filter="url(#blur-filter)">
+        <path 
+          ref={glowPathRef}
+          fill="url(#radial-gradient)"
+          filter="url(#shadow-190px)"
+          opacity="0.7"
+        />
+        <path 
+          ref={glowPathRef}
+          fill="url(#radial-gradient)"
+          filter="url(#shadow-108px)"
+          opacity="0.8"
+        />
+        <path 
+          ref={glowPathRef}
+          fill="url(#radial-gradient)"
+          filter="url(#shadow-63px)"
+          opacity="0.85"
+        />
+        <path 
+          ref={glowPathRef}
+          fill="url(#radial-gradient)"
+          filter="url(#shadow-32px)"
+          opacity="0.9"
+        />
+        <path 
+          ref={glowPathRef}
+          fill="url(#radial-gradient)"
+          filter="url(#shadow-9px)"
+          opacity="0.95"
+        />
+        <path 
+          ref={glowPathRef}
+          fill="url(#radial-gradient)"
+          filter="url(#shadow-4px)"
+          opacity="1"
+        />
+      </g>
       
+      {/* Main cover path */}
       <path 
         ref={coverPathRef}
-        fill="url(#main-gradient)"
+        fill="url(#radial-gradient)"
         stroke="#FF5B00"
         strokeWidth="1"
         strokeOpacity="0.8"
