@@ -108,10 +108,10 @@
     overflow: visible;  
     position:absolute;
     top:0;
-    left:0%;
+    left:5%;
     height:100%;
-    width:100%;
-    z-index: 3;
+    width:90%;
+    z-index: 3; 
   }
 
   .landing-show-reel{

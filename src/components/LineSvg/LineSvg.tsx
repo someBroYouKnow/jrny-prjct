@@ -79,7 +79,7 @@ const PathWithSlab: React.FC = () => {
   return (
     <svg 
       ref={svgRef}
-      viewBox="0 0 1536 2500" 
+      viewBox="0 0 1600 4000" 
       xmlns="http://www.w3.org/2000/svg"
       style={{ width: '100%', height: 'auto' }}
     >
@@ -87,14 +87,14 @@ const PathWithSlab: React.FC = () => {
       <path 
         id="mainPath" 
         d="
-          M1536,0 
-          L1536,200
-          L0,300
-          L0,800
-          L1536,1000
-          L1536,1800
-          L0,2000
-          L0,2500
+          M1536,200 
+          L1536,400
+          L10,600
+          L10,1200
+          L1536,1400
+          L1536,2800
+          L10,3000
+          L10,3500
         " 
         fill="none" 
         stroke="#FF5B00" 
