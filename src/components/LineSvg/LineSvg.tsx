@@ -293,12 +293,11 @@ const PathWithSlab: React.FC = () => {
           </filter>
         ))}
 
-        {/* Blur filter */}
+
         <filter id="blur-filter" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="26.9"/>
         </filter>
 
-        {/* Updated radial gradients with #FFCB64 as dominant color */}
         <radialGradient id="primary-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientTransform="scale(1, 0.25)">
           <stop offset="0%" stop-color="#FFCB64"/>
           <stop offset="70%" stop-color="#FFCB64"/>
@@ -323,7 +322,6 @@ const PathWithSlab: React.FC = () => {
         strokeWidth="4"
       />
       
-      {/* Glow path with shadow layers */}
       <g filter="url(#blur-filter)">
         <path 
           ref={glowPathRef}
@@ -362,13 +360,13 @@ const PathWithSlab: React.FC = () => {
           opacity="1"
         />
       </g>
-      
-      {/* Main cover path */}
+
+
       <path 
         ref={coverPathRef}
         fill="url(#primary-gradient)"
         stroke="#FF5B00"
-        strokeWidth="1.3"
+        strokeWidth="1.1"
         strokeOpacity="0.8"
       />
     </svg>
