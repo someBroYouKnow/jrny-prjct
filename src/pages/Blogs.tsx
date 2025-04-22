@@ -1,4 +1,5 @@
 import Contact from "../components/Contact/Contact";
+import Footer from "../components/shared/Footer";
 import { BlogItemExample, BlogItemType } from "../constants/blogs";
 import "./../css/blog.css";
 
@@ -14,7 +15,7 @@ export default function Blogs({ route = "base" }: BlogsProps) {
     <>
       <div className="blog-container">
         <BlogHero route={route} />
-        <Contact />
+        <Footer />
       </div>
     </>
   );

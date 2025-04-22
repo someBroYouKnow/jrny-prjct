@@ -163,8 +163,6 @@ export const RightChoice = () => {
   return (
     <>
     <div className="right-choice-container">
-
-
       <h1 className="right-choice-h1">
         Why <span className="jrny-span">JRNY</span> is the Right Choice
       </h1>

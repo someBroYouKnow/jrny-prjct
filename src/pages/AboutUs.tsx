@@ -1,7 +1,6 @@
 import { Link } from 'react-router';
 import './../css/about.css';
 import Contact from '../components/Contact/Contact';
-import { RightChoice } from './LandingPage';
 import ShowReel from '../components/ShowReel/ShowReel';
 
 const AboutUsMottoArray =[
@@ -52,7 +51,7 @@ export default function AboutUs() {
       </div>
 
       <div className="tags">
-        sex
+        
         <span className="tag">Virtual Networking</span>
       </div>
 
@@ -97,8 +96,7 @@ export default function AboutUs() {
           </div>
         ))}
         </div>
-      </div>
-      <RightChoice />
+      </div> 
       <Contact />
     </div>
   )

@@ -17,7 +17,7 @@ const PathWithSlab: React.FC = () => {
 
     const path = originalPathRef.current;
     const pathLength = path.getTotalLength();
-    const coverWidth = 10; // Increased width
+    const coverWidth = 9; // Increased width
     const coverLength = 150;
     const glowWidthMultiplier = 8; // Increased glow width multiplier
 
@@ -250,7 +250,7 @@ const PathWithSlab: React.FC = () => {
   return (
     <svg 
       ref={svgRef}
-      viewBox="0 0 1600 4000" 
+      viewBox="0 0 1536 4000" 
       xmlns="http://www.w3.org/2000/svg"
       style={{ width: '100%', height: 'auto' }}
     >
@@ -280,7 +280,7 @@ const PathWithSlab: React.FC = () => {
       <path 
         ref={originalPathRef}
         id="mainPath" 
-        d="M1536,200 L1536,400 L10,600 L10,1200 L1536,1400 L1536,2800 L10,3000 L10,3500" 
+        d="M1536,200 L1536,800 L10,600 L10,1200 L1536,1400 L1536,2800 L10,3000 L10,3500" 
         fill="none" 
         stroke="#FF5B00" 
         strokeWidth="4"
@@ -331,11 +331,11 @@ const PathWithSlab: React.FC = () => {
         ref={coverPathRef}
         fill="url(#radial-gradient)"
         stroke="#FF5B00"
-        strokeWidth="1.5"
+        strokeWidth="1.3"
         strokeOpacity="0.8"
       />
     </svg>
   );
 };
 
-export default PathWithSlab;
+export default PathWithSlab; 
