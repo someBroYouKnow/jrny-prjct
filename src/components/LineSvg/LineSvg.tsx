@@ -17,11 +17,13 @@ const PathWithSlab: React.FC = () => {
 
     const path = originalPathRef.current;
     const pathLength = path.getTotalLength();
-    const coverWidth = 9; // Increased width
-    const coverLength = 150;
-    const glowWidthMultiplier = 8; // Increased glow width multiplier
+    // Reduced cover width to ensure it doesn't exceed the original path width
+    const coverWidth = 7; 
+    // Reduced cover length to make it appear to move faster
+    const coverLength = 120;
+    const glowWidthMultiplier = 7; // Adjusted multiplier
 
-    // Create shadow filters with elliptical transformation
+    // Create shadow filters with improved elliptical transformation
     const createEllipticalShadowFilter = (id: string, blur: number) => {
       const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
       filter.id = id;
@@ -46,6 +48,7 @@ const PathWithSlab: React.FC = () => {
       feComposite.setAttribute('operator', 'in');
       feComposite.setAttribute('result', 'shadow');
 
+      // Using the original #FF5408 color for shadow
       const feFlood = document.createElementNS('http://www.w3.org/2000/svg', 'feFlood');
       feFlood.setAttribute('flood-color', '#FF5408');
       feFlood.setAttribute('result', 'color');
@@ -79,7 +82,7 @@ const PathWithSlab: React.FC = () => {
       { id: 'shadow-190px', blur: 189.88 }
     ];
 
-    // Create blur filter with elliptical transformation
+    // Create blur filter with enhanced elliptical transformation
     const blurFilter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
     blurFilter.id = 'blur-filter';
     blurFilter.setAttribute('x', '-50%');
@@ -91,32 +94,56 @@ const PathWithSlab: React.FC = () => {
     feGaussianBlur.setAttribute('stdDeviation', '26.9');
     blurFilter.appendChild(feGaussianBlur);
 
-    // Create elliptical radial gradient
-    const radialGradient = document.createElementNS('http://www.w3.org/2000/svg', 'radialGradient');
-    radialGradient.id = 'radial-gradient';
-    radialGradient.setAttribute('cx', '50%');
-    radialGradient.setAttribute('cy', '50%');
-    radialGradient.setAttribute('r', '50%');
-    radialGradient.setAttribute('fx', '50%');
-    radialGradient.setAttribute('fy', '50%');
-    radialGradient.setAttribute('gradientTransform', 'scale(1, 0.3)'); // More elliptical shape
+    // Create multiple radial gradients with different color schemes
+    const createRadialGradient = (id: string, colors: {offset: string, color: string}[], transform: string) => {
+      const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'radialGradient');
+      gradient.id = id;
+      gradient.setAttribute('cx', '50%');
+      gradient.setAttribute('cy', '50%');
+      gradient.setAttribute('r', '50%');
+      gradient.setAttribute('fx', '50%');
+      gradient.setAttribute('fy', '50%');
+      gradient.setAttribute('gradientTransform', transform);
 
-    const gradientStops = [
-      { offset: '0%', color: '#FFCB64' },
-      { offset: '100%', color: '#FF4900' }
-    ];
+      colors.forEach(stop => {
+        const stopElement = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+        stopElement.setAttribute('offset', stop.offset);
+        stopElement.setAttribute('stop-color', stop.color);
+        gradient.appendChild(stopElement);
+      });
 
-    gradientStops.forEach(stop => {
-      const stopElement = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-      stopElement.setAttribute('offset', stop.offset);
-      stopElement.setAttribute('stop-color', stop.color);
-      radialGradient.appendChild(stopElement);
-    });
+      return gradient;
+    };
+
+    // Primary gradient - make #FFCB64 the dominant color
+    const primaryGradient = createRadialGradient(
+      'primary-gradient',
+      [
+        { offset: '0%', color: '#FFCB64' },   // Main yellow color
+        { offset: '70%', color: '#FFCB64' },  // Extended dominance of yellow
+        { offset: '90%', color: '#FF7A00' },  // Transition to orange
+        { offset: '100%', color: '#FF4900' }  // Deep orange edge
+      ],
+      'scale(1, 0.25)' // Elliptical shape
+    );
+
+    // Glow gradient - for outer glow effect, also #FFCB64 dominant
+    const glowGradient = createRadialGradient(
+      'glow-gradient',
+      [
+        { offset: '0%', color: '#FFCB64' },   // Main yellow color
+        { offset: '60%', color: '#FFCB64' },  // Extended yellow dominance
+        { offset: '85%', color: '#FF7A00' },  // Transition to orange
+        { offset: '100%', color: '#FF5408' }  // Edge color
+      ],
+      'scale(1, 0.2)' // More elliptical for glow
+    );
 
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
     shadowFilters.forEach(filter => defs.appendChild(createEllipticalShadowFilter(filter.id, filter.blur)));
     defs.appendChild(blurFilter);
-    defs.appendChild(radialGradient);
+    defs.appendChild(primaryGradient);
+    defs.appendChild(glowGradient);
     svgRef.current.appendChild(defs);
 
     const updatePaths = (progress: number) => {
@@ -132,7 +159,7 @@ const PathWithSlab: React.FC = () => {
         }
       }
 
-      // Main cover path points (wider)
+      // Main cover path points (narrower to stay within original path)
       const coverPoints = [];
       const segments = 40; // More segments for smoother ellipse
       
@@ -142,9 +169,9 @@ const PathWithSlab: React.FC = () => {
         const point = path.getPointAtLength(length);
         const normal = getNormalAtLength(path, length);
         
-        // Apply elliptical scaling to width
+        // Apply elliptical scaling to width, but keep it constrained
         const ellipticalFactor = Math.sin(Math.PI * ratio);
-        const currentWidth = coverWidth * (0.7 + 0.3 * ellipticalFactor);
+        const currentWidth = coverWidth * (0.6 + 0.4 * ellipticalFactor); // Less pronounced ellipse
         
         coverPoints.push({
           x: point.x + normal.x * currentWidth / 2,
@@ -159,7 +186,7 @@ const PathWithSlab: React.FC = () => {
         const normal = getNormalAtLength(path, length);
         
         const ellipticalFactor = Math.sin(Math.PI * ratio);
-        const currentWidth = coverWidth * (0.7 + 0.3 * ellipticalFactor);
+        const currentWidth = coverWidth * (0.6 + 0.4 * ellipticalFactor);
         
         coverPoints.push({
           x: point.x - normal.x * currentWidth / 2,
@@ -167,7 +194,7 @@ const PathWithSlab: React.FC = () => {
         });
       }
 
-      // Glow path points (more elliptical and wider)
+      // Glow path points (more elliptical and wider but still proportional)
       const glowPoints = [];
       const baseGlowWidth = coverWidth * glowWidthMultiplier;
       
@@ -177,7 +204,7 @@ const PathWithSlab: React.FC = () => {
         const point = path.getPointAtLength(length);
         const normal = getNormalAtLength(path, length);
         
-        // Stronger elliptical effect
+        // Elliptical effect but constrained
         const ellipticalFactor = Math.sin(Math.PI * ratio);
         const glowWidth = baseGlowWidth * (0.2 + 0.8 * ellipticalFactor);
         
@@ -229,12 +256,13 @@ const PathWithSlab: React.FC = () => {
 
     const easeFn = pathEase('#mainPath', {});
 
+    // Speed up the animation by adjusting the scrub value
     gsap.to(coverPathRef.current, {
       scrollTrigger: {
         trigger: ".content-svg",
         start: "top top",
-        end: "bottom bottom",
-        scrub: true,
+        end: "bottom bottom", 
+        scrub: 0.5, // Reduced from 1 (default) to 0.5 for faster response
         onUpdate: (self) => {
           updatePaths(self.progress);
         }
@@ -255,7 +283,7 @@ const PathWithSlab: React.FC = () => {
       style={{ width: '100%', height: 'auto' }}
     >
       <defs>
-        {/* Shadow filters with elliptical effect */}
+        {/* Shadow filters */}
         {[4.52, 9.04, 31.65, 63.29, 108.5, 189.88].map((blur, i) => (
           <filter key={i} id={`shadow-${blur}px`} x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation={String(blur)} result="blur"/>
@@ -270,10 +298,19 @@ const PathWithSlab: React.FC = () => {
           <feGaussianBlur stdDeviation="26.9"/>
         </filter>
 
-        {/* More elliptical radial gradient */}
-        <radialGradient id="radial-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientTransform="scale(1, 0.25)">
+        {/* Updated radial gradients with #FFCB64 as dominant color */}
+        <radialGradient id="primary-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientTransform="scale(1, 0.25)">
           <stop offset="0%" stop-color="#FFCB64"/>
+          <stop offset="70%" stop-color="#FFCB64"/>
+          <stop offset="90%" stop-color="#FF7A00"/>
           <stop offset="100%" stop-color="#FF4900"/>
+        </radialGradient>
+        
+        <radialGradient id="glow-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientTransform="scale(1, 0.2)">
+          <stop offset="0%" stop-color="#FFCB64"/>
+          <stop offset="60%" stop-color="#FFCB64"/>
+          <stop offset="85%" stop-color="#FF7A00"/>
+          <stop offset="100%" stop-color="#FF5408"/>
         </radialGradient>
       </defs>
 
@@ -286,50 +323,50 @@ const PathWithSlab: React.FC = () => {
         strokeWidth="4"
       />
       
-      {/* Glow path with all shadow layers - now more elliptical */}
+      {/* Glow path with shadow layers */}
       <g filter="url(#blur-filter)">
         <path 
           ref={glowPathRef}
-          fill="url(#radial-gradient)"
+          fill="url(#glow-gradient)"
           filter="url(#shadow-190px)"
           opacity="0.6"
         />
         <path 
           ref={glowPathRef}
-          fill="url(#radial-gradient)"
+          fill="url(#glow-gradient)"
           filter="url(#shadow-108px)"
           opacity="0.7"
         />
         <path 
           ref={glowPathRef}
-          fill="url(#radial-gradient)"
+          fill="url(#glow-gradient)"
           filter="url(#shadow-63px)"
           opacity="0.8"
         />
         <path 
           ref={glowPathRef}
-          fill="url(#radial-gradient)"
+          fill="url(#glow-gradient)"
           filter="url(#shadow-32px)"
           opacity="0.9"
         />
         <path 
           ref={glowPathRef}
-          fill="url(#radial-gradient)"
+          fill="url(#glow-gradient)"
           filter="url(#shadow-9px)"
           opacity="0.95"
         />
         <path 
           ref={glowPathRef}
-          fill="url(#radial-gradient)"
+          fill="url(#glow-gradient)"
           filter="url(#shadow-4px)"
           opacity="1"
         />
       </g>
       
-      {/* Main cover path - now more elliptical */}
+      {/* Main cover path */}
       <path 
         ref={coverPathRef}
-        fill="url(#radial-gradient)"
+        fill="url(#primary-gradient)"
         stroke="#FF5B00"
         strokeWidth="1.3"
         strokeOpacity="0.8"
@@ -338,4 +375,4 @@ const PathWithSlab: React.FC = () => {
   );
 };
 
-export default PathWithSlab; 
+export default PathWithSlab;

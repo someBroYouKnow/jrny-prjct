@@ -70,7 +70,6 @@ const NavBarUl = ({active, setActive}: {active: string, setActive: React.Dispatc
             >
               {route === "/" ? "Home" : route.replace("-", " ").replace(/\b\w/g, (char) => char.toUpperCase())}
             </Link>
-            {isActive && <img src='/navbar_active.png' alt="Active indicator" />}
           </li>
         );
       })}

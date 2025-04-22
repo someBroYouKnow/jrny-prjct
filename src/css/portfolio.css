@@ -81,18 +81,7 @@
     position:relative;
 }
 
-.portfolio-tile::after{
-    overflow: visible;
-    content: "+"; 
-    position: absolute;
-    top: -12px;   /* Adjust position */
-    left: -2px; /* Adjust position */
-    color: white;
-    font-size: 1rem;
-    font-weight: bold; 
-    transition: opacity 0.3s ease-out;
-}
-
+ 
 .portfolio-tile-box {
     display: flex;
     flex-direction: column;
