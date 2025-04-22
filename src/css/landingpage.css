@@ -1,11 +1,15 @@
 .landing-container{
+  padding: 0 4rem;
   padding-top:3rem;
+  max-width: 100vw;
+  min-width: 100vw;
+  position:relative;
 }
 
 
 .r-vertical-line{ 
     position: absolute;
-    right: 8px;
+    right: 8%;
     top: 0;
     background-color: #ff4900;
     height: 100%;
@@ -83,22 +87,30 @@
     left:  -7px;
   }
    
-  .container{
-    width:100%;
-  }
-  
   .hero-container {
     display:flex; 
     max-height:94vh;
     min-height:94vh;  
-    width:100%;
+    width:100%; 
+    max-width: 100vw;
     padding-top:5rem;
     padding-left:8rem;
-    gap:6rem;  
+    gap:6rem;   
     background-image: url('/jrny_landing_bg.png');
     background-size: cover;
   background-position:bottom;
   background-repeat: no-repeat; 
+  position:relative;
+  }
+
+
+  .svg-content{ 
+    overflow: visible;  
+    position:absolute; 
+    left:5%;
+    height:100%;
+    width:90%;
+    z-index: 20; 
   }
 
   .landing-show-reel{
@@ -118,6 +130,7 @@
     flex-direction: column;
     flex-grow:1;
     min-height:70vh;
+    max-width: 100vw;
   }
   
   .landing-title{
@@ -168,110 +181,7 @@
     background-clip: text;
     text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
   }
-  
-  
-   .text-span-red{
-    color: #FF4900;
-   }
-  
-  .r-container {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .r-underline {
-    position: absolute;
-    bottom: 29.2px;
-    left: 80%;
-    height: 6px;
-    background-color: #ff4900;
-    width: 39rem;
-  }
-  
-  .r-vertical-line {
-    position: absolute;
-    right: 0;
-    top:458px;
-    width: 6px;
-    background-color: #ff4900;
-    overflow:hidden;
-    height: 50%; /* Adjust based on hero-container height */
-  }
-  
-  .r-vertical-slab {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background: linear-gradient(90deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
-    z-index: 2;
-  }
-  
-  .r-vertical-slab::before,
-  .r-vertical-slab::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #FF4900 10%,    #FF4900 97%);
-    z-index: 1;
-    padding:3px;
-    filter: blur(1.7rem);
-  }
-  
-  
-  
-   
-  .r-slab {
-    position: absolute;
-    top: 50%;
-    width: 137px;
-    height: 100%;
-    background: linear-gradient(90deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
-    transform: translateY(-50%);
-    z-index: 2;
-  }
-  
-  .r-slab::before,
-  .r-slab::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #FF4900 10%,    #FF4900 97%);
-    z-index: 1;
-    padding:3px;
-    filter: blur(1.7rem);
-  }
-   
-  .cleanse{
-    min-height:300vh;
-    width:100vw;
-  
-  }
-   
-  
-  .skewed-div { 
-    position: relative;
-    width: 100%;
-    height:700px; 
-    background-color: #FF4900; 
-    clip-path: polygon(87% 21%, 100% 0, 100% 47%, 7% 70%, 0 86%, 0 50%);
-  }
-  
-  
-  
-  .skewed-bg{
-    position:absolute;
-    z-index:-1;
-    bottom:180px;
-    border: 10px solid white;
-    height:auto;
-    width:80%;
-  }
-
-  
+     
   .card-container{ 
     margin-top:3rem;
     display:flex;
@@ -413,31 +323,7 @@
   .card-container {
     position: relative;
   }
-  
-  .card-underline {
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: #ff4900;
-    height: 100%;
-    z-index: 2;
-    width: 8px; /* Adjust thickness */
-  }
-  
-  
-  .slanted-div, .slanted-div-rev {
-    position: relative;
-    width: 100%;
-    height: 50px; /* Adjust height as needed */
-    background-color: #FF4900;
-    transform: skewY(6deg);
-  }
-  
-  .slanted-div-rev{
-    transform: skewY(-6deg);
-  
-  }
-  
+
   /* Add these new styles to your app.css */
   .animated-underline {
     position: relative;
@@ -484,6 +370,8 @@
     flex-direction: column;
     gap:2rem;
     margin-top:4rem;
+    max-width: 100vw;
+
   }
   
   /* Partner slide show css */
@@ -643,3 +531,161 @@
   clip-path: polygon(81% 25%, 100% 0, 100% 49%, 15% 71%, 0 91%, 0 74%, 0 51%);
  this is the clip path i am looking for. the one with triangles 
   */
+
+/* Animation and lines */
+
+.text-span-red{
+  color: #FF4900;
+ }
+
+.r-underline {
+  position: absolute;
+  bottom: 29.2px;
+  left: 80%;
+  height: 9px;
+  background-color: #ff4900;
+  /* width: 39rem; */
+}
+
+.r-vertical-line {
+  position: absolute; 
+  right:0;
+  top:52%;
+  width: 9px;
+  background-color: #ff4900; 
+  height: 70%; 
+}
+
+.r-vertical-slab {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%; 
+  height: 100px;
+  background: linear-gradient(90deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
+  z-index: 2;
+}
+
+.r-vertical-slab::before,
+.r-vertical-slab::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #FF4900 10%,    #FF4900 97%);
+  z-index: 1;
+  padding:3px;
+  filter: blur(1.7rem);
+}
+
+.r-slab {
+  position: absolute;
+  top: 50%;
+  width: 137px;
+  height: 100%;
+  background: linear-gradient(90deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.r-slab::before,
+.r-slab::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #FF4900 10%,    #FF4900 97%);
+  z-index: 1;
+  padding:3px;
+  filter: blur(1.7rem);
+}
+ 
+.cleanse{
+  min-height:300vh;
+  width:100vw;
+
+}
+
+
+.skewed-div {  
+  width: 100%;
+  height:400px; 
+  background-color: #FF4900; 
+  clip-path: polygon(0 53%, 86% 35%, 100% 0, 100% 45%, 14% 68%, 0 100%);
+}
+
+.skewed-div-slab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(135deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
+  z-index: 2;
+  transform: rotate(-5deg);
+  transform-origin: left top;
+}
+
+.skewed-div-slab::before,
+.skewed-div-slab::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FF4900 10%, #FF4900 97%);
+  z-index: 1;
+  padding: 3px;
+  filter: blur(1.7rem);
+}
+
+.skewed-div-1{
+  width:100%;
+  height: 300px;
+  clip-path: polygon(100% 8%, 100% 44%, 0 16%, 0 0);
+  background-color: #FF4900; 
+}  
+
+.skewed-div-2{
+  clip-path: polygon(100% 0, 100% 14%, 0 42%, 0 14%);
+  background-color: #FF4900;
+  width: 100%;
+  height: 300px;
+}
+
+  
+.card-underline {
+  position: absolute;
+  left: 0;
+  top:-6%;
+  background-color: #ff4900;
+  height: 110%;
+  z-index: 2;
+  width: 9px; /* Adjust thickness */
+}
+
+.journeys-div{
+  position:relative;
+}
+
+.r-vertical-line-journeys-div{
+  position: absolute;
+  right: 0;  
+  height:125%;
+  top:-23%;
+  width: 9px;
+  background-color: #ff4900;
+}
+
+.penultimate-container{
+  position:relative;
+}
+
+.right-choice-line{
+  position: absolute;
+  left: 0; 
+  background-color: #ff4900;
+  top:-30%;
+  height: 100%;
+  z-index: 2;
+  width: 9px; /* Adjust thickness */
+}

@@ -1,137 +1,31 @@
 import Carasoul from "../components/Carasoul/Carasoul";
 import Contact from "../components/Contact/Contact";
 import PartnerShow from "../components/PartnerShow/PartnerShow";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react"; 
 import "./../css/landingpage.css";
 import ShowReel from "../components/ShowReel/ShowReel";
+import AnimatedPathWithSlab from "../components/LineSvg/LineSvg";
 
-gsap.registerPlugin(ScrollTrigger);
+ 
 
 export default function LandingPage() {
-  useEffect(() => {
-    const updatePositions = () => {
-      const underline = document.querySelector(".r-underline") as HTMLElement;
-      const slab = document.querySelector(".r-slab") as HTMLElement;
-      const verticalLine = document.querySelector(
-        ".r-vertical-line"
-      ) as HTMLElement;
 
-      if (underline && slab && verticalLine) {
-        const underlineRect = underline.getBoundingClientRect();
-        const parentRect = underline.parentElement?.getBoundingClientRect();
-        if (!parentRect) return;
-
-        // Calculate width to reach window edge with 10px margin
-        const rightEdgeMargin = 10;
-        const newWidth =
-          window.innerWidth - underlineRect.left - rightEdgeMargin;
-
-        // Set underline width
-        underline.style.width = `${newWidth}px`;
-
-        // Position slab at start
-        slab.style.left = "0px";
-
-        // Position vertical line at end of underline (window edge - margin)
-        // verticalLine.style.top = `${underlineRect.bottom - parentRect.top}px`;
-
-        // Ensure elements stay within viewport
-        const viewportRight = window.innerWidth - rightEdgeMargin;
-        const underlineRightEdge = underlineRect.left + newWidth;
-
-        if (underlineRightEdge > viewportRight) {
-          underline.style.width = `${viewportRight - underlineRect.left}px`;
-        }
-      }
-    };
-
-    updatePositions();
-    window.addEventListener("resize", updatePositions);
-
-    return () => {
-      window.removeEventListener("resize", updatePositions);
-    };
-  }, []);
-
-  // Add this new useEffect for vertical line animation
-  useEffect(() => {
-    const verticalLine = document.querySelector(
-      ".r-vertical-line"
-    ) as HTMLElement;
-    const verticalSlab = document.createElement("div");
-    verticalSlab.classList.add("r-vertical-slab");
-
-    if (verticalLine) {
-      verticalLine.appendChild(verticalSlab);
-
-      // Set initial position
-      gsap.set(verticalSlab, {
-        y: "-100%",
-        height: "0%",
-      });
-
-      // Create scroll animation
-      const handleScroll = () => {
-        const scrollY = window.scrollY;
-        const maxScroll = 20;
-        const progress = Math.min(scrollY / maxScroll, 1);
-
-        gsap.to(verticalSlab, {
-          y: `${-100 + progress * 100}%`,
-          height: `${progress * 100}%`,
-          ease: "power2.out",
-          duration: 3,
-          overwrite: true,
-        });
-      };
-
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  }, []);
-
-  useEffect(() => {
-    const slab = document.querySelector(".r-slab") as HTMLElement;
-    const underline = document.querySelector(".r-underline") as HTMLElement;
-    const verticalLine = document.querySelector(
-      ".r-vertical-line"
-    ) as HTMLElement;
-
-    if (!slab || !underline || !verticalLine) return;
-
-    const maxMove = underline.offsetWidth - slab.offsetWidth;
-    console.log(maxMove, { underline });
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const maxScroll = 20; // Even a small scroll makes it move fully
-      const progress = Math.min(scrollY / maxScroll, 1);
-      const newX = progress * maxMove;
-
-      gsap.to(".r-slab", {
-        x: newX,
-        ease: "power2.out",
-        duration: 3, // Faster response time
-        overwrite: true,
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
     <>
     <div className="landing-container">
 
+    <section className="svg-content">
+      <div className="content-svg">
+        
+    <AnimatedPathWithSlab/>
+      </div>
+
+    </section>
 
       <div className="hero-container">
-        <span className="r-vertical-line">
+        {/* <span className="r-vertical-line">
           <span className="r-vertical-slab"></span>
-        </span>
+        </span> */}
         <div className="landing-show-reel">
         <ShowReel />
         </div>
@@ -140,13 +34,7 @@ export default function LandingPage() {
           <h1 className="landing-title">
             Making Moments <br />
             <span className="landing-page-matter-text">
-              MATTE
-              <span className="r-container">
-                R
-                <span className="r-underline">
-                  <span className="r-slab"></span>
-                </span>
-              </span>
+              MATTER
             </span>
           </h1>
           <div className="landing-buttons">
@@ -161,12 +49,10 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Skewed Div */}
-      <div className="skewed-div">
-      </div>
+ 
 
       <div className="card-container">
-        <span className="card-underline"></span>
+        {/* <span className="card-underline"></span> */}
 
         <div className="card-para-div">
           <span className="card-paragraph-start">JRNY Experential</span>
@@ -176,9 +62,9 @@ export default function LandingPage() {
             and connect. Together, we craft unforgettable experiences that leave
             a lasting impact.
           </span>
-          <span className="card-para-div-crossline">
+          {/* <span className="card-para-div-crossline">
             <img src="/underline-cross.png" alt="" />
-          </span>
+          </span> */}
         </div>
 
         <div className="cards-section">
@@ -213,9 +99,13 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="slanted-div"></div>
+ 
 
       <div className="journeys-div">
+
+        {/* <span className="r-vertical-line-journeys-div">
+          <span className="r-vertical-line-journeys-div-slab"></span>
+        </span> */}
         <div className="testimonial-top">
           We have worked closely with over 20 companies, helping them design and
           deliver meaningful experiences.
@@ -253,9 +143,12 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="slanted-div-rev"></div>
+ 
 
       <div className="penultimate-container">
+        {/* <span className="right-choice-line">
+          <span className="right-choice-line-slab"></span>
+        </span> */}
         <RightChoice />
       </div>
       <div className="footer-container">
@@ -270,8 +163,6 @@ export const RightChoice = () => {
   return (
     <>
     <div className="right-choice-container">
-
-
       <h1 className="right-choice-h1">
         Why <span className="jrny-span">JRNY</span> is the Right Choice
       </h1>

@@ -2,6 +2,8 @@ import { useState } from "react";
 import Contact from "../components/Contact/Contact";
 import PartnerShow from "../components/PartnerShow/PartnerShow";
 import "./../css/portfolio.css";
+import FooterLine from "../components/shared/FooterLine";
+import Footer from "../components/shared/Footer";
 
 
 export default function Portfolio() {
@@ -24,7 +26,7 @@ export const PortfolioContent = ()=>{
   <div className="portfolio-our-projects">
     <div className="our-projects-heading">
       <span className="our-projects-span">
-        Our <span className="jrny-span">Projects</span>
+        Our <span className="jrny-span">Portfolio</span>
       </span>
     </div>
     <p className="our-projects-p">
@@ -42,17 +44,8 @@ export const PortfolioContent = ()=>{
 <PortfolioMiddleList />
 </div>
 
-<div className="portfolio-tags">
-<span className="tags">Virtual Networking</span>
-<span className="tags"> Event Branding and Digital Identity</span>
-<span className="tags">Event Analytics</span>
-<span className="tags"></span>
-<span className="tags"></span>
-<span className="tags"></span>
-</div>
-<div className="portfolio-contact">
-<Contact />
-</div>
+ 
+<Footer/>
     </>
   )
 }
@@ -82,40 +75,10 @@ const PortfolioTile = ({videoLink, thumbnail, tileTitle}:PortfolioTileProps) =>{
 
 
 export const PortfolioMiddleList = () =>{
-  const sidebarTabs = ['All Categories', 'Experiential Marketing', 'Content Creation', 'Multimedia Production', 'Experience Design', 'Articles'];
-  const [selectedTab,setSelectedTab] = useState(0);
 
 
   return (
-    <div className="portfolio-middle-list">
-    <div className="portfolio-list-sidebar">
-      <div className="portfolio-list-our-jrny">
-        Our <span className="jrny-span">JRNY</span>
-      </div>
-      <div className="portfolio-list-sidebar-elements">
-        <ul>
-          { sidebarTabs.map((tab:string, index:number)=>
-            <li 
-            key={tab}
-            onClick={
-              ()=>{
-                setSelectedTab(index);
-              }
-            }
-            className={`portfolio-list-sidebar-element ${
-              selectedTab === index ? 'portfolio-sidebar-element-active' : ''
-            }`}
-          >                    <button className="sidebar-list-tab">
-              {" "}
-              {tab}
-            </button>
-          </li>
-          )  
-        }
-        </ul>
-      </div>
-      <div className="portfolio-reels"></div>
-    </div>
+    <div className="portfolio-middle-list"> 
     <div className="portfolio-tile-container">
       {[...Array(20)].map((_, i) => (
         <div key={i} className="portfolio-tile">
