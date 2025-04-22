@@ -1,5 +1,4 @@
-.landing-container{
-  padding: 0 4rem;
+.landing-container{ 
   padding-top:3rem;
   max-width: 100vw;
   min-width: 100vw;
@@ -93,8 +92,7 @@
     min-height:94vh;  
     width:100%; 
     max-width: 100vw;
-    padding-top:5rem;
-    padding-left:8rem;
+    padding-top:5rem; 
     gap:6rem;   
     background-image: url('/jrny_landing_bg.png');
     background-size: cover;
