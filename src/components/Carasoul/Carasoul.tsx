@@ -100,9 +100,7 @@ export default function Carasoul() {
       return (
         <div className='carousel-component'>
         
-      <Carousel
-          showDots 
-          customDot={<CustomDot />}
+      <Carousel 
           renderDotsOutside={true}
           focusOnSelect={true}
             responsive={responsive}  
@@ -113,8 +111,7 @@ export default function Carasoul() {
            >
             {cards.map((card, index) => (
               <Card
-                key={index} 
-                profilePic={card.profilePic}
+                key={index}  
                 profileName={card.profileName}
                 profileDesignation={card.profileDesignation}
                 compliment={card.compliment}
@@ -128,16 +125,14 @@ export default function Carasoul() {
 
     
    
-interface CardProps {
-  profilePic: string;
+interface CardProps { 
   profileName: string;
   profileDesignation: string;
   compliment: string; 
   active:boolean;
 }
 
-const Card = ({
-  profilePic,
+const Card = ({ 
   profileName,
   profileDesignation,
   compliment ,
@@ -145,8 +140,7 @@ const Card = ({
 }: CardProps) => {
   return (
     <div className={`profile-card-container`}>
-      <div className="profile-container">
-        <img src={`${profilePic}`} alt="Profile picture" />
+      <div className="profile-container"> 
         <div className="profile-infor">
           <span className="profile-name">{profileName}</span>
           <span className="designation">{profileDesignation}</span>
