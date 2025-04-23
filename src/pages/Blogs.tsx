@@ -44,27 +44,37 @@ export const BlogHero = ({route='base'}:BlogsProps)=>{
 
           <div className="blog-tile-container">
             {BlogItemArray.map((BlogItem: BlogItemType) => (
-              <div className="blog-tile">
-                <img src={BlogItem.thumbnail ?? ''} alt={BlogItem.title} />
-                <div className="blog-caption">
-                  <div className="blog-info">
-
-                  <div className="blog-tile-heading">{BlogItem.title}</div>
-                  <div className="blog-tile-description-box">
-                  <div className="blog-tile-description">{BlogItem.caption1}</div>
-                  <div className="blog-tile-description">{BlogItem.caption2}</div>
-                  </div>
-                  </div>
-                  <div className="blog-link">
-                    <button className="go-to-blog ">
-
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <BlogTile thumbnail = {BlogItem.thumbnail}
+                        title = {BlogItem.title}
+                        caption1={BlogItem.caption1}
+                        caption2={BlogItem.caption2}
+                        />
             ))}
           </div>
         </div>
     </>
   )
 }
+ 
+interface BlogItemProps {
+  thumbnail?: string;
+  title: string;
+  caption1: string;
+  caption2: string;
+}
+
+export const BlogTile = ({ thumbnail, title, caption1, caption2 }: BlogItemProps) => {
+  return (
+    <div className="blog-tile">
+      <div className="blog-info">
+        <div className="blog-tile-heading">{title}</div>
+        <div className="blog-tile-description">{caption1}</div>
+        <div className="blog-tile-description">{caption2}</div>
+        <button className="go-to-blog">Read More</button>
+      </div>
+      <div className="blog-image">
+        <img src={thumbnail} alt={title} />
+      </div>
+    </div>
+  );
+}; 
