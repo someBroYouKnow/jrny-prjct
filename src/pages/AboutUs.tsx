@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import './../css/about.css';
 import Contact from '../components/Contact/Contact';
 import ShowReel from '../components/ShowReel/ShowReel';
+import Footer from '../components/shared/footer/Footer';
 
 const AboutUsMottoArray =[
   {title:"MISSION",
@@ -97,7 +98,7 @@ export default function AboutUs() {
         ))}
         </div>
       </div> 
-      <Contact />
+      <Footer />
     </div>
   )
 }

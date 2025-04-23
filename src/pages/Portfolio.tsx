@@ -2,8 +2,9 @@ import { useState } from "react";
 import Contact from "../components/Contact/Contact";
 import PartnerShow from "../components/PartnerShow/PartnerShow";
 import "./../css/portfolio.css";
-import FooterLine from "../components/shared/FooterLine";
-import Footer from "../components/shared/Footer";
+import FooterLine from "../components/shared/footer/FooterLine";
+import Footer from "../components/shared/footer/Footer";
+import { Link } from "react-router";
 
 
 export default function Portfolio() {
@@ -64,7 +65,9 @@ const PortfolioTile = ({videoLink, thumbnail, tileTitle}:PortfolioTileProps) =>{
   return (
     <div className="portfolio-tile-box">
       <div className="tile-thumbnail">
+        <Link to={'/portfolio/:abcd'} className='portfolio-link'>
         <img src={thumbnail ?? '/landing-video-card.png'} alt="" />
+        </Link>
       </div>
       <div className="tile-title">
         {tileTitle}
@@ -74,18 +77,32 @@ const PortfolioTile = ({videoLink, thumbnail, tileTitle}:PortfolioTileProps) =>{
 }
 
 
-export const PortfolioMiddleList = () =>{
+export const PortfolioMiddleList = () => {
+  const allTiles = [...Array(20)].map((_, i) => ({
+    id: i,
+    title: `Project ${i + 1}`,
+    videoLink: "http",
+  }));
 
+  const [visibleCount, setVisibleCount] = useState(6); // Show 6 tiles initially
+
+ 
 
   return (
-    <div className="portfolio-middle-list"> 
-    <div className="portfolio-tile-container">
-      {[...Array(20)].map((_, i) => (
-        <div key={i} className="portfolio-tile">
-          <PortfolioTile key={i + 1} tileTitle={`dolor sit`} videoLink={'http'} />
-        </div>
-      ))}
+    <div className="portfolio-middle-list">
+      <div className="portfolio-tile-container">
+        {allTiles.slice(0, visibleCount).map((tile) => (
+          <div key={tile.id} className="portfolio-tile">
+            <PortfolioTile
+              key={tile.id}
+              tileTitle={tile.title}
+              videoLink={tile.videoLink}
+            />
+          </div>
+        ))}
+      </div>
+
+ 
     </div>
-  </div>
-  )
-}
+  );
+};

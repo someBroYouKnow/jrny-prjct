@@ -1,5 +1,5 @@
 import Contact from "../components/Contact/Contact";
-import Footer from "../components/shared/Footer";
+import Footer from "../components/shared/footer/Footer";
 import { BlogItemExample, BlogItemType } from "../constants/blogs";
 import "./../css/blog.css";
 

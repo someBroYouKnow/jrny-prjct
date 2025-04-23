@@ -1,10 +1,10 @@
-import Contact from "../Contact/Contact";
+import Contact from "../../Contact/Contact";
 import FooterLine from "./FooterLine";
-
+import './footer.css'
 
 export default function Footer() {
   return (
-<div className="portfolio-contact">
+<div className="footer-contact">
   <FooterLine/>
 <Contact />
 </div>  )

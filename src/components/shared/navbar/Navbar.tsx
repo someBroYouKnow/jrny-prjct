@@ -94,7 +94,6 @@ const NavBarUlMobile = ({active, setActive, closeMenu}: {active: string, setActi
             >
               {route === "/" ? "Home" : route.replace("-", " ").replace(/\b\w/g, (char) => char.toUpperCase())}
             </Link>
-            {isActive && <img src='/navbar_active.png' alt="Active indicator" />}
           </li>
         );
       })}
