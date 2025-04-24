@@ -1,0 +1,14 @@
+.slider-outer-container{
+  border:30px solid red;
+  height: 10vh;
+}
+
+.racesWrapper{
+  display:flex;
+  gap:2rem;
+  border: 80px solid saddlebrown;
+}
+
+.remove{
+  min-height:20vh;
+}

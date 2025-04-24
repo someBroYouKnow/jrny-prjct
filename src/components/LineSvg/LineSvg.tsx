@@ -276,11 +276,12 @@ const PathWithSlab: React.FC = () => {
   }, []);
 
   return (
+    
     <svg 
       ref={svgRef}
       viewBox="0 0 1536 4000" 
       xmlns="http://www.w3.org/2000/svg"
-      style={{ width: '100%', height: 'auto' }}
+      style={{ width: '100%', height: 'auto',pointerEvents: 'none'   }}
     >
       <defs>
         {/* Shadow filters */}

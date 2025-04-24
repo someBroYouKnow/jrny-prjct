@@ -42,7 +42,16 @@ export const BlogHero = ({route='base'}:BlogsProps)=>{
             </div>
           </div>
 
-          <div className="blog-tile-container">
+          <BlogTileContainer />
+        </div>
+    </>
+  )
+}
+
+export const BlogTileContainer = ()=>{
+  return (
+    <>
+              <div className="blog-tile-container">
             {BlogItemArray.map((BlogItem: BlogItemType) => (
               <BlogTile thumbnail = {BlogItem.thumbnail}
                         title = {BlogItem.title}
@@ -51,7 +60,6 @@ export const BlogHero = ({route='base'}:BlogsProps)=>{
                         />
             ))}
           </div>
-        </div>
     </>
   )
 }

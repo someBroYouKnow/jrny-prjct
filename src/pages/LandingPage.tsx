@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import "./../css/landingpage.css";
 import ShowReel from "../components/ShowReel/ShowReel";
 import AnimatedPathWithSlab from "../components/LineSvg/LineSvg";
+import HorizontalScrollSlider from "../components/HorizontalScroll/HorizontalScroll";
 
  
 
@@ -14,6 +15,10 @@ export default function LandingPage() {
     <>
     <div className="landing-container">
 
+    <section className="landing-carousol">
+      <HorizontalScrollSlider />
+    </section>
+
     <section className="svg-content">
       <div className="content-svg">
         
@@ -22,10 +27,7 @@ export default function LandingPage() {
 
     </section>
 
-      <div className="hero-container">
-        {/* <span className="r-vertical-line">
-          <span className="r-vertical-slab"></span>
-        </span> */}
+      <div className="hero-container"> 
         <div className="landing-show-reel">
         <ShowReel />
         </div>
@@ -61,10 +63,7 @@ export default function LandingPage() {
             partners with you to create immersive events that engage, inspire,
             and connect. Together, we craft unforgettable experiences that leave
             a lasting impact.
-          </span>
-          {/* <span className="card-para-div-crossline">
-            <img src="/underline-cross.png" alt="" />
-          </span> */}
+          </span> 
         </div>
 
         <div className="cards-section">
