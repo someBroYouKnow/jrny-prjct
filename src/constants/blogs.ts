@@ -12,7 +12,7 @@ export type BlogItemType= {
 export const BlogItemExample: BlogItemType = {
   id: "someBlog",
   thumbnail: "/jrny_example_profile_card.jpg",
-  title: "Blog",
+  title: "Leading the Way in Content-Driven Event Management",
   caption1: "Executive Director",
   caption2: "Exec call",
   link: "http",
