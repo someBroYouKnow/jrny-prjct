@@ -1,9 +1,11 @@
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./partnerShow.css";
+import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger);
+ 
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function PartnerShow() {
   return (
     <div className="partner-show-container">
@@ -29,7 +31,7 @@ function PartnerRow() {
   let xPercent = 0;
   let direction = 1;
 
-  useEffect(() => {
+  useGSAP(() => {
     requestAnimationFrame(animation);
   }, []);
 
