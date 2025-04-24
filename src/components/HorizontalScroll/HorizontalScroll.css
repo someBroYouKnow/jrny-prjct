@@ -1,14 +1,26 @@
-.slider-outer-container{
-  border:30px solid red;
-  height: 10vh;
+.slider-outer-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.racesWrapper{
-  display:flex;
-  gap:2rem;
-  border: 80px solid saddlebrown;
+.slider-track {
+  display: flex;
+  height: 100%;
+  width: fit-content;
 }
 
-.remove{
-  min-height:20vh;
+.slider-item {
+  flex: 0 0 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-item img {
+  width: 60%;
+  max-height: 70%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }

@@ -1,58 +1,48 @@
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import "./HorizontalScroll.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const imagesList = [
-  '/landing-video-card.png',
-  // '/landing-video-card.png',
-  // '/landing-video-card.png',
-  // '/landing-video-card.png',
-  // '/landing-video-card.png'
+  "/landing-video-card.png",
+  "/landing-video-card.png",
+  "/landing-video-card.png",
+  "/landing-video-card.png",
+  "/landing-video-card.png"
 ];
 
 export default function HorizontalScrollSlider() {
-  const racesWrapperRef = useRef<HTMLDivElement>(null);
-  const racesRefs = useRef<HTMLDivElement[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  // Store ref for each race element
-  const addToRefs = (el: HTMLDivElement | null, index: number) => {
-    if (el && !racesRefs.current.includes(el)) {
-      racesRefs.current[index] = el;
-    }
-  };
+  useGSAP(() => {
+    if (!containerRef.current || !trackRef.current) return;
 
-  useEffect(() => {
-    if (!racesWrapperRef.current || racesRefs.current.length === 0) return;
+    const sections = gsap.utils.toArray(".slider-item");
 
-    gsap.to(racesWrapperRef.current, {
-      x:-700,
+    gsap.to(trackRef.current, {
+      xPercent: -100 * (sections.length - 1),
       ease: "none",
       scrollTrigger: {
-        trigger: racesWrapperRef.current,
-        start: 'top top',
+        trigger: containerRef.current,
+        start: "top top",
+        end: () => `+=${containerRef.current!.offsetWidth * (sections.length - 1)}`,
+        scrub: 1,
         pin: true,
-        scrub: true,
-        end: () => "+=" + racesWrapperRef.current?.offsetWidth
+        anticipatePin: 1
       }
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(st => st.kill());
-    };
   }, []);
 
   return (
-    <div className="slider-outer-container">
-      <div className="racesWrapper" ref={racesWrapperRef}>
-        {imagesList.map((image, index) => (
-          <div 
-            className='races' 
-            key={`race-${index}`}
-            ref={el => addToRefs(el, index)}
-          >
-            <img src={image} alt={`slider ${index}`} />
+    <div className="slider-outer-container" ref={containerRef}>
+      <div className="slider-track" ref={trackRef}>
+        {imagesList.map((src, index) => (
+          <div className="slider-item" key={index}>
+            <img src={src} alt={`slide-${index}`} />
           </div>
         ))}
       </div>
