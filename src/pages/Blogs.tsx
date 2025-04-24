@@ -1,10 +1,10 @@
-import { Link } from "react-router";
-import Contact from "../components/Contact/Contact";
+import { Link } from "react-router"; 
 import Footer from "../components/shared/footer/Footer";
 import MinuteCount from "../components/shared/MinuteCount";
 import Tags from "../components/Tags/Tags";
 import { BlogItemExample, BlogItemType } from "../constants/blogs";
 import "./../css/blog.css";
+import useIsMobile from "../hooks/useIsMobile";
 
 interface BlogsProps {
   route?: "base" | "derived";
@@ -31,6 +31,7 @@ export default function Blogs({ route = "base" }: BlogsProps) {
 }
 
 export const BlogHero = ({route='base'}:BlogsProps)=>{
+  const isMobile = useIsMobile(); // Adjust the width as per your design requirements
   return (
     <>
         <div className="blog-hero-container">
@@ -41,8 +42,10 @@ export const BlogHero = ({route='base'}:BlogsProps)=>{
             </div>
 
           </div>
-
-          <BlogTileContainer />
+          { 
+          (isMobile || route==='derived') ? <BlogTileMobileContainer /> : <BlogTileContainer />
+ 
+          }
         </div>
     </>
   )
@@ -101,3 +104,45 @@ export const BlogTile = ({ thumbnail, title, caption1, caption2, content }: Blog
     </div>
   );
 }; 
+
+export const BlogTileMobile = ({ thumbnail, title, caption1, caption2, content }: BlogItemProps) => {
+  return (
+    <div className="blog-tile-mobile">
+        <div className="blog-image-mobile">
+        <img src={thumbnail} alt={title} />
+      </div>
+      <div className="blog-info-mobile">
+        <div className="minute-count-in-tile-m"><MinuteCount textString={content} /></div>
+
+        <div className="blog-tile-heading">{title}</div> 
+ 
+        <div className="tag-container">
+        <Tags tagTitle='Virtual Networking'/>
+        <Tags tagTitle='Data'/>
+        </div>
+      </div>
+
+    </div>
+  );
+};
+
+export const BlogTileMobileContainer = ()=>{
+  return (
+    <>
+          <div className="blog-tile-container-mobile">
+            {BlogItemArray.map((BlogItem: BlogItemType,index) => (
+              <>
+              <Link to={`/blog/${BlogItem.id}`} className="blog-link" key={BlogItem.id}>
+              <BlogTileMobile thumbnail = {BlogItem.thumbnail}
+                        title = {BlogItem.title}
+                        caption1={BlogItem.caption1}
+                        caption2={BlogItem.caption2}
+                        content={BlogItem.content}
+                        />
+              </Link> 
+              </>
+            ))}
+          </div>
+    </>
+  )
+}

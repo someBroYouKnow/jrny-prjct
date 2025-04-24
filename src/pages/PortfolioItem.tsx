@@ -79,7 +79,7 @@ const PortfolioItemHeader = () =>{
     )
 }
 
-const ShareOn = ()=>{
+export const ShareOn = ()=>{
     return (
         <>
         <div className="share-on-box">

@@ -1,7 +1,7 @@
 import Carasoul from "../components/Carasoul/Carasoul";
 import Contact from "../components/Contact/Contact";
 import PartnerShow from "../components/PartnerShow/PartnerShow";
-import { useEffect, useRef } from "react"; 
+import { useRef } from "react"; 
 import "./../css/landingpage.css";
 import ShowReel from "../components/ShowReel/ShowReel";
 import AnimatedPathWithSlab from "../components/LineSvg/LineSvg";

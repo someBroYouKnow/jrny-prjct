@@ -5,10 +5,10 @@ const useIsMobile = (breakpoint = 1000): boolean => {
     typeof window !== 'undefined' ? window.innerWidth < breakpoint : false
   );
 
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < breakpoint);
+  };
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < breakpoint);
-    };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
