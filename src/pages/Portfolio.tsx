@@ -82,6 +82,7 @@ export const PortfolioMiddleList = () => {
     id: i,
     title: `Project ${i + 1}`,
     videoLink: "http",
+    thumbnail: "/portfolio-video-card.png",
   }));
 
   const [visibleCount, setVisibleCount] = useState(6); // Show 6 tiles initially
@@ -97,6 +98,7 @@ export const PortfolioMiddleList = () => {
               key={tile.id}
               tileTitle={tile.title}
               videoLink={tile.videoLink}
+              thumbnail={tile.thumbnail}
             />
           </div>
         ))}

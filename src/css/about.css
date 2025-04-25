@@ -167,6 +167,13 @@
   color:#808186;
 }
 
+.social-links-favicon{
+  display:flex;
+  justify-content: space-between;
+  gap:0.5rem;
+  align-items: center;
+}
+
 /* Optional: Adjust gaps for smaller screens */
 @media (max-width: 600px) {
   .about-people-tile-container {

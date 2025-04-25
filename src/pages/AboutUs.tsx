@@ -1,8 +1,8 @@
 import { Link } from 'react-router';
 import './../css/about.css';
-import Contact from '../components/Contact/Contact';
 import ShowReel from '../components/ShowReel/ShowReel';
 import Footer from '../components/shared/footer/Footer';
+import Tags from '../components/Tags/Tags';
 
 const AboutUsMottoArray =[
   {title:"MISSION",
@@ -51,10 +51,7 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <div className="tags">
-        
-        <span className="tag">Virtual Networking</span>
-      </div>
+      <Tags tagTitle='Virtual Networking'/>
 
 
       <div className="about-main-container">
@@ -89,9 +86,9 @@ export default function AboutUs() {
                 <div className="person-designation">{person.personDesignation}</div>
               </div>
               <div className="social-links-favicon">
-                <a href={person.personSocials.linkedIn}><img src="/favicon/linkedIn.png" alt="" /></a>
-                <a href={person.personSocials.instagram}><img src="/favicon/instagram.png" alt="" /></a>
-                <a href={person.personSocials.facebook}><img src="/favicon/facebook.png" alt="" /></a>
+                <a href={person.personSocials.linkedIn}><img src="/favicon/linkedIn.svg" alt="" /></a>
+                <a href={person.personSocials.instagram}><img src="/favicon/instagram.svg" alt="" /></a>
+                <a href={person.personSocials.facebook}><img src="/favicon/facebook.svg" alt="" /></a>
               </div>
             </div>
           </div>

@@ -8,13 +8,12 @@
   
     border-left: 1px solid;
     border-right: 1px solid;
-    border-image-source: linear-gradient(180deg, #141414 0%, #C8C8C8 51.5%, #141414 100%);
+    border-image-source: radial-gradient(180deg, #141414 0%, #C8C8C8 51.5%, #141414 100%);
     border-image-slice: 1;
   
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  
-    border-radius: 999px / 50%;
+   
  
     
     background-color: transparent;
