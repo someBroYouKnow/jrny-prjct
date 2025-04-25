@@ -3,7 +3,7 @@
     min-height: 100vh;
     max-width: 100vw;
     padding: 0 7rem;
-    padding-top: 6rem;
+    padding-top: 9rem;
     background-image: url("/bg/about.png");
     background-position: top right; /* Positions image at the top-left */
     background-repeat: no-repeat; /* Prevents tiling */
@@ -35,9 +35,18 @@
     width: 100%;
 }
 
+.blog-item-company-name{
+    font-family: 'Armstrong';
+    font-size: 1.1rem;
+    color: white;
+    
+}
+
 .blog-content-title{
     font-family: 'Armstrong';
-    font-size: 4rem;
+    font-size: 3.5rem;
+    letter-spacing: 0;
+    line-height: 3.5rem;
 }
 
 .blog-content-area{
