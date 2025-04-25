@@ -43,7 +43,7 @@ export default function LandingPage() {
  
       <section className="about-us-landing">
         <div className="about-us-landing-text">
-          <h1 className="about-us-landing-title">About Us</h1>
+          <h1 className="about-us-landing-title">About <span className="jrny-span">US</span></h1>
           <p className="about-us-landing-paragraph">
           JRNY Experiential partners with you to create immersive events that engage, inspire, and connect. Together, we craft unforgettable experiences that leave a lasting impact.          </p>
         </div>
@@ -115,7 +115,7 @@ export default function LandingPage() {
 
         <section className="landing-portfolio">
           <div className="landing-portfolio-title-box">
-            <h1 className="landing-portfolio-title">Our <span>Portfolio</span></h1>
+            <h1 className="landing-portfolio-title">Our <span className="jrny-span">Portfolio</span></h1>
             <p className="landing-portfolio-paragraph">
             We create immersive and impactful digital experiences, from virtual conferences to interactive brand activations. Our work transforms ideas into unforgettable moments that engage and inspire audiences. Explore our portfolio to see the journeys we’ve crafted.            </p>
           </div>
@@ -152,9 +152,6 @@ export default function LandingPage() {
  
 
       <div className="penultimate-container">
-        {/* <span className="right-choice-line">
-          <span className="right-choice-line-slab"></span>
-        </span> */}
         <RightChoice />
       </div>
       <div className="footer-container">
