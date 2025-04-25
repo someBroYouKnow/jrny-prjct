@@ -28,6 +28,13 @@
     width: 100%; 
 }
 
+.blog-item-header-utils{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .blog-content-title{
     font-family: 'Armstrong';
     font-size: 4rem;

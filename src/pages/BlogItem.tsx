@@ -3,7 +3,7 @@ import '../css/blog-item.css'
 import Contact from '../components/Contact/Contact';
 import { BlogItemExample, BlogItemType } from '../constants/blogs';
 import { BlogHero } from './Blogs';
-import { ShareOn } from './PortfolioItem';
+import ShareOn from '../components/ShareOn/ShareOn';
 
 
 const Blog: BlogItemType =BlogItemExample; 

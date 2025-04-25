@@ -3,6 +3,7 @@ import '../css/portfolio-item.css';
 import { useParams } from 'react-router'; 
 import {   PortfolioMiddleList } from './Portfolio';
 import Footer from '../components/shared/footer/Footer';
+import  ShareOn  from '../components/ShareOn/ShareOn';
 
 export default function PortfolioItem() {
   const { portfolioId } = useParams();
@@ -78,26 +79,4 @@ const PortfolioItemHeader = () =>{
         </div>
     )
 }
-
-export const ShareOn = ()=>{
-    return (
-        <>
-        <div className="share-on-box">
-            <span className="share-on-span">Share On</span>
-            <div className="share-icons">
-                <ShareImg src='/favicon/whatsapp.svg' / >
-                <ShareImg src='/favicon/linkedin.svg' / >
-                <ShareImg src='/favicon/facebook.svg' / >
-            </div>
-        </div>
-        </>
-    )
-}
-
-const ShareImg = ({src}:{src:string})=>{
-    return (
-        <button>
-            <img src={`${src}`} alt="" />
-        </button>
-    )
-}
+1
