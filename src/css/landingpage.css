@@ -1,540 +1,693 @@
-.landing-container{ 
-  padding-top:3rem;
+.landing-container {
+  padding-top: 3rem;
+  width: 100vw;
   max-width: 100vw;
   min-width: 100vw;
-  position:relative;
+  position: relative;
+  padding-left: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-x: hidden;
 }
 
+/* .hero-container{
+  min-height: 100vh;
+  max-height:100vh;
+  height: 100vh;
+}
 
-.r-vertical-line{ 
-    position: absolute;
-    right: 8%;
-    top: 0;
-    background-color: #ff4900;
-    height: 100%;
-    z-index: 2;
-    width: 8px; /* Adjust thickness */
-  }
-  
-  .navbar-div{
-    min-width: 40%;
-  }
-  
-  .button {
-    width: 200px; /* ~185px in 1920px */
-    height: 50px; /* ~48px in 1080px */
-    padding:0.3rem 1rem ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    font-size: 1rem;
-    background-color: #ff4900;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 0 0 2rem 0; /* Circular bottom right corner */
-    text-transform: uppercase;
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 700;
-  }
-  
-  .button::before,
-  .button::after {
-    content: "";
-    position: absolute;
-    background-color: white;
-  }
-  
-  .button::before {
-    width: 2px;
-    height: 10px;
-    top: -4px;
-    left: -3px;
-  }
-  
-  .button::after {
-    width: 10px;
-    height: 2px;
-    top: 0px;
-    left:  -7px;
-  }
-  
-  .button-alt{
-    color:#FF4900;
-    background-color: white;
-  }
-  
-  .button-alt::before,
-  .button-alt::after {
-    content: "";
-    position: absolute;
-    background-color: #FF4900;
-  }
-  
-  .button-alt::before {
-    width: 2px;
-    height: 10px;
-    top: -4px;
-    left: -3px;
-  }
-  
-  .button-alt::after {
-    width: 10px;
-    height: 2px;
-    top: 0px;
-    left:  -7px;
-  }
-   
-  .hero-container {
-    display:flex; 
-    max-height:94vh;
-    min-height:94vh;  
-    width:100%; 
-    max-width: 100vw;
-    padding-top:5rem; 
-    gap:6rem;   
-    background-image: url('/jrny_landing_bg.png');
-    background-size: cover;
-  background-position:bottom;
-  background-repeat: no-repeat; 
-  position:relative;
-  }
+.about-us-landing{
+  min-height: 100vh;
+  max-height:100vh;
+  height: 100vh;
+}
 
+.card-container{
+  min-height: 100vh;
+  max-height:100vh;
+  height: 100vh;
 
-  .svg-content{ 
-    overflow: visible;  
-    position:absolute; 
-    left:5%;
-    height:100%;
-    width:90%;
-    z-index: 20; 
-  }
+}
 
-  .landing-show-reel{
-    max-width: 40vw;
-    width:38vw;
-  }
-  
-  
-  .part-of-span{
-    font-family: 'Helvetica Neue';
-    color:#808186;
-    height:20px;
-  }
-  
-  .landing-text-container{
-    display:flex;
-    flex-direction: column;
-    flex-grow:1;
-    min-height:70vh;
-    max-width: 100vw;
-  }
-  
-  .landing-title{
-    font-family: 'Armstrong';
-    font-size: 4.5rem;
-  }
-  
-  .landing-buttons{
-    margin-top:1rem;
-    display:flex;
-    gap:2rem;
-  }
-  
-  .contact-btn{
-    color:#FF4900;
-    background-color: white;
-  }
-  
-  .about-btn{
-    
-  }
-  
-  
-  .landing-page-matter-text{
-    color: #ff4900;
-  }
-  
-  .landing-caption {
-    display:flex;
-    width:60%;
-    margin-top:1.3rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-align: center;
-    background: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Makes the background visible through the text */
-    background-clip: text;
-    text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
-  }
-  
-  .card-paragraph{
-    text-align: center;
-    font-family: 'Helvetica Neue';
-    background: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Makes the background visible through the text */
-    background-clip: text;
-    text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
-  }
-     
-  .card-container{ 
-    margin-top:3rem;
-    display:flex;
-    justify-content: center;
-    align-items: center; 
-    flex-direction: column;
-    gap:10rem;
-  }
-  
-  .cards-section{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    gap:6rem;
-    padding-bottom:7rem;
-    margin-bottom:7rem;
-    flex-wrap:wrap;
-  }
-  
-  
-  .card-para-div {
-    position: relative;
-    max-width:60vw;
-    min-height:max-content;
-    margin-top:2rem;
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-size: 3rem;  
-    line-height: 2.5rem; /* Scales naturally with font size */
-    letter-spacing: 1px;
-    text-align: center;
-    text-align: center;
-  }
-  
-  .card-para-div-crossline{
-    position:absolute;
-    transform: skewY(8deg);
-    right:0px;
-    bottom:3px;
-  }
-  
-  .card-paragraph-start{
-    color: #FF4900;
-  }
-  
-  
-  .profile-card {
-    width: 288px;
-    height: 440px;
-    border: 5px solid white;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Needed for caption positioning */
-  }
-  
-  .profile-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    transition: transform 0.4s ease, filter 0.4s ease;
-  }
-  
-  .profile-card:hover img {
-    filter: grayscale(0%); /* Restores color */
-    transform: scale(1.05); /* Zooms in */
-    animation: bounceScale 0.5s ease-in-out;
-  }
+.journeys-div{  
+  min-height: 100vh;
+  max-height:100vh;
+}
 
-  @keyframes bounceScale {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1.05); }
-  }
- 
-  
-  /* Caption Styles */
-  .profile-caption {
-    position: absolute;
-    bottom: -100%; /* Starts hidden below */
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    transition: bottom 0.4s ease-in-out;
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-  
-  .profile-card:hover .profile-caption {
-    bottom: 0; 
-  }
-  
-  /* Caption Content */
-  .profile-caption .heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family: Armstrong;
-  }
-  
-  .profile-caption .description {
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    opacity: 0.8;
-  }
-  
-  
-  .profile-card:hover{
-    cursor:grabbing;
-  }
-  
-  .profile-card::before,
-  .profile-card::after {
-    content: "";
-    position: absolute;
-    background-color: white;
-  }
-  
-  .profile-card::before {
-    width: 2px;
-    height: 10px;
-    top: -4px;
-    left: -3px;
-  }
-  
-  .profile-card::after {
-    width: 10px;
-    height: 2px;
-    top: 0px;
-    left:  -7px;
-  }
-  
-  .card-container {
-    position: relative;
-  }
+.penultimate-container{
+  min-height: 100vh;
+  max-height:100vh;
+} */
 
-  /* Add these new styles to your app.css */
-  .animated-underline {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .animated-slab {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
-    transform: translateY(-100%);
-    z-index: 2;
-  }
-  
-  .animated-slab::before,
-  .animated-slab::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #FF4900 10%, #FF4900 97%);
-    z-index: 1;
-    padding: 3px;
-    filter: blur(1.7rem);
-  }
-  
-  /* Update existing underline styles */
-  .card-underline {
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: #ff4900;
-    height: 100%;
-    z-index: 2;
-    width: 8px;
-    overflow: hidden; /* Add this */
-  }
-  
-  .journeys-div{
-    display:flex;
-    flex-direction: column;
-    gap:2rem;
-    margin-top:4rem;
-    max-width: 100vw;
+.r-vertical-line {
+  position: absolute;
+  right: 8%;
+  top: 0;
+  background-color: #ff4900;
+  height: 100%;
+  z-index: 2;
+  width: 8px; /* Adjust thickness */
+}
 
-  }
-  
-  /* Partner slide show css */
-  .partners-slideshow{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  
-  .partnered{
-    color:#FF5B00;
-    font-family: 'Helvetica Neue';
-    font-weight: 700;
-    width:fit-content;
-    margin:0 auto;
-    display: inline-block;
-  }
-  
-  .testimonial-top{
-    max-width: 40vw;
-    margin:0 auto;
-    font-size:2rem;
-    line-height: 40px;
-  }
-  
-  
-  .testimonial-bottom{
-    font-size: 2rem;
-    max-width: 40vw;
-    margin:0 auto;
-  } 
-  
-  .jrny-span{
-    color:#FF4900;
-    background-color: none !important;
-  }
-  
-  .carousol-container{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    width:100%;
-    margin-bottom:13rem;
-  }
-  
-  .carousol-logo{
-    position:relative;
-  }
-  
-  .testimonial-logo-trusted{
-    font-family: 'Helvetica Neue';
-    color:#FF5B00;
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .penultimate-container{
-    margin-top:6rem;
-    display: flex;
-    flex-direction: column;
-    gap:2rem;
-    align-items: center;
-  }
+.navbar-div {
+  min-width: 40%;
+}
 
-  .right-choice-container{
-    margin-top:6rem;
-    display: flex;
-    flex-direction: column;
-    gap:2rem;
-    align-items: center;
-  }
-  
-  .right-choice-h1{
-    font-size:3.5rem;
-    font-weight: 400;
-  }
-  
-  .right-choice-p{
-    font-size:1.1rem;
-    font-weight: 400;
-    max-width:45vw;
-    color:#808186;
-  }
-  
-  .about-us-home, .contact-us-button{
-    color:#FF4900;
-    background-color: white;;
-  }
-  
-  .about-us-home::before, .about-us-home::after,
-  .contact-us-button::before, .contact-us-button::after{
-    background-color: #FF4900;
-  }
-  
-  .features{
-    display:flex;
-    gap:1rem;
-    flex-wrap: wrap;
-    width:90%;
-    padding:0.2rem;
-    margin:0 auto;  
-  }
-  
-  .feature-container{
-    display:flex; 
-    flex-direction: column;
-    flex-grow: 1;
-    gap:0.2rem;
-    min-width:max(400px,49%);
-    max-width: 49%;
-    padding:0.6rem 1rem;
-    margin-right:auto;
-    margin-left:auto;
-    backdrop-filter: blur(8px);  
-    background-color: rgba(255, 255, 255, 0.1); /* Adjust opacity for better effect */
-  }
-    
-  .feature-title{
-    font-family: 'Armstrong';
-    font-weight: 520;
-    font-size:2.3rem;
-    color:#ff4900;
-  }
-  
-  .feature-caption{
-    flex-grow:1; 
-    line-height: 20px;
-    font-size:0.98rem;
-    padding:0.4rem 0.1rem;
-  }
-  
-  .caption-title{
-    max-width: 44vw;
-    font-size:2.5rem;
-    font-weight: 500;
-    line-height: 2.5rem;
-  }
-  
-  .testimonial-caption{
-    display:flex;
-    flex-direction: column;
-    gap:2rem;
-    align-items: center;
-  }
-  
-  .footer-container{
-    min-width:100%;
-    max-width:100%;
-  }
+.button {
+  width: 200px; /* ~185px in 1920px */
+  height: 50px; /* ~48px in 1080px */
+  padding: 0.3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 1rem;
+  background-color: #ff4900;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 0 2rem 0; /* Circular bottom right corner */
+  text-transform: uppercase;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 700;
+}
 
-  /* 
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
+.button::before {
+  width: 2px;
+  height: 10px;
+  top: -4px;
+  left: -3px;
+}
+
+.button::after {
+  width: 10px;
+  height: 2px;
+  top: 0px;
+  left: -7px;
+}
+
+.button-alt {
+  color: #ff4900;
+  background-color: white;
+}
+
+.button-alt::before,
+.button-alt::after {
+  content: "";
+  position: absolute;
+  background-color: #ff4900;
+}
+
+.button-alt::before {
+  width: 2px;
+  height: 10px;
+  top: -4px;
+  left: -3px;
+}
+
+.button-alt::after {
+  width: 10px;
+  height: 2px;
+  top: 0px;
+  left: -7px;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 99%;
+  max-width: calc(100vw - 6rem - 6px);
+  padding-top: 5rem; 
+  background-image: url("/jrny_landing_bg.png");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  position: relative; 
+  height:92vh;
+}
+
+.svg-content {
+  position: absolute;
+  left: 0;
+  top: -400;
+  height: 100%;
+  width: 100vw;
+  max-width: 100vw;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.landing-show-reel {
+  max-width: 40vw;
+  width: 38vw;
+}
+
+.part-of-span {
+  font-family: "Helvetica Neue";
+  color: #808186;
+  height: 20px;
+}
+
+.landing-text-container {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 60%;  
+  width:95%;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-title {
+  font-family: "Armstrong";
+  font-size: 4.5rem;
+}
+
+.landing-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.contact-btn {
+  color: #ff4900;
+  background-color: white;
+}
+
+.about-btn {
+}
+
+.landing-page-matter-text {
+  color: #ff4900;
+}
+
+.landing-caption {
+  display: flex;
+  width: 60%;
+  margin-top: 1.3rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  background: linear-gradient(
+    92.49deg,
+    #7c7c7c 0%,
+    #ffffff 47.41%,
+    #7c7c7c 94.82%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes the background visible through the text */
+  background-clip: text;
+  text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
+}
+
+.landing-carousol {
+  height: 10vh;
+  width: 100%;
+}
+.about-us-landing {
+  display: flex;
+  gap: 8rem;
+  align-items: center;
+  height: 1000px;
+}
+.showreel-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+}
+
+.about-us-landing-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 39vw;
+  width: 35vw;
+  text-align: left;
+}
+
+.about-us-landing-title {
+  font-family: "Armstrong";
+  font-size: 3rem;
+  font-weight: 500;
+  color: white;
+  text-align: left;
+}
+
+.about-us-landing-paragraph,
+.services-landing-title,
+.services-landing-paragraph {
+  text-align: left;
+}
+
+.showreel-container {
+  height: 80%;
+  margin-right: auto;
+}
+
+.card-paragraph {
+  text-align: center;
+  font-family: "Helvetica Neue";
+  background: linear-gradient(
+    92.49deg,
+    #7c7c7c 0%,
+    #ffffff 47.41%,
+    #7c7c7c 94.82%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes the background visible through the text */
+  background-clip: text;
+  text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+.card-para-div {
+  position: relative;
+  min-height: max-content;
+  margin-top: 2rem;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 2.5rem; /* Scales naturally with font size */
+  letter-spacing: 1px;
+  text-align: center;
+  text-align: center;
+}
+
+.services-landing-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 5rem;
+}
+
+.services-landing-title {
+  font-family: "Armstrong";
+  font-size: 3rem;
+  font-weight: 500;
+  color: white;
+  text-align: left;
+}
+
+.services-landing-paragraph {
+  font-size: 1.3rem;
+  width: 50%;
+  line-height: 1.6rem;
+}
+
+.cards-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  padding-bottom: 7rem;
+  margin-bottom: 7rem;
+  flex-wrap: wrap;
+}
+
+.card-para-div-crossline {
+  position: absolute;
+  transform: skewY(8deg);
+  right: 0px;
+  bottom: 3px;
+}
+
+.card-paragraph-start {
+  color: #ff4900;
+}
+
+.profile-card {
+  width: 288px;
+  height: 440px;
+  border: 5px solid white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Needed for caption positioning */
+}
+
+.profile-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.profile-card:hover img {
+  filter: grayscale(0%); /* Restores color */
+  transform: scale(1.05); /* Zooms in */
+  animation: bounceScale 0.5s ease-in-out;
+}
+
+@keyframes bounceScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Caption Styles */
+.profile-caption {
+  position: absolute;
+  bottom: -100%; /* Starts hidden below */
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  transition: bottom 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.profile-card:hover .profile-caption {
+  bottom: 0;
+}
+
+/* Caption Content */
+.profile-caption .heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Armstrong;
+}
+
+.profile-caption .description {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}
+
+.profile-card:hover {
+  cursor: grabbing;
+}
+
+.profile-card::before,
+.profile-card::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
+.profile-card::before {
+  width: 2px;
+  height: 10px;
+  top: -4px;
+  left: -3px;
+}
+
+.profile-card::after {
+  width: 10px;
+  height: 2px;
+  top: 0px;
+  left: -7px;
+}
+
+.card-container {
+  position: relative;
+}
+
+/* Add these new styles to your app.css */
+.animated-underline {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-slab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #ff4900 0%,
+    #ffae68 26%,
+    #ffd363 48.5%,
+    #ffae68 75%,
+    #ff4900 97%
+  );
+  transform: translateY(-100%);
+  z-index: 2;
+}
+
+.animated-slab::before,
+.animated-slab::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff4900 10%, #ff4900 97%);
+  z-index: 1;
+  padding: 3px;
+  filter: blur(1.7rem);
+}
+
+/* Update existing underline styles */
+.card-underline {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #ff4900;
+  height: 100%;
+  z-index: 2;
+  width: 8px;
+  overflow: hidden; /* Add this */
+}
+
+.journeys-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+  max-width: 100vw;
+}
+
+/* Partner slide show css */
+.partners-slideshow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.partnered {
+  color: #ff5b00;
+  font-family: "Helvetica Neue";
+  font-weight: 700;
+  width: fit-content;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.landing-portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.landing-portfolio-title-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.landing-portfolio-title {
+  font-family: "Armstrong";
+  font-size: 3rem;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+}
+
+.landing-portfolio-paragraph {
+  font-size: 1.3rem;
+  width: 50%;
+  line-height: 1.6rem;
+  text-align: center;
+}
+
+.testimonial-top {
+  max-width: 50vw;
+  margin: 0 auto;
+  font-size: 2.2rem;
+  line-height: 40px;
+}
+
+.testimonial-bottom {
+  font-size: 2rem;
+  max-width: 40vw;
+  margin: 0 auto;
+}
+
+.jrny-span {
+  color: #ff4900;
+  background-color: none !important;
+}
+
+.carousol-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 13rem;
+}
+
+.carousol-logo {
+  position: relative;
+}
+
+.testimonial-logo-trusted {
+  font-family: "Helvetica Neue";
+  color: #ff5b00;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.penultimate-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.right-choice-container {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.right-choice-h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+}
+
+.right-choice-p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  max-width: 45vw;
+  color: #808186;
+}
+
+.about-us-home,
+.contact-us-button {
+  color: #ff4900;
+  background-color: white;
+}
+
+.about-us-home::before,
+.about-us-home::after,
+.contact-us-button::before,
+.contact-us-button::after {
+  background-color: #ff4900;
+}
+
+.features {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 90%;
+  padding: 0.2rem;
+  margin: 0 auto;
+}
+
+.feature-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.2rem;
+  min-width: max(400px, 49%);
+  max-width: 49%;
+  padding: 0.6rem 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  backdrop-filter: blur(8px);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Adjust opacity for better effect */
+}
+
+.feature-title {
+  font-family: "Armstrong";
+  font-weight: 520;
+  font-size: 2.3rem;
+  color: #ff4900;
+}
+
+.feature-caption {
+  flex-grow: 1;
+  line-height: 20px;
+  font-size: 0.98rem;
+  padding: 0.4rem 0.1rem;
+}
+
+.caption-title {
+  max-width: 44vw;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+}
+
+.testimonial-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.footer-container {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+/* 
   clip-path: polygon(81% 25%, 100% 0, 100% 49%, 15% 71%, 0 91%, 0 74%, 0 51%);
  this is the clip path i am looking for. the one with triangles 
   */
 
 /* Animation and lines */
 
-.text-span-red{
-  color: #FF4900;
- }
+.text-span-red {
+  color: #ff4900;
+}
 
 .r-underline {
   position: absolute;
@@ -545,144 +698,30 @@
   /* width: 39rem; */
 }
 
-.r-vertical-line {
-  position: absolute; 
-  right:0;
-  top:52%;
-  width: 9px;
-  background-color: #ff4900; 
-  height: 70%; 
-}
-
-.r-vertical-slab {
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%; 
-  height: 100px;
-  background: linear-gradient(90deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
-  z-index: 2;
-}
-
-.r-vertical-slab::before,
-.r-vertical-slab::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, #FF4900 10%,    #FF4900 97%);
-  z-index: 1;
-  padding:3px;
-  filter: blur(1.7rem);
-}
-
-.r-slab {
-  position: absolute;
-  top: 50%;
-  width: 137px;
-  height: 100%;
-  background: linear-gradient(90deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.r-slab::before,
-.r-slab::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, #FF4900 10%,    #FF4900 97%);
-  z-index: 1;
-  padding:3px;
-  filter: blur(1.7rem);
-}
- 
-.cleanse{
-  min-height:300vh;
-  width:100vw;
-
-}
-
-
-.skewed-div {  
-  width: 100%;
-  height:400px; 
-  background-color: #FF4900; 
-  clip-path: polygon(0 53%, 86% 35%, 100% 0, 100% 45%, 14% 68%, 0 100%);
-}
-
-.skewed-div-slab {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 8px;
-  background: linear-gradient(135deg, #FF4900 0%, #FFAE68 26%, #FFD363 48.5%, #FFAE68 75%, #FF4900 97%);
-  z-index: 2;
-  transform: rotate(-5deg);
-  transform-origin: left top;
-}
-
-.skewed-div-slab::before,
-.skewed-div-slab::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #FF4900 10%, #FF4900 97%);
-  z-index: 1;
-  padding: 3px;
-  filter: blur(1.7rem);
-}
-
-.skewed-div-1{
-  width:100%;
-  height: 300px;
-  clip-path: polygon(100% 8%, 100% 44%, 0 16%, 0 0);
-  background-color: #FF4900; 
-}  
-
-.skewed-div-2{
-  clip-path: polygon(100% 0, 100% 14%, 0 42%, 0 14%);
-  background-color: #FF4900;
-  width: 100%;
-  height: 300px;
-}
-
-  
 .card-underline {
   position: absolute;
   left: 0;
-  top:-6%;
+  top: -6%;
   background-color: #ff4900;
   height: 110%;
   z-index: 2;
   width: 9px; /* Adjust thickness */
 }
 
-.journeys-div{
-  position:relative;
-}
-
-.r-vertical-line-journeys-div{
+.r-vertical-line-journeys-div {
   position: absolute;
-  right: 0;  
-  height:125%;
-  top:-23%;
+  right: 0;
+  height: 125%;
+  top: -23%;
   width: 9px;
   background-color: #ff4900;
 }
 
-.penultimate-container{
-  position:relative;
-}
-
-.right-choice-line{
+.right-choice-line {
   position: absolute;
-  left: 0; 
+  left: 0;
   background-color: #ff4900;
-  top:-30%;
+  top: -30%;
   height: 100%;
   z-index: 2;
   width: 9px; /* Adjust thickness */

@@ -12,8 +12,8 @@ export type BlogItemType= {
 export const BlogItemExample: BlogItemType = {
   id: "someBlog",
   thumbnail: "/jrny_example_profile_card.jpg",
-  title: "Blog",
-  caption1: "Executive Director",
+  title: "Leading the Way in Content-Driven Event Management",
+  caption1: "Executive Director aLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   caption2: "Exec call",
   link: "http",
   content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

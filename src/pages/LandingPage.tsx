@@ -1,10 +1,12 @@
 import Carasoul from "../components/Carasoul/Carasoul";
 import Contact from "../components/Contact/Contact";
 import PartnerShow from "../components/PartnerShow/PartnerShow";
-import { useEffect, useRef } from "react"; 
+import { useRef } from "react"; 
 import "./../css/landingpage.css";
 import ShowReel from "../components/ShowReel/ShowReel";
 import AnimatedPathWithSlab from "../components/LineSvg/LineSvg";
+import HorizontalScrollSlider from "../components/HorizontalScroll/HorizontalScroll";
+import { PortfolioMiddleList } from "./Portfolio";
 
  
 
@@ -14,21 +16,7 @@ export default function LandingPage() {
     <>
     <div className="landing-container">
 
-    <section className="svg-content">
-      <div className="content-svg">
-        
-    <AnimatedPathWithSlab/>
-      </div>
-
-    </section>
-
-      <div className="hero-container">
-        {/* <span className="r-vertical-line">
-          <span className="r-vertical-slab"></span>
-        </span> */}
-        <div className="landing-show-reel">
-        <ShowReel />
-        </div>
+      <div className="hero-container">  
         <div className="landing-text-container">
           <span className="part-of-span">Been a part of 20+ journeys</span>
           <h1 className="landing-title">
@@ -36,36 +24,43 @@ export default function LandingPage() {
             <span className="landing-page-matter-text">
               MATTER
             </span>
-          </h1>
-          <div className="landing-buttons">
-            <button className="button contact-btn">Contact Us</button>
-            <button className="button about-btn">About Us</button>
-          </div>
-          <p className="landing-caption">
-            We design immersive event experiences that captivate audiences and
-            bring brands to life. From concept to execution, we craft seamless
-            and engaging interactions that leave a lasting impact.
-          </p>
+          </h1>  
+        </div>
+        <section className="landing-carousol">
+      <HorizontalScrollSlider />
+    </section>
+      </div>
+
+
+
+ 
+      <div className="about-us-landing">
+        <div className="about-us-landing-text">
+          <h1 className="about-us-landing-title">About <span className="jrny-span">US</span></h1>
+          <p className="about-us-landing-paragraph">
+          JRNY Experiential partners with you to create immersive events that engage, inspire, and connect. Together, we craft unforgettable experiences that leave a lasting impact.          </p>
+        </div>
+        <div className="showreel-container">
+          <ShowReel />
         </div>
       </div>
 
- 
+      <section className="svg-content">
+      <div className="content-svg">
+    <AnimatedPathWithSlab/>
+      </div>
+    </section>
 
-      <div className="card-container">
-        {/* <span className="card-underline"></span> */}
 
-        <div className="card-para-div">
-          <span className="card-paragraph-start">JRNY Experential</span>
-          <span className="card-paragraph">
-            {" "}
-            partners with you to create immersive events that engage, inspire,
-            and connect. Together, we craft unforgettable experiences that leave
-            a lasting impact.
-          </span>
-          {/* <span className="card-para-div-crossline">
-            <img src="/underline-cross.png" alt="" />
-          </span> */}
-        </div>
+      <div className="card-container"> 
+
+        <section className="card-para-div">
+          <div className="services-landing-container">
+            <h1 className="services-landing-title">Services we <span className="jrny-span">Provide</span></h1>
+            <p className="services-landing-paragraph">
+            We create immersive and impactful digital experiences, from virtual conferences to interactive brand activations. Our work transforms ideas into unforgettable moments that engage and inspire audiences. Explore our portfolio to see the journeys we’ve crafted.            </p>
+          </div>
+        </section>
 
         <div className="cards-section">
           <div className="profile-card ">
@@ -97,15 +92,13 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
+
       </div>
 
  
 
       <div className="journeys-div">
-
-        {/* <span className="r-vertical-line-journeys-div">
-          <span className="r-vertical-line-journeys-div-slab"></span>
-        </span> */}
+ 
         <div className="testimonial-top">
           We have worked closely with over 20 companies, helping them design and
           deliver meaningful experiences.
@@ -119,6 +112,19 @@ export default function LandingPage() {
             <img src="landing_line.png" alt="" />
           </div>
         </div>
+
+        <section className="landing-portfolio">
+          <div className="landing-portfolio-title-box">
+            <h1 className="landing-portfolio-title">Our <span className="jrny-span">Portfolio</span></h1>
+            <p className="landing-portfolio-paragraph">
+            We create immersive and impactful digital experiences, from virtual conferences to interactive brand activations. Our work transforms ideas into unforgettable moments that engage and inspire audiences. Explore our portfolio to see the journeys we’ve crafted.            </p>
+          </div>
+
+          <div className="portfolio-tiles-landing">
+            <PortfolioMiddleList />
+          <button className="see-more">See More</button>  
+          </div>
+        </section>
 
         <div className="testimonial-bottom">
           <span className="testimonial-span">We created </span>
@@ -146,9 +152,6 @@ export default function LandingPage() {
  
 
       <div className="penultimate-container">
-        {/* <span className="right-choice-line">
-          <span className="right-choice-line-slab"></span>
-        </span> */}
         <RightChoice />
       </div>
       <div className="footer-container">
