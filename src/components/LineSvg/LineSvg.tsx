@@ -237,6 +237,7 @@ const PathWithSlab: React.FC = () => {
         trigger: ".content-svg",
         start: "top top",
         end: "bottom bottom",
+        pinnedContainer: 'body',
         scrub: 0.5,
         onUpdate: (self) => updatePaths(self.progress),
       },

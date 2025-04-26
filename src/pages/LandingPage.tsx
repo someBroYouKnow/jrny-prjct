@@ -16,6 +16,9 @@ export default function LandingPage() {
     <>
     <div className="landing-container">
 
+
+
+
       <div className="hero-container">  
         <div className="landing-text-container">
           <span className="part-of-span">Been a part of 20+ journeys</span>
@@ -33,7 +36,6 @@ export default function LandingPage() {
 
 
 
- 
       <div className="about-us-landing">
         <div className="about-us-landing-text">
           <h1 className="about-us-landing-title">About <span className="jrny-span">US</span></h1>
@@ -43,13 +45,17 @@ export default function LandingPage() {
         <div className="showreel-container">
           <ShowReel />
         </div>
-      </div>
 
-      <section className="svg-content">
+        <section className="svg-content">
       <div className="content-svg">
     <AnimatedPathWithSlab/>
       </div>
     </section>
+
+ 
+      </div>
+
+
 
 
       <div className="card-container"> 
