@@ -16,18 +16,6 @@ export default function LandingPage() {
     <>
     <div className="landing-container">
 
-    <section className="landing-carousol">
-      <HorizontalScrollSlider />
-    </section>
-
-    <section className="svg-content">
-      <div className="content-svg">
-        
-    <AnimatedPathWithSlab/>
-      </div>
-
-    </section>
-
       <div className="hero-container">  
         <div className="landing-text-container">
           <span className="part-of-span">Been a part of 20+ journeys</span>
@@ -38,10 +26,15 @@ export default function LandingPage() {
             </span>
           </h1>  
         </div>
+        <section className="landing-carousol">
+      <HorizontalScrollSlider />
+    </section>
       </div>
 
+
+
  
-      <section className="about-us-landing">
+      <div className="about-us-landing">
         <div className="about-us-landing-text">
           <h1 className="about-us-landing-title">About <span className="jrny-span">US</span></h1>
           <p className="about-us-landing-paragraph">
@@ -50,7 +43,14 @@ export default function LandingPage() {
         <div className="showreel-container">
           <ShowReel />
         </div>
-      </section>
+      </div>
+
+      <section className="svg-content">
+      <div className="content-svg">
+    <AnimatedPathWithSlab/>
+      </div>
+    </section>
+
 
       <div className="card-container"> 
 

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,6 +12,22 @@ const PathWithSlab: React.FC = () => {
   const coverPathRef = useRef<SVGPathElement>(null);
   const originalPathRef = useRef<SVGPathElement>(null);
   const glowPathRef = useRef<SVGPathElement>(null);
+
+  const [rightEdge, setRightEdge] = React.useState(window?.innerWidth ?? 1920);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth !== rightEdge) { 
+        setRightEdge(window.innerWidth);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial call to set the right edge
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  },[]);
 
   useGSAP(() => {
     if (!svgRef.current || !coverPathRef.current || !originalPathRef.current || !glowPathRef.current) return;
@@ -236,7 +252,7 @@ const PathWithSlab: React.FC = () => {
   return (
     <svg
       ref={svgRef}
-      viewBox="0 0 1536 4000"
+      viewBox={`0 0 ${rightEdge} 4000`}
       xmlns="http://www.w3.org/2000/svg"
       style={{ width: '100%', height: 'auto', pointerEvents: 'none' }}
     >
@@ -244,7 +260,7 @@ const PathWithSlab: React.FC = () => {
       <path
         ref={originalPathRef}
         id="mainPath"
-        d="M1536,200 L1536,400 L10,600 L10,1200 L1536,1400 L1536,2800 L10,3000 L10,3500"
+        d={`M${rightEdge},200 L${rightEdge},400 L2,600 L2,2200 L${rightEdge},2400 L${rightEdge},3800 L2,4000 L2,4500`}
         fill="none"
         stroke="#FF5B00"
         strokeWidth="4"

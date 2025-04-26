@@ -1,51 +1,66 @@
-import { useRef } from "react";
+import { useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import "./HorizontalScroll.css";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useGSAP } from "@gsap/react";
 
 const imagesList = [
-  "/landing-video-card.png",
-  "/landing-video-card.png",
-  "/landing-video-card.png",
-  "/landing-video-card.png",
-  "/landing-video-card.png"
-];
+  '/landing-video-card.png',
+  '/landing-video-card.png',
+  '/landing-video-card.png',
+  '/landing-video-card.png',
+  '/landing-video-card.png',
+  '/landing-video-card.png'
+  
+]
 
-export default function HorizontalScrollSlider() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+gsap.registerPlugin(ScrollTrigger);
+export default function HorizontalScrollSections() {
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!containerRef.current || !trackRef.current) return;
+  useGSAP(()=>{
+    const slider = sliderRef.current;
+    const wrapper = wrapperRef.current;
+    if (!slider || !wrapper) return;
 
-    const sections = gsap.utils.toArray(".slider-item");
 
-    gsap.to(trackRef.current, {
-      xPercent: -100 * (sections.length - 1),
+    const sections = gsap.utils.toArray<HTMLElement>('.card') as HTMLElement[];
+    const totalWidth = sections.reduce((acc, section) => acc + section.offsetWidth, 0);
+ 
+    console.log({sections, totalWidth})
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length +1),
       ease: "none",
       scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: () => `+=${containerRef.current!.offsetWidth * (sections.length - 1)}`,
-        scrub: 1,
+        trigger: '.hero-container',
         pin: true,
-        anticipatePin: 1
-      }
+        start:" top center",
+        markers: true,
+        scrub: 1,
+        snap: 1 / (sections.length - 1),
+        pinSpacing: true,
+        end:()=> "+=" + totalWidth,
+      },
     });
-  }, []);
+  },[])
 
   return (
-    <div className="slider-outer-container" ref={containerRef}>
-      <div className="slider-track" ref={trackRef}>
-        {imagesList.map((src, index) => (
-          <div className="slider-item" key={index}>
-            <img src={src} alt={`slide-${index}`} />
-          </div>
-        ))}
+    <div className="wrapperH" ref={wrapperRef}>
+      <div className="slider" ref={sliderRef}>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        {
+          imagesList.map((image, index) => (
+            <div className="card" key={index}>
+              <img src={image} alt="Slide" className="slide-image" />
+            </div>
+          ))
+          
+        }
       </div>
     </div>
-  );
+  )
 }
