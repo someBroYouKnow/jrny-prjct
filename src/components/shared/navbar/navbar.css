@@ -14,7 +14,7 @@
   }
 
   .logo {  
-    width: 10vw;  /* Set a fixed width for logo */
+    width: 10svw;  /* Set a fixed width for logo */
     height: auto;  /* Automatically adjust the height based on the image */
     margin:auto 0;
   }

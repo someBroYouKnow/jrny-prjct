@@ -13,12 +13,12 @@ const PathWithSlab: React.FC = () => {
   const originalPathRef = useRef<SVGPathElement>(null);
   const glowPathRef = useRef<SVGPathElement>(null);
 
-  const [rightEdge, setRightEdge] = React.useState((window?.innerWidth as number- 10) );
+  const [rightEdge, setRightEdge] = React.useState((window?.innerWidth as number) );
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth !== rightEdge) { 
-        setRightEdge(window.innerWidth - 10);
+        setRightEdge(window.innerWidth);
       }
     };
 
