@@ -137,7 +137,7 @@
 
 .svg-content {
   position: absolute;
-  left: 0;
+  left: -6rem;
   top: 0;
   height: 100%;
   width: 100vw;
