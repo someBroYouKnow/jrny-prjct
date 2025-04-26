@@ -13,12 +13,12 @@ const PathWithSlab: React.FC = () => {
   const originalPathRef = useRef<SVGPathElement>(null);
   const glowPathRef = useRef<SVGPathElement>(null);
 
-  const [rightEdge, setRightEdge] = React.useState(window?.innerWidth ?? 1920);
+  const [rightEdge, setRightEdge] = React.useState((window?.innerWidth as number- 10) );
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth !== rightEdge) { 
-        setRightEdge(window.innerWidth);
+        setRightEdge(window.innerWidth - 10);
       }
     };
 
@@ -238,10 +238,10 @@ const PathWithSlab: React.FC = () => {
         start: "top top",
         end: "bottom bottom",
         pinnedContainer: 'body',
-        scrub: 0.5,
+        scrub: 1,
         onUpdate: (self) => updatePaths(self.progress),
       },
-      ease: easeFn,
+      // ease: easeFn,
     });
 
     return () => {
@@ -253,7 +253,7 @@ const PathWithSlab: React.FC = () => {
   return (
     <svg
       ref={svgRef}
-      viewBox={`0 0 ${rightEdge} 4000`}
+      viewBox={`0 0 ${rightEdge} 6000`}
       xmlns="http://www.w3.org/2000/svg"
       style={{ width: '100%', height: 'auto', pointerEvents: 'none' }}
     >

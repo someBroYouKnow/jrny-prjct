@@ -15,7 +15,7 @@ body {
   position: fixed; /* Makes it independent of container */
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 1000;
   backdrop-filter: blur(5.6px);
   -webkit-backdrop-filter: blur(3px);
   padding: 10px 0;
