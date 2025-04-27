@@ -24,8 +24,13 @@ export default function LandingPage() {
             <HorizontalScrollSlider />
           </section>
         </div>
+        <div className="landing-svg-container">
+
 
         <div className="about-us-landing">
+          <div className="about-us-section">
+
+
           <div className="about-us-landing-text">
             <h1 className="about-us-landing-title">
               About <span className="jrny-span">US</span>
@@ -39,6 +44,7 @@ export default function LandingPage() {
           <div className="showreel-container">
             <ShowReel />
           </div>
+          </div>
 
           <section className="svg-content">
             <div className="content-svg">
@@ -46,6 +52,8 @@ export default function LandingPage() {
             </div>
           </section>
         </div>
+
+        
 
         <div className="card-container">
           <section className="card-para-div">
@@ -61,9 +69,8 @@ export default function LandingPage() {
                 we’ve crafted.{" "}
               </p>
             </div>
-          </section>
 
-          <div className="cards-section">
+            <div className="cards-section">
             <div className="profile-card ">
               <img src="/jrny_example_profile_card.jpg" alt="" />
               <div className="profile-caption">
@@ -93,9 +100,8 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-        </div>
+          </section>
 
-        <div className="journeys-div">
           <div className="testimonial-top">
             We have worked closely with over 20 companies, helping them design
             and deliver meaningful experiences.
@@ -109,6 +115,12 @@ export default function LandingPage() {
               <img src="landing_line.png" alt="" />
             </div>
           </div>
+
+
+
+        </div>
+
+        <div className="journeys-div">
 
           <section className="landing-portfolio">
             <div className="landing-portfolio-title-box">
@@ -152,13 +164,16 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
+        </div>
 
         <div className="penultimate-container">
           <RightChoice />
         </div>
+
         <div className="footer-container">
           <Contact />
         </div>
+
       </div>
     </>
   );
