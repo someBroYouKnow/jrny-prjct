@@ -1,24 +1,35 @@
 .tag-button {
-    all: unset;
-    color: white;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 0.8rem;
-    width: fit-content;
-    padding: 0.3rem 0.75rem;
+  all: unset;
+  color: white;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.8rem;
+  width: fit-content;
+  padding: 0.3rem 0.75rem;
   
-    border-left: 1px solid;
-    border-right: 1px solid;
-    border-image-source: radial-gradient(180deg, #141414 0%, #C8C8C8 51.5%, #141414 100%);
-    border-image-slice: 1;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: #C8C8C8;
   
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-   
- 
-    
-    background-color: transparent;
-    display: inline-block;
-    white-space: nowrap;
-  }
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
   
- 
+  border-radius: 24px;
+  
+  /* background: radial-gradient(circle at center, transparent 50%, rgba(200, 200, 200, 0.3) 100%); */
+  display: inline-block;
+  white-space: nowrap;
+  position: relative;
+}
+
+.tag-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px;
+  background: radial-gradient(ellipse at center, transparent 0%, #C8C8C8 90%);
+  opacity: 0.1;
+  pointer-events: none;
+}

@@ -6,6 +6,11 @@ body {
   background-color: black;
   font-family: 'Helvetica Neue'; 
 }
+ 
+html, body {
+  scrollbar-gutter: stable;
+}
+
 
 .header {
   width: 100%;
@@ -14,6 +19,9 @@ body {
   align-items: center;
   position: fixed; /* Makes it independent of container */
   top: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0; /* Important: allow shrinking */
   left: 0;
   z-index: 1000;
   backdrop-filter: blur(5.6px);
@@ -21,19 +29,27 @@ body {
   padding: 10px 0;
   height: 80px;  
   padding-left:6rem;  
-  max-width:100svw;
+  max-width:100%;
+}
+body {
+  container-type: inline-size;
+  width: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0; /* Important: allow shrinking */
 }
 
+
 .container { 
-  width: 100svw;
-  max-width: 100svw;
-  min-width: 100svw;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0; /* Important: allow shrinking */
   background-color: black;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
 }
-
+ 
 
 .testimonial-top, .testimonial-span, .caption-title, .our-projects-p,
 .project-second-description,.project-description,

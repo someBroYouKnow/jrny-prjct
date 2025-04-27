@@ -4,53 +4,59 @@
   max-width: 100svw;
   min-width: 100svw;
   position: relative;
-
-  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0%;
+  overflow-x: hidden; 
+  display:flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   overflow-x: visible;
 }
 
- 
+/* .landing-svg-container {
+  padding-top: 1rem;
+  width: 100svw;
+  max-width: 100svw;
+  min-width: 100svw;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr; 
+  grid-template-rows: 1300px 1500px ;  
+  gap: 200px;
+  overflow-x: visible;
+} */
+
+ .landing-svg-container{
+  position:relative;
+ }
 
 /* .hero-container{
   min-height: 100vh;
   max-height:100vh;
   height: 100vh;
-}
+} */
 
-.about-us-landing{
-  min-height: 100vh;
-  max-height:100vh;
+/* .about-us-landing{
+
   height: 100vh;
 }
 
-.card-container{
-  min-height: 100vh;
-  max-height:100vh;
-  height: 100vh;
+.card-container{ 
+  height:1000px;
 
 }
 
 .journeys-div{  
-  min-height: 100vh;
-  max-height:100vh;
+  height:1000px;
 }
 
 .penultimate-container{
-  min-height: 100vh;
-  max-height:100vh;
+  height:1000px;
 } */
-
-.r-vertical-line {
-  position: absolute;
-  right: 8%;
-  top: 0;
-  background-color: #ff4900;
-  height: 100%;
-  z-index: 2;
-  width: 8px; /* Adjust thickness */
-}
+ 
 
 .navbar-div {
   min-width: 40%;
@@ -126,6 +132,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   width: 99%;
   max-width: calc(100svw - 6rem - 6px);
   padding-top: 5rem; 
@@ -138,12 +145,15 @@
   position:relative;
 }
 
+/* *{border: 1px solid red;} */
+
 .svg-content {
   position: absolute;
-  left: 0; /* <- fixed */
-  top: 0;
+  left: 0; /* <- fixed */ 
+  top: -300px;
   height: 100%;
-  width: calc(100svw - 6rem); /* <- fixed */
+  width: 100%; /* <- fixed */
+  max-width: 100%;
   max-width: none;
   z-index: 100;
   pointer-events: none;
@@ -151,7 +161,7 @@
 
 
 .landing-show-reel {
-  max-width: 40svw;
+  max-width: 60svw;
   width: 38svw;
 }
 
@@ -218,6 +228,8 @@
 }
 .about-us-landing {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 8rem;
   align-items: center;
   height: 1000px;
@@ -225,12 +237,23 @@
   padding-left:6rem;
 }
 
+.about-us-section{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height:900px;
+  gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+  padding-top: 5rem; 
+}
+
 
 .showreel-container{
   display:flex;
   justify-content: center;
   align-items: center;
-  height:100%;
+  height:400px; 
 }
 
 .about-us-landing-text {
@@ -304,6 +327,7 @@
   justify-content: space-between;
   width:80%;
   padding-left:6rem;
+  margin-bottom:100px;
 }
 
 .services-landing-title {
@@ -328,13 +352,7 @@
   margin-bottom: 7rem;
   overflow:hidden;
 }
-
-.card-para-div-crossline {
-  position: absolute;
-  transform: skewY(8deg);
-  right: 0px;
-  bottom: 3px;
-}
+ 
 
 .card-paragraph-start {
   color: #ff4900;
@@ -445,54 +463,13 @@
   position: relative;
   overflow: hidden;
 }
-
-.animated-slab {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    #ff4900 0%,
-    #ffae68 26%,
-    #ffd363 48.5%,
-    #ffae68 75%,
-    #ff4900 97%
-  );
-  transform: translateY(-100%);
-  z-index: 2;
-}
-
-.animated-slab::before,
-.animated-slab::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, #ff4900 10%, #ff4900 97%);
-  z-index: 1;
-  padding: 3px;
-  filter: blur(1.7rem);
-}
-
-/* Update existing underline styles */
-.card-underline {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: #ff4900;
-  height: 100%;
-  z-index: 2;
-  width: 8px;
-  overflow: hidden; /* Add this */
-}
-
+ 
 .journeys-div {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-direction: column; 
+  gap: 100px;
   margin-top: 4rem;
+  height:2000px;
   max-width: 100svw;
 }
 
@@ -502,6 +479,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width:100%;
+  width:100%;
+  height:300px;
+  max-height: 300px;
 }
 
 .partnered {
@@ -589,11 +570,11 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  align-items: center;
+  align-items: flex-start; 
+  justify-content: flex-start;
 }
 
-.right-choice-container {
-  margin-top: 6rem;
+.right-choice-container { 
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -694,40 +675,25 @@
   color: #ff4900;
 }
 
-.r-underline {
-  position: absolute;
-  bottom: 29.2px;
-  left: 80%;
-  height: 9px;
-  background-color: #ff4900;
-  /* width: 39rem; */
-}
+ 
 
-.card-underline {
-  position: absolute;
-  left: 0;
-  top: -6%;
-  background-color: #ff4900;
-  height: 110%;
-  z-index: 2;
-  width: 9px; /* Adjust thickness */
-}
+ 
 
-.r-vertical-line-journeys-div {
+/* SPAN */
+.vertical-line {
   position: absolute;
+  top: 0;
   right: 0;
-  height: 125%;
-  top: -23%;
-  width: 9px;
-  background-color: #ff4900;
-}
-
-.right-choice-line {
-  position: absolute;
-  left: 0;
-  background-color: #ff4900;
-  top: -30%;
+  width: 2px;
   height: 100%;
-  z-index: 2;
-  width: 9px; /* Adjust thickness */
+  background: #ccc; /* base line color */
+  overflow: hidden;
+}
+.moving-light {
+  position: absolute;
+  top: -20%; /* start above */
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0));
 }

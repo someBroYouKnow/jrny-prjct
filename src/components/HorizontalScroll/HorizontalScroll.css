@@ -12,6 +12,11 @@
     max-height:250px;
 }
 
+.card {
+    transition: transform 0.1s ease-out;
+    transform-origin: center center;
+  }
+
 .card{
     min-width: 400px;
     height: 250px;
