@@ -132,6 +132,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   width: 99%;
   max-width: calc(100svw - 6rem - 6px);
   padding-top: 5rem; 
@@ -462,10 +463,6 @@
   position: relative;
   overflow: hidden;
 }
-
- 
- 
-
  
 .journeys-div {
   display: flex;
