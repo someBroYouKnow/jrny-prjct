@@ -25,7 +25,7 @@
   gap:3rem;
   align-items: center;
   min-height: 65vh;
-  padding-left:6rem;
+  padding-left:5rem;
 }
 
 .about-landing-content{
@@ -150,6 +150,7 @@
 .person-info {
   display:flex;
   justify-content: space-between;
+  max-width: 85%;
 }
 
 .person-credentials{

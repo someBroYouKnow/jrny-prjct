@@ -462,7 +462,7 @@
 .journeys-div {
   display: flex;
   flex-direction: column; 
-  gap: 100px;
+  gap: 50px;
   margin-top: 4rem;
   height:2000px;
   max-width: 100svw;
