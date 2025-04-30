@@ -19,32 +19,36 @@ export default function HorizontalScrollSections() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(()=>{
+  useGSAP(() => {
     const slider = sliderRef.current;
     const wrapper = wrapperRef.current;
     if (!slider || !wrapper) return;
-
-
+  
     const sections = gsap.utils.toArray<HTMLElement>('.card') as HTMLElement[];
-    const totalWidth = sections.reduce((acc, section) => acc + section.offsetWidth, 0);
- 
-    console.log({sections, totalWidth})
+  
+    const heroContainer = document.querySelector('.hero-container') as HTMLElement | null;
+    if (!heroContainer) return;
+  
+    const totalWidth = heroContainer.offsetWidth;
+    console.log({ sections, totalWidth });
+  
     gsap.to(sections, {
-      xPercent: -100 * (sections.length +1),
+      xPercent: -100 * (sections.length + 1),
       ease: "none",
       scrollTrigger: {
-        trigger: '.hero-container',
+        trigger: '.hero-container',  
         pin: true,
-        start:" top top",
+        start: "top top",
         markers: false,
         scrub: 1,
         snap: 1 / (sections.length - 1),
         pinnedContainer: 'body',
         pinSpacing: true,
-        end:()=> "+=" + (totalWidth*0.75),
+        end: () => "+=" + totalWidth,
       },
     });
-  },[])
+  }, []);
+  
 
   return (
     <div className="wrapperH" ref={wrapperRef}>

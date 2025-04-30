@@ -12,6 +12,7 @@
   gap:2rem;
 }
 
+
 .about-show-reel{
   width:39svw;
   display: flex;
@@ -21,9 +22,10 @@
 
 .about-landing-container{
   display:flex;
-  justify-content: flex-start;
+  gap:3rem;
   align-items: center;
   min-height: 65vh;
+  padding-left:6rem;
 }
 
 .about-landing-content{
@@ -65,7 +67,7 @@
 }
 
 .about-motto{
-  width:100%;
+  width:90%;
   display:flex;
   justify-content: space-around;
   margin:0 auto;
@@ -99,14 +101,15 @@
 }
 
 .about-main-tag{
-  max-width: 35svw;
+  max-width: 45svw;
   margin:auto;
   text-align: center;
-  line-height: 2rem;
+  font-size:3rem;
+  line-height: 3rem;
 }
 
 .about-main-description{
-  font-size: 2rem;
+  font-size: 3rem;
   font-family: 'Armstrong';
 
 }
