@@ -3,7 +3,6 @@
     min-height: 100vh;
     max-width: 100svw;
     padding: 0 7rem;
-    padding-top: 9rem;
     background-image: url("/bg/about.png");
     background-position: top right; /* Positions image at the top-left */
     background-repeat: no-repeat; /* Prevents tiling */
@@ -53,4 +52,24 @@
     font-size: 1rem;
     text-align: left;
     width:100%;
+}
+
+@media(max-width:1000px){
+    .blog-item-container{
+        padding:0;
+        padding: 0 1rem;
+    }
+
+    .blog-content-box{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .blog-content-title{
+        font-size:2rem;
+    }
+
+    .blog-heading-title{
+        font-size: 2.5rem;
+    }
 }

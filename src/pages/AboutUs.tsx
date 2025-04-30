@@ -3,6 +3,7 @@ import './../css/about.css';
 import ShowReel from '../components/ShowReel/ShowReel';
 import Footer from '../components/shared/footer/Footer';
 import Tags from '../components/Tags/Tags';
+import useIsMobile from '../hooks/useIsMobile';
 
 const AboutUsMottoArray =[
   {title:"MISSION",
@@ -31,12 +32,15 @@ const AboutUsPersonArray = Array(12).fill(AboutUsPerson);
 
 
 export default function AboutUs() {
+  const isMobile = useIsMobile(1000);
   return (
     <div className="about-us-container">
       <div className="about-landing-container">
-        <div className="about-show-reel">
+        {
+        !isMobile && 
+          <div className="about-show-reel">
           <ShowReel />
-        </div>
+        </div>}
         <div className="about-landing-content">
           <div className="about-landing-header">
             About <span className='jrny-span'>US</span>

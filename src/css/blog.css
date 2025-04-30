@@ -3,7 +3,6 @@
     min-height: 100vh;
     max-width: 100svw;
     padding: 0 6rem;
-    padding-top: 6rem;
     gap: 8rem;
     background-image: url("/bg/about.png");
     background-position: top right; /* Positions image at the top-left */
@@ -28,6 +27,7 @@
 .blog-heading-title{
     font-family: 'Armstrong';
     font-size: 4rem;
+    padding-left:2rem;
 }
 
 .blog-heading-description{
@@ -37,8 +37,7 @@
 .blog-tile-container {
     /* display: grid; */
     gap: 1.5rem; 
-    width: 100%; 
-  
+    width: 100%;
     /* Mobile first: 2 columns (half viewport width) */
     /* grid-template-columns: 1fr; */
 }
@@ -139,7 +138,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr));
   gap: 2rem; 
-  width: 100%;
+  width: 90%;
+  margin:0 auto;
 }
 
 /* Blog Tile Mobile */
@@ -202,23 +202,39 @@
 }
 
 /* Tablet view */
-@media (max-width: 1000px) {
+@media (max-width: 1024px){
+
+
+  .blog-container{
+    padding:0;
+  }
+
+  .blog-heading{
+    max-width: 100%;
+    width: 100svw;
+    font-size:4rem;
+  }
+
+
   .blog-tile-container-mobile {
     grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .blog-tile-mobile {
     aspect-ratio: unset;
-    height: auto;
+    height: auto; 
+    width:90%;
+    max-width: 100%;
   }
 
   .blog-image-mobile {
-    height: 12rem;
+    height: 60%;
+    width:100%;
   }
 
   .blog-info-mobile {
-    height: auto;
+    height: 30%;
     padding: 0.75rem;
   }
 
@@ -246,7 +262,7 @@
 /* Extra small screens */
 @media (max-width: 480px) {
   .blog-tile-container-mobile {
-    grid-template-columns: 1fr; /* Stack on very small screens */
+    grid-template-columns: 1fr 1fr;
   }
 
   .blog-image-mobile {

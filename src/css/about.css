@@ -2,8 +2,6 @@
   width: 100%;
   min-height: 100vh;
   max-width: 100svw;
-  padding: 0 7rem;
-  padding-top: 6rem;
   gap: 8rem;
   background-image: url("/bg/about.png");
   background-position: top right; /* Positions image at the top-left */
@@ -86,7 +84,7 @@
   flex-direction: column;
   gap:0.5rem;
   padding:0.9rem 0.8rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .motto-title{
@@ -173,6 +171,57 @@
   gap:0.5rem;
   align-items: center;
 }
+
+@media(max-width:1000px){
+  .about-us-container{
+    width:100%;
+    max-width: 100%;
+    padding:0rem 3rem;
+  }
+
+  .about-landing-container{
+    max-width: 100%;
+    width:100%;
+  }
+
+  .about-landing-content{
+    max-width: 100%;
+    width:100%;
+    padding:1rem 0.3rem;
+  }
+
+  .about-main-tag{
+    max-width: 100%;
+    width:100%;
+    font-size:1.3rem;
+  }
+
+  .about-main-description{
+    font-size:1.5rem;
+    text-align: center;
+    line-height: 1.4rem;
+  }
+
+  .person-image{
+    width: 100%;
+    height: auto;
+  }
+
+  .person-info{
+    display:flex;
+    flex-direction: column  ;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-links-favicon{
+    width:100%;
+    display:flex;
+    gap:0.7rem;
+    justify-content:center;
+  }
+}
+
 
 /* Optional: Adjust gaps for smaller screens */
 @media (max-width: 600px) {
