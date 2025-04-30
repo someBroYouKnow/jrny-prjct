@@ -333,14 +333,6 @@
   margin-bottom:100px;
 }
 
-@media(max-width:1000px){
-  .services-landing-container{
-    flex-direction: column;
-    padding-left:0rem;
-    gap:2rem;
-  }
-}
-
 .services-landing-title {
   font-family: "Armstrong";
   font-size: 3rem;
@@ -383,27 +375,6 @@
   position: relative; /* Needed for caption positioning */
 }
 
-@media (max-width: 1000px) {
-  .cards-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 0.3rem;
-    height: 700px; /* Still fixed */ 
-    justify-items: center;
-    align-items: center;
-  }
-
-  .profile-card {
-    width: 44%;
-    height: 230px;
-  }
-
-  .card-container {
-    width: 100%;
-    max-width: 100%; 
-  }
-}
 
 .card-paragraph-start {
   color: #ff4900;
@@ -536,6 +507,11 @@
   display: inline-block;
 }
 
+.portfolio-tiles-landing{
+  width: 100%;
+  max-width: 100%;
+}
+
 .landing-portfolio {
   display: flex;
   flex-direction: column;
@@ -631,10 +607,11 @@
 }
 
 .right-choice-p {
-  font-size: 1.1rem;
+  font-size: 2em;
   font-weight: 400;
-  max-width: 45svw;
+  max-width: 50svw;
   color: #808186;
+  text-align: center;
 }
 
 .about-us-home,
@@ -678,21 +655,14 @@
   ); /* Adjust opacity for better effect */
 }
 
-@media(max-width: 1000px){
-  .features{
-    flex-direction: column;
-    width:100%;
-    max-width: 100%;
-  }
-
-  .feature-container{
-    min-width: 100%;
-    max-width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-  }
+.caption-title {
+  max-width: 44svw;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 2.5rem;
 }
 
+ 
 .feature-title {
   font-family: "Armstrong";
   font-weight: 520;
@@ -707,25 +677,11 @@
   padding: 0.4rem 0.1rem;
 }
 
-.caption-title {
-  max-width: 44svw;
-  font-size: 2.5rem;
-  font-weight: 500;
-  line-height: 2.5rem;
-}
-
 .testimonial-caption {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   align-items: center;
-}
-
-@media (max-width: 1000px) {
-  .testimonial-caption {
-    max-width: 100%;
-    width: 100%;
-  }
 }
 
 .footer-container {
@@ -742,7 +698,25 @@
 }
 
  
+.cards-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.3rem;
+  height: 700px; /* Still fixed */ 
+  justify-items: center;
+  align-items: center;
+}
 
+.profile-card {
+  width: 44%;
+  height: 230px;
+}
+
+.card-container {
+  width: 100%;
+  max-width: 100%; 
+}
  
 
 /* SPAN */
@@ -770,7 +744,144 @@
 }
 
 .landing-line img, .footer-line img{
-  width: 100%;
-  height: 100%;
+  width: 100%; 
   object-fit: cover; 
+}
+
+@media(max-width:1000px){
+  .about-us-landing{
+    flex-direction: column;
+    padding-left:0rem; 
+  }
+
+  .about-us-section{
+    flex-direction: column;
+    gap:0.2rem;
+    padding-top: 0rem; 
+  }
+
+  .about-us-landing-text{
+    max-width:100%;
+    width:100%;
+    text-align: center;
+  }
+
+  .about-us-landing-title{
+    text-align: center;
+    font-size:2rem;
+  }
+
+  .about-us-landing-paragraph{
+    text-align: center;
+    max-width: 80%;
+    font-size:0.7rem;
+    margin:0 auto;
+  }
+
+  .showreel-container{
+    width:100%;
+    max-width:100%;
+  }
+
+  .services-landing-container{
+    flex-direction: column;
+    padding-left:0rem;
+    gap:2rem;
+  }
+
+  .services-landing-title{
+    width:100%;
+    max-width:100%;
+    text-align: center;
+    font-size:2rem;
+  }
+
+  .services-landing-container{
+    flex-direction: column;
+    padding-left:0rem;
+    gap:2rem;
+    padding:0 1rem;
+  }
+
+  .services-landing-paragraph{
+    font-size:1rem;
+    text-align: center;
+    line-height: 1.1rem;
+  }
+
+  .cards-section{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap:0.2rem; 
+    row-gap: 0.2em;
+    padding:0 1rem;
+  }
+
+  .profile-card{
+    width:80%;
+    max-width: 90%;
+    height:85%;
+  }
+
+  .landing-portfolio-title-box{
+    width:100%;
+    max-width:100%;
+  }
+
+  .landing-portfolio-title{
+    font-size:2rem;
+    text-align: center;
+  }
+
+  .landing-portfolio-paragraph{
+    font-size:1rem;
+    line-height: 1.2rem;
+    text-align: center;
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .right-choice-container { 
+    gap:1rem;
+  }
+
+  .right-choice-h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+  .testimonial-top{
+    width: 90%;
+    max-width: 100%;
+    font-size:1.4rem;
+    line-height: 1.45rem;
+  }
+
+  .testimonial-bottom{
+    width: 90%;
+    max-width: 100%;
+    font-size:1.3rem;
+    line-height: 1.34rem;
+    text-align: center;
+  }
+
+
+  .right-choice-p{
+    max-width: 100%;
+    font-size: 1.5rem;
+    line-height: 1.36rem;
+  }
+
+  .features{
+    flex-direction: column;
+    width:100%;
+    max-width: 100%;
+  }
+
+  .feature-container{
+    min-width: 100%;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }

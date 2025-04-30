@@ -187,8 +187,7 @@ export const RightChoice = () => {
           Why <span className="jrny-span">JRNY</span> is the Right Choice
         </h1>
         <p className="right-choice-p">
-          JRNY is the right choice because we specialize in crafting
-          unforgettable journeys that leave a lasting impact.
+        Begin creating journeys that leave a lasting impression, ensuring every moment is unforgettable.
         </p>
         <button className="about-us-home button">About Us</button>
 
@@ -233,11 +232,7 @@ export const RightChoice = () => {
           </div>
         </div>
         <div className="testimonial-caption">
-          <div className="caption-title">
-            Begin creating journeys that leave a lasting impression, ensuring
-            every moment is unforgettable.
-          </div>
-          <div className="contact-us-button button">Contact Us</div>
+
         </div>
 
         <div className="footer-line">

@@ -153,3 +153,19 @@
 .see-more-btn:hover {
   background-color: #444;
 }
+
+
+@media(max-width: 1024px){
+  .portfolio-tile-container {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+  }
+
+  .portfolio-middle-list {
+    padding-right: 0; /* Remove right padding on mobile */
+  }
+
+  .portfolio-container {
+    padding-left: 0; /* Remove left padding on mobile */
+  }
+}

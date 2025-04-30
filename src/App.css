@@ -81,8 +81,8 @@ body {
 .project-second-description,.project-description,
 .about-landing-description, .blog-heading-description,
 .blog-content-area, .services-landing-paragraph,
-.about-us-landing-paragraph, .landing-portfolio-paragraph,
-.right-choice-p{
+.about-us-landing-paragraph, .landing-portfolio-paragraph
+{
   text-align: center;
   font-family: 'Helvetica Neue';
   background: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%);
