@@ -464,7 +464,7 @@
   flex-direction: column; 
   gap: 50px;
   margin-top: 4rem;
-  height:2000px;
+  height:1600px;
   max-width: 100svw;
 }
 
@@ -732,6 +732,22 @@
 }
 
 @media(max-width:1000px){
+
+  *{border:1px solid red;}
+
+  .landing-title{
+    font-size:3rem;
+    width:100%;
+    max-width:100%;
+    text-align: left;
+  }
+
+  .landing-text-container{
+    width:100%;
+    max-width:100%;
+    flex: 0 0 10%;
+  }
+
   .about-us-landing{
     flex-direction: column;
     padding-left:0rem; 
