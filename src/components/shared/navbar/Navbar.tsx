@@ -9,7 +9,7 @@ export const NavBar = () => {
   const location = useLocation();
   const [active, setActive] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobile(1000);
 
   useEffect(() => {
     const mainRoute = location.pathname.split("/")[1] || "";

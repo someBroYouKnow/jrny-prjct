@@ -183,7 +183,7 @@
 }
 
 .blog-tile-heading {
-  font-size: clamp(2rem, 2vh, 1.1rem);
+  font-size: 1.3rem;
   font-weight: 600;  
 }
 
@@ -194,51 +194,69 @@
 }
 
 /* Responsive Styles */
+/* Base (desktop-first) */
+.blog-tile-container-mobile {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 2rem;
+}
+
+/* Tablet view */
 @media (max-width: 1000px) {
   .blog-tile-container-mobile {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
     gap: 1.5rem;
   }
-  
+
   .blog-tile-mobile {
     aspect-ratio: unset;
     height: auto;
   }
-  
+
   .blog-image-mobile {
-    height: 12rem; /* Fixed height for smaller screens */
+    height: 12rem;
   }
-  
+
   .blog-info-mobile {
     height: auto;
     padding: 0.75rem;
   }
+
+  .blog-tile-heading{
+    font-size:1.3rem;
+  }
 }
 
+/* Mobile view: still two columns */
 @media (max-width: 768px) {
   .blog-tile-container-mobile {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* Ensure 2 columns */
     gap: 1rem;
   }
-  
+
   .blog-image-mobile {
     height: 10rem;
   }
-  
+
   .blog-tile-heading {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
 }
 
+/* Extra small screens */
 @media (max-width: 480px) {
+  .blog-tile-container-mobile {
+    grid-template-columns: 1fr; /* Stack on very small screens */
+  }
+
   .blog-image-mobile {
     height: 8rem;
   }
-  
+
   .blog-tile-heading {
     font-size: 0.875rem;
   }
-  
+
   .minute-count-in-tile {
     font-size: 0.75rem;
   }

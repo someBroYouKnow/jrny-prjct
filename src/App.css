@@ -11,26 +11,52 @@ html, body {
   scrollbar-gutter: stable;
 }
 
+*{border: 1px solid red;}
 
 .header {
   width: 100%;
+  max-width:100%;
+  overflow:hidden;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row; /* Explicitly set to row */
   align-items: center;
-  position: fixed; /* Makes it independent of container */
+  justify-content: space-between; /* This will space logo and navbar */
+  position: sticky;
   top: 0;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0; /* Important: allow shrinking */
   left: 0;
   z-index: 1000;
   backdrop-filter: blur(5.6px);
   -webkit-backdrop-filter: blur(3px);
-  padding: 10px 0;
-  height: 80px;  
-  padding-left:6rem;  
-  max-width:100%;
+  padding: 10px 6rem; /* Combine padding */
+  height: 80px;
+  box-sizing: border-box; /* Include padding in height calculation */
 }
+
+.logo-div {
+  flex: 0 0 auto; /* Don't grow or shrink */
+  /* Add any specific logo sizing if needed */
+}
+
+.navbar-div {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Align nav to the right */
+}
+
+/* Responsive adjustments */
+@container (max-width: 1024px) {
+  .header {
+    padding: 10px 3rem; /* Reduce padding on smaller screens */
+  }
+}
+
+@container (max-width: 768px) {
+  .header {
+    padding: 10px 2rem;
+    height: 70px; /* Slightly smaller header */
+  }
+}
+ 
 body {
   container-type: inline-size;
   width: 100%;
@@ -55,7 +81,8 @@ body {
 .project-second-description,.project-description,
 .about-landing-description, .blog-heading-description,
 .blog-content-area, .services-landing-paragraph,
-.about-us-landing-paragraph, .landing-portfolio-paragraph{
+.about-us-landing-paragraph, .landing-portfolio-paragraph,
+.right-choice-p{
   text-align: center;
   font-family: 'Helvetica Neue';
   background: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%);

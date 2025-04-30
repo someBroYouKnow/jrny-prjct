@@ -62,25 +62,7 @@ export default function Carasoul() {
         </span>
       ))
 
-      
-      const CustomDot=({
-        index,
-        onClick,
-        active
-      }:{index:any, onClick:any, active:any})=>{
-        return (
-            <button
-            onClick={e=>{
-                onClick();
-                e.preventDefault();
-            }}
-            className={`carousol-img ${active? 'carousol-img--active':''}`}
-            >
-                {React.Children.toArray(images)[index]}
-
-            </button>
-        )
-      }
+    
 
       
 

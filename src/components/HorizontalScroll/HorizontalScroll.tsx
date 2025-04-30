@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./HorizontalScroll.css";
@@ -35,13 +35,13 @@ export default function HorizontalScrollSections() {
       scrollTrigger: {
         trigger: '.hero-container',
         pin: true,
-        start:" top center",
+        start:" top top",
         markers: false,
         scrub: 1,
         snap: 1 / (sections.length - 1),
         pinnedContainer: 'body',
         pinSpacing: true,
-        end:()=> "+=" + totalWidth,
+        end:()=> "+=" + (totalWidth*0.75),
       },
     });
   },[])

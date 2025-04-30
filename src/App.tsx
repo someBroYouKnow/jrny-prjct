@@ -10,7 +10,9 @@ export default function App() {
   return (
     <>
       <div className="header">
+        <div className="logo-div">
         <Logo />
+        </div>
         <div className="navbar-div">
           <NavBar />
         </div>

@@ -15,6 +15,7 @@
     font-family: 'Armstrong';
     font-size: 4rem;
     line-height: 4rem; 
+    max-width: 100%;
 }
 
 .contact-us-box{
@@ -160,17 +161,28 @@
 
 .contact-mobile-line{
     margin-right:auto;
+    max-width: 100%;
+
 }
 
+
 .contact-mobile-line img{
-    max-width: 84svw;
+
+    max-width: 84%;
     margin:0 auto;
 }
 
 .contact-form-mobile{
     min-width:80%;
+    max-width: 100%;
     display:flex;
     flex-direction: column;
     gap:3rem;
     justify-content: center;    
+}
+
+@media(max-width:1024px){
+    .contact-us-heading{ 
+        font-size: 2rem;
+    }
 }

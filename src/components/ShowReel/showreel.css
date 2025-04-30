@@ -57,6 +57,14 @@
   top: -15px;
 }
 
+.video-footer-underline img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .video-card-container {
