@@ -13,7 +13,6 @@ const imagesList = [
   '/landing-video-card.png',
   '/landing-video-card.png',
   '/landing-video-card.png',
-  '/landing-video-card.png',
   '/landing-video-card.png'
 ];
 
@@ -51,8 +50,12 @@ export default function HorizontalScrollSections() {
 
     // Set initial scale and opacity
     sections.forEach((section) => {
-      gsap.set(section, { scale: 0.5, opacity: 0.4, zIndex: 1 });
+      gsap.set(section, { scale: 0.3, opacity: 0.3, zIndex: 1 });
     });
+
+    // Throttle the onUpdate callback
+    let lastUpdate = 0;
+    const throttleTime = 16; // Approx 60fps
 
     ScrollTrigger.create({
       animation: horizontalTween,
@@ -61,6 +64,10 @@ export default function HorizontalScrollSections() {
       end: () => "+=" + totalWidth,
       scrub: 1,
       onUpdate: () => {
+        const now = performance.now();
+        if (now - lastUpdate < throttleTime) return; // Throttle updates
+        lastUpdate = now;
+
         const center = window.innerWidth / 2;
 
         sections.forEach((section) => {
@@ -68,20 +75,21 @@ export default function HorizontalScrollSections() {
           const sectionCenter = rect.left + rect.width / 2;
           const distanceToCenter = Math.abs(center - sectionCenter);
 
-          // Define scaling logic: the closer the image is to the center, the larger it gets
-          const maxInfluence = window.innerWidth * 0.6; // Maximum distance at which the scale should change
+          // Adjust scale-up and scale-down thresholds
+          const maxInfluence = window.innerWidth * 0.55; // Reduced influence for earlier scaling (0.55 instead of 0.6)
           const normalized = Math.min(distanceToCenter / maxInfluence, 1); // Normalize to a value between 0 and 1
 
-          // Simple scaling based on distance from the center
-          const scale = 1 - normalized * 0.5; // Scale decreases as distance from the center increases, from 1 to 0.5
+          // New scaling logic: start with smaller scale, increase more at the center
+          const scale = 0.3 + (1 - normalized) * 0.9; // Scale starts at 0.3 and can go up to 1.2 at the center
 
+          // Use GSAP timeline to animate scaling smoothly
           gsap.to(section, {
             scale,
             opacity: scale, // Keep opacity in sync with scale
             zIndex: Math.round(1 + (1 - normalized) * 9), // Keep zIndex higher for closer images
-            duration: 0.3,
+            duration: 0.2, // Quicker scaling (duration reduced)
             overwrite: "auto",
-            ease: "power1.out",
+            ease: "power2.out", // A sharper ease to make the transition faster
           });
         });
       },

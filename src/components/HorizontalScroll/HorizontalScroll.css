@@ -2,14 +2,12 @@
   overflow: hidden; 
   height: 300px;
   max-height:300px;
-  position:relative;
-  border:3px solid red; 
+  position:relative; 
 }
 
 .slider{
-    display: flex;
-    border:4px solid blue;
-    gap:3rem; 
+    display: flex; 
+    gap:1rem; 
     height:300px;
     max-height:300px;
 }
@@ -18,20 +16,18 @@
     transition: transform 0.1s ease-out;
     transform-origin: center center;
       transition: transform 0.3s ease, opacity 0.3s ease;
-    
   }
 
 .card{
     min-width: 480px;
-    height: 300px;
-    max-height:300px; 
+    height: 300px; 
     border-radius: 8px;  
     color: #333;
 }
 
 .card img {
     width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: 8px;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
