@@ -167,8 +167,8 @@
 .landing-text-container {
   display: flex;
   flex-direction: column;
-  margin:180px auto;
-  margin-bottom:100px;
+  margin:130px auto;
+  margin-bottom:80px;
   width:95%;
   justify-content: center;
   align-items: center;
@@ -732,8 +732,7 @@
 }
 
 @media(max-width:1000px){
-
-  *{border:1px solid red;}
+ 
 
   .landing-title{
     font-size:3rem;

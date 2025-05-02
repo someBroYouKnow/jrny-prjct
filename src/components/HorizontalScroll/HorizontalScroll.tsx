@@ -1,22 +1,12 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./HorizontalScroll.css";
 import { useGSAP } from "@gsap/react";
 
-const imagesList = [
-  '/landing-video-card.png',
-  '/landing-video-card.png',
-  '/landing-video-card.png',
-  '/landing-video-card.png',
-  '/landing-video-card.png',
-  '/landing-video-card.png',
-  '/landing-video-card.png',
-  '/landing-video-card.png',
-  '/landing-video-card.png'
-];
-
 gsap.registerPlugin(ScrollTrigger);
+
+const imagesList = new Array(9).fill("/landing-video-card.png");
 
 export default function HorizontalScrollSections() {
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -27,89 +17,76 @@ export default function HorizontalScrollSections() {
     const wrapper = wrapperRef.current;
     if (!slider || !wrapper) return;
 
-    const sections = gsap.utils.toArray<HTMLElement>('.card');
-    const heroContainer = document.querySelector('.hero-container') as HTMLElement | null;
-    if (!heroContainer) return;
+    const cards = gsap.utils.toArray<HTMLElement>(".card");
+    const viewportWidth = window.innerWidth;
+    const cardWidth = cards[0]?.offsetWidth || 300;
+    const gap = 10;
 
-    const totalWidth = heroContainer.offsetWidth;
+    // Total distance to scroll
+    const maxSliderShift = (cardWidth + gap) * (cards.length - 1);
 
-    const horizontalTween = gsap.to(sections, {
-      xPercent: -100 * (sections.length + 1),
-      ease: "none",
+    // Initial slider position (centered on first card)
+    gsap.set(slider, {
+      x: viewportWidth / 2 - cardWidth / 2,
+    });
+
+    // Set initial state for all cards
+    cards.forEach((card) => {
+      gsap.set(card, {
+        scale: 0.8,
+        opacity: 0.6,
+      });
+    });
+
+    // Timeline for horizontal slide + scaling
+    const tl = gsap.timeline({
+      defaults: { ease: "power2.inOut" },
       scrollTrigger: {
-        id: 'horizontal-scroll',
-        trigger: '.hero-container',
-        pin: true,
-        start: "top top",
-        scrub: 1,
-        pinnedContainer: 'body',
+        trigger: slider,
+        start: "top center",
+        end: `+=${maxSliderShift * 1.2}`, // Add a bit more for spacing
+        scrub: true, 
+        pin: ".hero-container",
         pinSpacing: true,
-        end: () => "+=" + totalWidth,
+        anticipatePin: 1,
       },
     });
 
-    // Set initial scale and opacity
-    sections.forEach((section) => {
-      gsap.set(section, { scale: 0.3, opacity: 0.3, zIndex: 1 });
-    });
+    cards.forEach((card, i) => {
+      const targetX = viewportWidth / 2 - cardWidth / 2 - (cardWidth + gap) * i;
 
-    // Throttle the onUpdate callback
-    let lastUpdate = 0;
-    const throttleTime = 16; // Approx 60fps
-
-    ScrollTrigger.create({
-      animation: horizontalTween,
-      trigger: '.hero-container',
-      start: "top top",
-      end: () => "+=" + totalWidth,
-      scrub: 1,
-      onUpdate: () => {
-        const now = performance.now();
-        if (now - lastUpdate < throttleTime) return; // Throttle updates
-        lastUpdate = now;
-
-        const center = window.innerWidth / 2;
-
-        sections.forEach((section) => {
-          const rect = section.getBoundingClientRect();
-          const sectionCenter = rect.left + rect.width / 2;
-          const distanceToCenter = Math.abs(center - sectionCenter);
-
-          // Adjust scale-up and scale-down thresholds
-          const maxInfluence = window.innerWidth * 0.55; // Reduced influence for earlier scaling (0.55 instead of 0.6)
-          const normalized = Math.min(distanceToCenter / maxInfluence, 1); // Normalize to a value between 0 and 1
-
-          // New scaling logic: start with smaller scale, increase more at the center
-          const scale = 0.3 + (1 - normalized) * 0.9; // Scale starts at 0.3 and can go up to 1.2 at the center
-
-          // Use GSAP timeline to animate scaling smoothly
-          gsap.to(section, {
-            scale,
-            opacity: scale, // Keep opacity in sync with scale
-            zIndex: Math.round(1 + (1 - normalized) * 9), // Keep zIndex higher for closer images
-            duration: 0.2, // Quicker scaling (duration reduced)
-            overwrite: "auto",
-            ease: "power2.out", // A sharper ease to make the transition faster
+      tl.to(slider, {
+        x: targetX,
+        duration: 1,
+        onUpdate: () => {
+          const currentX = gsap.getProperty(slider, "x") as number;
+          cards.forEach((c, j) => {
+            const cardCenter = (cardWidth + gap) * j + cardWidth / 2 + currentX;
+            const distanceFromCenter = Math.abs(viewportWidth / 2 - cardCenter);
+            const scale = gsap.utils.clamp(0.6, 1, 1 - distanceFromCenter / viewportWidth);
+            const opacity = gsap.utils.clamp(0.4, 1, 1 - distanceFromCenter / (viewportWidth / 1.5));
+            gsap.set(c, { scale, opacity });
           });
-        });
-      },
+        },
+      });
+
+      tl.to(card, {
+        zIndex: 10,
+        duration: 0.01,
+      });
+
+      tl.to({}, { duration: 0.2 }); // optional pause
     });
   }, []);
 
   return (
     <div className="wrapperH" ref={wrapperRef}>
       <div className="slider" ref={sliderRef}>
-        <div className="card"></div>
-        <div className="card"></div>
-        <div className="card"></div>
-        <div className="card"></div>
-        {
-          imagesList.map((image, index) => (
-            <div className="card" key={index}>
-              <img src={image} alt="Slide" className="slide-image" />
-            </div>
-          ))
-        }
+        {imagesList.map((image, index) => (
+          <div className="card" key={index}>
+            <img src={image} alt={`Slide ${index + 1}`} className="slide-image" />
+          </div>
+        ))}
       </div>
     </div>
   );
