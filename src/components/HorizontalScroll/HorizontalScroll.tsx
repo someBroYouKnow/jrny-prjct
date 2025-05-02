@@ -6,13 +6,16 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const imagesList = new Array(9).fill("/landing-video-card.png");
+const imagesList = new Array(8).fill("/landing-video-card.png");
 
 export default function HorizontalScrollSections() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+
+    ScrollTrigger.getAll().forEach(st => st.kill());
+
     const slider = sliderRef.current;
     const wrapper = wrapperRef.current;
     if (!slider || !wrapper) return;
@@ -46,8 +49,7 @@ export default function HorizontalScrollSections() {
         start: "top center",
         end: `+=${maxSliderShift * 1.2}`, // Add a bit more for spacing
         scrub: true, 
-        pin: ".hero-container",
-        pinSpacing: true,
+        pin: ".landing-container",  
         anticipatePin: 1,
       },
     });
