@@ -37,33 +37,31 @@ export default function HorizontalScrollSections() {
 
     cards.forEach((card, i) => {
       const targetX = viewportWidth / 2 - cardWidth / 2 - (cardWidth + gap) * i;
-
+    
       tl.to(slider, {
         x: targetX,
-        duration: 0.5
+        duration: 0.5,
+        onUpdate: () => {
+          const currentX = gsap.getProperty(slider, "x") as number;
+          cards.forEach((c, j) => {
+            const cardCenter = (cardWidth + gap) * j + cardWidth / 2 + currentX;
+            const distanceFromCenter = Math.abs(viewportWidth / 2 - cardCenter);
+            const scale = gsap.utils.clamp(0.6, 1, 1 - distanceFromCenter / viewportWidth);
+            const opacity = gsap.utils.clamp(0.4, 1, 1 - distanceFromCenter / (viewportWidth / 1.5));
+            gsap.set(c, { scale, opacity });
+          });
+        }
       });
-
+    
+      // Keep zIndex logic for active card
       tl.to(card, {
-        scale: 1,
-        opacity: 1,
         zIndex: 10,
-        duration: 0.3,
-        ease: "back.out(1.7)"
+        duration: 0.01
       });
-
-      // Restore previous card (if not first)
-      if (i > 0) {
-        tl.to(cards[i - 1], {
-          scale: 0.8,
-          opacity: 0.6,
-          zIndex: 1,
-          duration: 0.3
-        }, "<"); // "<" syncs it with current step
-      }
-
-      // Optional: wait before moving to next
+    
       tl.to({}, { duration: 0.5 });
     });
+    
 
   }, []);
 
