@@ -732,8 +732,7 @@
 }
 
 @media(max-width:1000px){
-
-  *{border:1px solid red;}
+ 
 
   .landing-title{
     font-size:3rem;

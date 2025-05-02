@@ -20,7 +20,7 @@ export default function HorizontalScrollSections() {
     const cards = gsap.utils.toArray<HTMLElement>(".card");
     const viewportWidth = window.innerWidth;
     const cardWidth = cards[0]?.offsetWidth || 300;
-    const gap = 20;
+    const gap = 10;
 
     // Total distance to scroll
     const maxSliderShift = (cardWidth + gap) * (cards.length - 1);
