@@ -170,7 +170,11 @@
 .navbar {
   position: relative;
   z-index: 1000;
+  min-width:500px;
 }
 
- 
- 
+@media(max-width:1024px){
+  .navbar{
+    min-width: none;
+  }
+} 

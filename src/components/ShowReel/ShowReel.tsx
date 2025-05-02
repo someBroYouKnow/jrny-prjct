@@ -15,13 +15,6 @@ export default function ShowReel() {
             <span className="play-reel-button">
               <img src="/play-icon.png" alt="play" />
             </span>
-            <span className="video-footer-underline">
-              <img
-                className="video-footer-underline-png"
-                src="underline-cross.png"
-                alt=""
-              />
-            </span>
           </div>
         </div>
       </div>
