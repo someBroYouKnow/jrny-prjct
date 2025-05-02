@@ -25,11 +25,11 @@ export default function LandingPage() {
           </section>
         </div>
         <div className="landing-svg-container">
-        <section className="svg-content">
+        {/* <section className="svg-content">
             <div className="content-svg">
               <AnimatedPathWithSlab />
             </div>
-          </section>
+          </section> */}
 
         <div className="about-us-landing">
           <div className="about-us-section">
