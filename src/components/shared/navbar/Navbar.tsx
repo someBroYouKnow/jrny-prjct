@@ -65,10 +65,10 @@ const NavBarUl = ({active, setActive}: {active: string, setActive: React.Dispatc
           <li className='navbar-list-item' key={route}>
             <Link 
               to={route} 
-              className={isActive ? "navbar-active" : ""} 
+              className={isActive ? "navbar-active" : ""}
               onClick={() => setActive(route === "/" ? "" : route)}
             >
-              {route === "/" ? "Home" : route.replace("-", " ").replace(/\b\w/g, (char) => char.toUpperCase())}
+              <span className="navbar-text">{route === "/" ? "Home" : route.replace("-", " ").replace(/\b\w/g, (char) => char.toUpperCase())}</span>
             </Link>
           </li>
         );

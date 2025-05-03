@@ -25,14 +25,16 @@ console.log(isMobile)
   return (
     <>
       <div className="contact-us-container">
+        <div className="contact-us-row">
         < ContactHeading />
+        <SocialIcons />
+        </div>
         <div className="contactUsLine">
           <img src="/contact_line.png" />{" "}
         </div>
         <div className="contact-us-box">
           <ContactForm />
           <div className="socials-container">
-            <SocialIcons />
             <SocialDivs />
           </div>
         </div>
@@ -44,7 +46,7 @@ console.log(isMobile)
 export const ContactHeading = ()=>{
   return (
     <div className="contact-us-heading">
-    Let’s shape your <span className="jrny-span">JRNY</span> into
+    Let’s shape your <span className="jrny-span-text-contact-us">JRNY</span> into
     something unforgettable.
   </div>
   )
@@ -75,7 +77,10 @@ export const ContactForm = () =>{
         className="footer-input form-textarea"
       />
     </div>
-    <button className="send-mail button button-alt">Send Mail</button>
+    <button className="send-mail button button-alt">
+      <span className="send-mail-text">Send Mail</span>
+      <img style={{marginLeft: "5px"}} src="/right-arrow.png" />
+    </button>
   </div>
   )
 }

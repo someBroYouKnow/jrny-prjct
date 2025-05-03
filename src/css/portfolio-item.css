@@ -35,19 +35,32 @@
   max-width: 30svw;
 }
 
+.project-name{
+  font-family: Armstrong;
+font-weight: 400;
+font-size: 72px;
+line-height: 100%;
+letter-spacing: 0%;
+color: white;
+
+}
+
 .project-name,
 .project-second-header {
-  font-size: 3rem;
+  font-size: 48px;
   font-family: "Armstrong";
+  color: white;
+
 }
 
 .project-description,
 .project-second-description {
   text-align: left;
+  max-width: 30svw;
 }
 
 .project-second-description {
-  max-width: 70svw;
+  max-width: 65svw;
 }
 
 .portfolio-item-middle-list {
@@ -60,8 +73,34 @@
 .might-like {
   font-family: "Armstrong";
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 48px;
   line-height: 100%;
   letter-spacing: 0%;
   color:white;
+}
+
+.item-date-company{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item-date{
+  font-family: Armstrong;
+font-weight: 400;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #808186;
+}
+
+.item-company{
+  font-family: Helvetica Neue;
+font-weight: 500;
+font-size: 32px;
+line-height: 40px;
+color: #808186
+/* letter-spacing: 0%;
+background-color: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%); */
+;
 }

@@ -46,7 +46,7 @@ export default function AboutUs() {
             About <span className='jrny-span'>US</span>
           </div>
           <div className="about-landing-buttons">
-            <button className="button button-alt">Contact Us</button>
+            <button className="button button-alt"><Link to='/contact-us'>Contact Us</Link></button>
             <button className="button about-portfolio-button"><Link to='/portfolio'>Our Portfolio</Link></button>
           </div>
           <div className="about-landing-description">

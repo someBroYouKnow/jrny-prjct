@@ -44,9 +44,10 @@ const PortfolioItemContent = ({id, videoLink}:PortfolioItemProps) =>{
                 </div>
 
             </div>
-            { videoLink && 
+            { true && 
                 <div className="project-video-container">
-                <video src=""></video>
+                {/* <video src=""></video> */}
+                <img style={{width: "100%"}} src='/video.png' />
             </div>}
 
             <div className="project-second-box">
@@ -57,17 +58,30 @@ const PortfolioItemContent = ({id, videoLink}:PortfolioItemProps) =>{
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
             </div>
+
+            {/* <div>
+                <div>
+                <img src="/cards.png" />
+                <img src="/cards.png" />
+                <img src="/cards.png" />
+                </div>
+                <div>
+                <img src="/cards.png" />
+                <img src="/cards.png" />
+                <img src="/cards.png" />
+                </div>
+            </div> */}
+
         </div>
     )
 }
 
 const PortfolioItemHeader = () =>{
-    const event = new Date(Date.now());
     return (
         <div className="portfolio-item-header-container">
             <div className="item-date-company">
                 <span className="item-date">
-                    { event.toISOString().split('T')?.[0] }
+                    22nd March 2025
                 </span>
                 <span className="item-company">
                     JRNY

@@ -27,7 +27,7 @@ export const PortfolioContent = ()=>{
   <div className="portfolio-our-projects">
     <div className="our-projects-heading">
       <span className="our-projects-span">
-        Our <span className="jrny-span">Portfolio</span>
+        Our <span className="jrny-span-text">Portfolio</span>
       </span>
     </div>
     <p className="our-projects-p">

@@ -71,7 +71,7 @@
   border: none;
   cursor: pointer;
   border-radius: 0 0 2rem 0; /* Circular bottom right corner */
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 700;
 }
@@ -540,7 +540,7 @@
 }
 
 .jrny-span {
-  color: #ff4900;
+  color: #FF5B00;
   background-color: none !important;
 }
 

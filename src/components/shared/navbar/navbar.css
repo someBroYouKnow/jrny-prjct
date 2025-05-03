@@ -36,7 +36,7 @@
 }
 
 .navbar-list-item:hover a{
-  color:#FF4900 ;
+  color:#FF5B00 ;
 }
 
 .navbar-list-item img{
@@ -45,8 +45,17 @@
   right:-20%; 
 }
 
+.navbar-text {
+  font-family: Armstrong;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
 .navbar-active {
-  color:#FF4900 !important;
+  color:#FF5B00 !important;
 }
 
 
