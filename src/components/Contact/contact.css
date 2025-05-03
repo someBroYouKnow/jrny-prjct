@@ -99,6 +99,11 @@
     gap:1rem;
 }
 
+.social-icons img{
+    width: 2rem;
+    height: 2rem;
+}
+
 .social-divs{
     display:flex;
     gap:2rem;
