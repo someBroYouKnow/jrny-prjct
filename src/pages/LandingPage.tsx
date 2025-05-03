@@ -110,14 +110,12 @@ export default function LandingPage() {
 
           <div className="partners-slideshow">
             <span className="partnered">Partnered with:</span>
-            <PartnerShow />
+            < PartnerSlider />
 
             <div className="landing-line">
               <img src="landing_line.png" alt="" />
             </div>
           </div>
-
-
 
         </div>
 
@@ -243,3 +241,26 @@ export const RightChoice = () => {
     </>
   );
 };
+
+const sliderImages = [
+  '/assets/slider1.png',
+  '/assets/slider2.png',
+  '/assets/slider3.png'
+]
+
+
+const PartnerSlider = () => { 
+  return (
+    <div className="partner-slider">  
+    <div className="partner-slider-container">
+      <div className="partner-images">
+        {sliderImages.map((image, index) => (
+          <div className="partner-image" key={index} >
+            <img className='partner-image-img' src={image} alt={`Partner ${index + 1}`} width='100px'  height={"auto"}/>
+          </div>
+        ))}
+      </div>
+    </div>
+    </div>
+  );
+}
