@@ -1,7 +1,7 @@
 import "./carasoul.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const responsive = {
   superLargeDesktop: {
@@ -56,11 +56,11 @@ export default function Carasoul() {
         },
       ];
 
-      const images = cards.map(card=>(
-        <span className="carousol-img-box">
-            <img src={`${card.profilePic}`} alt="picture" />
-        </span>
-      ))
+      // const images = cards.map(card=>(
+      //   <span className="carousol-img-box">
+      //       <img src={`${card.profilePic}`} alt="picture" />
+      //   </span>
+      // ))
 
     
 

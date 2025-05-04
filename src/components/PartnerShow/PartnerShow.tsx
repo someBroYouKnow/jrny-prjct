@@ -23,7 +23,7 @@ function PartnerRow() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const firstTextRef = useRef<HTMLParagraphElement>(null);
   const secondTextRef = useRef<HTMLParagraphElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
   const directionRef = useRef(1);
   const xPercentRef = useRef(0);
 
@@ -48,7 +48,7 @@ function PartnerRow() {
     animationRef.current = requestAnimationFrame(animate);
 
     return () => {
-      if (animationRef.current) {
+      if (animationRef.current !== null) {
         cancelAnimationFrame(animationRef.current);
       }
     };

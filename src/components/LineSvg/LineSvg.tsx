@@ -230,7 +230,7 @@ const PathWithSlab: React.FC = () => {
       glowPathRef.current?.setAttribute('d', generatePathData(glowPoints));
     };
 
-    const easeFn = pathEase('#mainPath', {});
+    // const easeFn = pathEase('#mainPath', {});
 
     gsap.to(coverPathRef.current, {
       scrollTrigger: {

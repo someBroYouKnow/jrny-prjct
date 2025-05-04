@@ -31,7 +31,7 @@ interface PortfolioItemProps {
     videoLink?: string;
 }
 
-const PortfolioItemContent = ({id, videoLink}:PortfolioItemProps) =>{
+const PortfolioItemContent = ({}:PortfolioItemProps) =>{
     return (
         <div className="project-box">
             <div className="project-header">

@@ -12,7 +12,7 @@ export function pathEase(
   const axis = config.axis || "y";
   const precision = config.precision || 100;
 
-  const useX = axis === "x";
+  // const useX = axis === "x";
 
   const pathElement = typeof path === "string"
     ? document.querySelector(path) as SVGPathElement
