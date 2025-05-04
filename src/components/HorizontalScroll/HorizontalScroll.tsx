@@ -48,9 +48,9 @@ export default function HorizontalScrollSections() {
         trigger: '.pinMe',
         start: "top top",
         end: `+=${maxSliderShift * 1.2}`, // Add a bit more for spacing
-        scrub: true, 
-        pin: ".pinMe",  
-        anticipatePin: 1,
+        scrub: 1, 
+        pin: ".landing-container",
+        anticipatePin: 1,   
       },
     });
 

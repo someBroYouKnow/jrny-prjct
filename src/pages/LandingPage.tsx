@@ -191,7 +191,7 @@ export const RightChoice = () => {
         <button className="about-us-home button">About Us</button>
 
         <div className="features">
-          <div className="feature-container">
+          <div className="feature-container addPlus">
             <span className="feature-title">INNOVATION</span>
             <div className="feature-caption">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -200,7 +200,7 @@ export const RightChoice = () => {
               nisi ut aliquip ex ea commodo consequat.
             </div>
           </div>
-          <div className="feature-container">
+          <div className="feature-container addPlus">
             <span className="feature-title">CUSTOMIZATION</span>
             <div className="feature-caption">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -209,7 +209,7 @@ export const RightChoice = () => {
               nisi ut aliquip ex ea commodo consequat.
             </div>
           </div>
-          <div className="feature-container">
+          <div className="feature-container addPlus">
             <span className="feature-title">EXCELLENCE</span>
             <div className="feature-caption">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -221,7 +221,7 @@ export const RightChoice = () => {
               veniam, quis nostrud exercitation.
             </div>
           </div>
-          <div className="feature-container">
+          <div className="feature-container addPlus">
             <span className="feature-title">GLOBAL REACH </span>
             <div className="feature-caption">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

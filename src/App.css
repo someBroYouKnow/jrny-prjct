@@ -5,6 +5,7 @@ body {
   flex-direction: column;
   background-color: black;
   font-family: 'Helvetica Neue'; 
+  position: relative;
 }
  
 html, body {
@@ -15,6 +16,7 @@ html, body {
 .header {
   width: 100%;
   max-width:100%;
+  position:sticky !important;
   overflow:hidden;
   display: flex;
   flex-direction: row; /* Explicitly set to row */
@@ -90,4 +92,21 @@ body {
   background-clip: text;
   text-fill-color: transparent; /* Standard property, but -webkit- is more widely supported */
 
+}
+
+.addPlus{ 
+  position:relative;
+
+}
+
+.addPlus::before{
+  content: '+';
+  position:absolute;
+  top:0;
+  left:0;
+  font-size:1.5rem;
+  color:white;
+  font-weight:600;
+  font-family: 'Helvetica Neue';
+  transform:translate(-50%, -50%);
 }
