@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import './PartnerSlider.css';
@@ -32,8 +32,16 @@ const PartnerSlider: React.FC = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Tween | null>(null);
 
-  // Initialize animation using useGSAP within the scope of containerRef
-  useGSAP(() => {
+  const handleResize = () => {
+    if (animationRef.current) {
+      // Kill existing animation
+      animationRef.current.kill();
+      
+      playMarkee();
+    }
+  };
+
+  const playMarkee = ()=>{
     const sliderElement = sliderRef.current;
     if (!sliderElement) return;
 
@@ -58,57 +66,38 @@ const PartnerSlider: React.FC = () => {
       }
     });
 
+  }
+
+  // Initialize animation using useGSAP within the scope of containerRef
+  useGSAP(() => {
+
+
+    playMarkee();
+
+    
+    window.addEventListener('resize', handleResize);
+
     return () => {
       if (animationRef.current) {
         animationRef.current.kill();
       }
+
+      window.removeEventListener('resize', handleResize);
     };
   }, { scope: containerRef });
 
-  // Handle window resize
-  useEffect(() => {
-    const handleResize = () => {
-      if (animationRef.current) {
-        // Kill existing animation
-        animationRef.current.kill();
-        
-        // Re-initialize with new dimensions
-        const sliderElement = sliderRef.current;
-        if (!sliderElement) return;
-
-        const firstPartner = sliderElement.querySelector('.first-partner') as HTMLElement;
-        const secondPartner = sliderElement.querySelector('.second-partner') as HTMLElement;
-        
-        if (!firstPartner || !secondPartner) return;
-        
-        const totalWidth = firstPartner.offsetWidth;
-        
-        animationRef.current = gsap.to([firstPartner, secondPartner], {
-          x: `-${totalWidth}px`,
-          duration: 4,
-          ease: "linear",
-          repeat: -1,
-          onRepeat: () => {
-            gsap.set([firstPartner, secondPartner], { x: 0 });
-          }
-        });
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+ 
 
   // Pause/resume animation on hover
   const handleMouseEnter = () => {
     if (animationRef.current) {
-      animationRef.current.pause();
+      // animationRef.current.pause();
     }
   };
 
   const handleMouseLeave = () => {
     if (animationRef.current) {
-      animationRef.current.play();
+      // animationRef.current.play();
     }
   };
 

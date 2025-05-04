@@ -235,7 +235,7 @@ const PathWithSlab: React.FC = () => {
       scrollTrigger: {
         trigger: ".content-svg",
         start: "top top",
-        end: "+=7659",
+        end: "+=5659",
         pinnedContainer: 'body',
         scrub: true, 
         onUpdate: (self) => updatePaths(self.progress ),
@@ -260,7 +260,7 @@ const PathWithSlab: React.FC = () => {
       <path
         ref={originalPathRef}
         id="mainPath"
-        d={`M0,40 L${rightEdge},40 L${rightEdge},300 L2,450 L2,2000 L${rightEdge},2200 L${rightEdge},3600 L2,3800 L2,4300`}
+        d={`M${rightEdge},01 L${rightEdge},300 L2,450 L2,2000 L${rightEdge},2200 L${rightEdge},3600 L2,3800 L2,4300`}
         fill="none"
         stroke="#FF5B00"
         strokeWidth="4"
