@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { pathEase } from './pathease';
+import { ScrollTrigger } from 'gsap/ScrollTrigger'; 
 import { useGSAP } from '@gsap/react';
+import { pathEase } from './pathease';
 
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
@@ -230,7 +230,6 @@ const PathWithSlab: React.FC = () => {
       glowPathRef.current?.setAttribute('d', generatePathData(glowPoints));
     };
 
-    // const easeFn = pathEase('#mainPath', {});
 
     gsap.to(coverPathRef.current, {
       scrollTrigger: {
@@ -241,7 +240,7 @@ const PathWithSlab: React.FC = () => {
         scrub: true, 
         onUpdate: (self) => updatePaths(self.progress ),
       },
-      // ease: easeFn,
+      ease: pathEase('#mainPath', {}),
     });
 
     return () => {
