@@ -84,6 +84,8 @@ const PartnerSlider: React.FC = () => {
 
       window.removeEventListener('resize', handleResize);
     };
+
+
   }, { scope: containerRef });
 
  

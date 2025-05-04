@@ -119,7 +119,7 @@ const Card = ({
 }: CardProps) => {
   return (
     <div className={`profile-card-container`}>
-      <div className={`compliment ${active ? 'compliment-active':''}`}> <span className="compliment-span">{compliment}</span></div>
+      <div className={` compliment ${active ? 'compliment-active':''}`}> <span className="compliment-span">{compliment}</span></div>
       <div className="profile-container"> 
         <div className="profile-infor">
           <span className="profile-name">{profileName}</span>

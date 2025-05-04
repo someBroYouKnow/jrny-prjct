@@ -11,7 +11,6 @@ export default function App() {
     <>
     <div className="pinMe">
 
-
       <div className="header">
         <div className="logo-div">
         <Logo />
