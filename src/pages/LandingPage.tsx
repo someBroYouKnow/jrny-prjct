@@ -111,7 +111,7 @@ export default function LandingPage() {
 
           <div className="partners-slideshow">
             <span className="partnered">Partnered with:</span>
-            < PartnerSlider />
+            <PartnerShow />
 
             <div className="landing-line">
               <img src="landing_line.png" alt="" />
@@ -243,4 +243,4 @@ export const RightChoice = () => {
   );
 };
 
-
+ 
