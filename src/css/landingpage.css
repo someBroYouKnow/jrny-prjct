@@ -121,6 +121,11 @@
   pointer-events: none;
 }
 
+.line-outlier{
+  position:fixed;
+  top:3000px;
+}
+
 
 .landing-show-reel {
   max-width: 60svw;

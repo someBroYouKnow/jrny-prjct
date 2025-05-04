@@ -133,6 +133,7 @@ export default function LandingPage() {
                   inspire audiences. Explore our portfolio to see the journeys
                   we’ve crafted.{" "}
                 </p>
+                <div className="line-outlier"></div>
               </div>
 
               <div className="portfolio-tiles-landing">

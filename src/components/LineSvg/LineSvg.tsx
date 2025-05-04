@@ -233,11 +233,11 @@ const PathWithSlab: React.FC = () => {
 
     gsap.to(coverPathRef.current, {
       scrollTrigger: {
-        trigger: ".about-us-section",
+        trigger: ".line-outlier",
         start: "top top",
-        end: "+=6950", 
+        end: "+=4050", 
         scrub: 1,  
-        onUpdate: (self) => updatePaths(self.progress ),
+        onUpdate: (self) => updatePaths(self.progress ), 
       }, 
     });
 
@@ -245,12 +245,12 @@ const PathWithSlab: React.FC = () => {
       gsap.killTweensOf(coverPathRef.current);
       ScrollTrigger.killAll();
     };
-  }, []); // <- useGSAP dependency array
+  }, []); 
 
   return (
     <svg
       ref={svgRef}
-      viewBox={`0 0 ${rightEdge} 4000`}
+      viewBox={`0 0 ${rightEdge} 3800`}
       xmlns="http://www.w3.org/2000/svg"
       style={{ width: '100%', height: 'auto', pointerEvents: 'none' }}
     >
