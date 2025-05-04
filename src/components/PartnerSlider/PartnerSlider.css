@@ -6,6 +6,7 @@
     position: relative;
     display:flex;
     align-items: center;
+    background-color: none;
   }
   
   .partner-slider:before,
@@ -58,13 +59,11 @@
   .partner-image-img {
     max-width: 120px;
     height: auto;
-    object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.7; 
+    object-fit: contain; 
+    opacity: 1; 
   }
   
-  .partner-image:hover .partner-image-img {
-    filter: grayscale(0%);
+  .partner-image:hover .partner-image-img { 
     opacity: 1;
   }
   
