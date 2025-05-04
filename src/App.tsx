@@ -9,6 +9,9 @@ export default function App() {
 
   return (
     <>
+    <div className="pinMe">
+
+
       <div className="header">
         <div className="logo-div">
         <Logo />
@@ -20,6 +23,7 @@ export default function App() {
 
       <div className="container">
         <Outlet />
+      </div>
       </div>
     </>
   );
