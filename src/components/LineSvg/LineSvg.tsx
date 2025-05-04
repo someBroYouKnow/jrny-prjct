@@ -233,14 +233,12 @@ const PathWithSlab: React.FC = () => {
 
     gsap.to(coverPathRef.current, {
       scrollTrigger: {
-        trigger: ".content-svg",
+        trigger: ".about-us-section",
         start: "top top",
-        end: "+=5659",
-        pinnedContainer: 'body',
-        scrub: true, 
+        end: "+=6950", 
+        scrub: 1,  
         onUpdate: (self) => updatePaths(self.progress ),
-      },
-      ease: pathEase('#mainPath', {}),
+      }, 
     });
 
     return () => {
@@ -252,7 +250,7 @@ const PathWithSlab: React.FC = () => {
   return (
     <svg
       ref={svgRef}
-      viewBox={`0 0 ${rightEdge} 4500`}
+      viewBox={`0 0 ${rightEdge} 4000`}
       xmlns="http://www.w3.org/2000/svg"
       style={{ width: '100%', height: 'auto', pointerEvents: 'none' }}
     >
@@ -260,7 +258,7 @@ const PathWithSlab: React.FC = () => {
       <path
         ref={originalPathRef}
         id="mainPath"
-        d={`M${rightEdge},01 L${rightEdge},300 L2,450 L2,2000 L${rightEdge},2200 L${rightEdge},3600 L2,3800 L2,4300`}
+        d={`M0,40 L${rightEdge},40 L${rightEdge},280 L2,400 L2,1920 L${rightEdge},1990 L${rightEdge},3480 L2,3600 L2,3800`}
         fill="none"
         stroke="#FF5B00"
         strokeWidth="4"
