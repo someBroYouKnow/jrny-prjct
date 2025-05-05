@@ -5,6 +5,7 @@
     justify-content: center;
     max-width: 90%;
     min-width:80%;
+    width:90%;
     gap:1.5rem;
     margin:0 auto;
     margin-bottom:12rem;
@@ -13,19 +14,21 @@
 
 .contact-us-heading{
     font-family: 'Armstrong';
-    font-size: 48px;
+    font-size: 3rem;
     line-height: 4rem;
-    width: 50%;
+    flex:65% 0 60%;
     color: white;
 }
-
-.jrny-span-text-contact-us {
-    color: #FF5B00;
-    font-size: 48px;
+@media(max-width:1320px){
+    .contact-us-heading{
+        flex:0 0 50%;
+    }
 }
 
 .contact-us-row{
     display: flex;
+    align-items: flex-end;
+    justify-content: space-between; 
 }
 
 .contact-us-box{
@@ -83,7 +86,7 @@
 
  
 
-.send-mail{
+.send-mail-contact-button{
     margin-left:auto;
 }
 
@@ -97,6 +100,13 @@
 .social-icons{
     display:flex;
     gap:1rem;
+    margin-right:3rem;
+}
+
+@media(max-width:1000px){
+    .social-icons{
+        margin-right:0;
+    }
 }
 
 .social-icons img{
@@ -108,8 +118,9 @@
     display:flex;
     gap:2rem;
     flex-wrap: wrap;
-    position: relative; 
-    top: 35px;
+    position: relative;  
+    top:10px;
+    justify-content: space-between;
 }
 
 .social-divs div{
@@ -214,9 +225,16 @@
     justify-content: center;    
 }
 
+@media(max-width:1300px){
+    .contact-us-heading{
+        font-size:2rem;
+        line-height:1.8rem;
+    }
+}
+
 @media(max-width:1024px){
     .contact-us-heading{ 
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         line-height: 2rem;
     }
 }

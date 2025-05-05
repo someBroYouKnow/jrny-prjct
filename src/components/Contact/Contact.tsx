@@ -3,8 +3,7 @@ import Button from "../Button/Button";
 import "./contact.css";
 
 export default function Contact() {
-  const isMobile = useIsMobile();
-console.log(isMobile)
+  const isMobile = useIsMobile(); 
   if (isMobile) {
     return (
       <div className="contact-us-container">
@@ -47,13 +46,14 @@ console.log(isMobile)
 export const ContactHeading = ()=>{
   return (
     <div className="contact-us-heading">
-    Let’s shape your <span className="jrny-span-text-contact-us">JRNY</span> into
+    Let’s shape your <span className="jrny-span">JRNY</span> into
     something unforgettable.
   </div>
   )
 }
 
 export const ContactForm = () =>{
+  const isMobile = useIsMobile(1024);
   return (
     <div className="contact-form">
     <div className="your-info">
@@ -78,10 +78,10 @@ export const ContactForm = () =>{
         className="footer-input form-textarea"
       />
     </div>
-    <Button >
+    <button className='button button-alt send-mail-contact-button'>
       <span className="send-mail-text">Send Mail</span>
       <img style={{marginLeft: "5px"}} src="/right-arrow.png" />
-    </Button>
+    </button>
   </div>
   )
 }

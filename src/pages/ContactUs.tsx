@@ -19,10 +19,7 @@ export default function ContactUs() {
                 <div className="social-container-mobile">
                 <SocialDivs />
                 <SocialIcons /> 
-                </div>
-                {/* <div className="contact-mobile-line">
-                  <img src="/landing_line.png" alt="" />
-                  </div> */}
+                </div> 
 
                   </div>
               </div>
