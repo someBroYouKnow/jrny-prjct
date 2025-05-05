@@ -9,16 +9,37 @@
     background-color: none;
   }
   
-  .partner-slider:before,
-  .partner-slider:after {
+  .partner-slider {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Blur glow effect on both sides */
+  .partner-slider::before,
+  .partner-slider::after {
     content: '';
     position: absolute;
     top: 0;
-    height: 250px;
+    height: 100%;
     width: 80px;
     z-index: 2;
     pointer-events: none;
+    background: linear-gradient(to right, transparent, transparent); /* transparent base */
+    filter: blur(12px); /* creates the soft glow without color */
   }
+  
+  /* Left side blur */
+  .partner-slider::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.7), transparent);
+  }
+  
+  /* Right side blur */
+  .partner-slider::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0,0,0,0.7), transparent);
+  }
+  
 
   .partner-slider-container {
     width: 100%;
