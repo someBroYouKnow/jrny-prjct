@@ -16,7 +16,7 @@
     font-family: 'Armstrong';
     font-size: 3rem;
     line-height: 4rem;
-    flex:65% 0 60%;
+    flex:0 0 65%;
     color: white;
 }
 @media(max-width:1320px){
@@ -29,6 +29,8 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between; 
+    width:90%;
+    
 }
 
 .contact-us-box{
@@ -60,16 +62,26 @@
 .your-info{
     min-width:95%;
     display:flex;
-    gap:1rem;
-    flex-wrap: wrap; 
+    justify-content: space-between;
+    flex-wrap: nowrap; 
     max-width:100%;
 }
 
 .footer-input-div{ 
     position:relative;
-    min-width: 134px;
-    width:43%;
-    flex-grow: 1;
+    flex:0 0 45%;
+}
+
+@media(max-width:400px){
+    .your-info{ 
+        flex-direction: column;
+        justify-content: space-between;
+        gap:1rem;
+    }
+
+    .footer-input-div{
+        flex:0 0 90%;
+    }
 }
 
 .footer-input{
@@ -99,8 +111,7 @@
 
 .social-icons{
     display:flex;
-    gap:1rem;
-    margin-right:3rem;
+    gap:1rem; 
 }
 
 @media(max-width:1000px){
@@ -216,12 +227,12 @@
     margin:0 auto;
 }
 
-.contact-form-mobile{
+.contact-form-mobile-container{
     min-width:80%;
     max-width: 100%;
     display:flex;
     flex-direction: column;
-    gap:3rem;
+    gap:1rem;
     justify-content: center;    
 }
 
@@ -233,8 +244,19 @@
 }
 
 @media(max-width:1024px){
+
+    .contact-us-container{
+        padding:0;
+
+    }
+
     .contact-us-heading{ 
         font-size: 1.8rem;
         line-height: 2rem;
+    }
+
+    .contact-form{
+        width:90%;
+        margin:0 auto;
     }
 }

@@ -14,7 +14,7 @@ export default function Contact() {
         <div className="contact-mobile-line">
           <img src="/landing_line.png" alt="" />
         </div>
-        <div className="contact-form-mobile">
+        <div className="contact-form-mobile-container">
           <ContactHeading />
           <ContactForm />
         </div>
@@ -53,7 +53,7 @@ export const ContactHeading = ()=>{
 }
 
 export const ContactForm = () =>{
-  const isMobile = useIsMobile(1024);
+  
   return (
     <div className="contact-form">
     <div className="your-info">
