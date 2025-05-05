@@ -661,8 +661,7 @@
   color: #ff4900;
 }
 
-.feature-caption {
-  flex-grow: 1;
+.feature-caption { 
   line-height: 20px;
   font-size: 0.98rem;
   padding: 0.4rem 0.1rem;
@@ -807,25 +806,26 @@
   }
 
   .services-landing-title{
-    width:100%;
+    width:97%;
     max-width:100%;
     text-align: center;
-    font-size:2rem;
+    font-size:1.7rem;
+    margin:0 auto;
   }
 
   .services-landing-container{
     flex-direction: column;
     padding-left:0rem;
-    gap:2rem;
-    padding:0 1rem;
+    gap:2rem; 
+    margin:0 auto;
   }
 
   .services-landing-paragraph{
     font-size:1rem;
     text-align: center;
     line-height: 1.1rem;
-    width:100%;
-    max-width: 100%;
+    width:90%;
+    max-width: 90%;
   }
 
   .cards-section{
@@ -895,17 +895,22 @@
   .features{
     flex-direction: column;
     width:90%;
-    max-width: 90%;
+    max-width: 90svw;
+    flex-wrap: nowrap;
+    margin:0 auto;
   }
 
   .feature-container{
-    min-width: 100%;
-    max-width: 100%;
+    width: 80%;
+    min-width: 0%;
+    max-width: 90svw;
     margin-right: auto;
     margin-left: auto;
   }
 
-  
+  .feature-title{
+    font-size:1.4rem;
+  }
 
 }
 
