@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'; 
-import { useGSAP } from '@gsap/react';
-import { pathEase } from './pathease';
+import { useGSAP } from '@gsap/react'; 
+import useIsMobile from '../../hooks/useIsMobile';
 
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
-const PathWithSlab: React.FC = () => {
+const LineSvgMobile: React.FC = () => {
   const svgRef = useRef<SVGSVGElement>(null);
   const coverPathRef = useRef<SVGPathElement>(null);
   const originalPathRef = useRef<SVGPathElement>(null);
@@ -233,9 +233,9 @@ const PathWithSlab: React.FC = () => {
 
     gsap.to(coverPathRef.current, {
       scrollTrigger: {
-        trigger: ".line-outlier",
+        trigger: ".line-outlier-mobile",
         start: "top top",
-        end: "+=4950", 
+        end: "+=4140", 
         scrub: true,  
         onUpdate: (self) => updatePaths(self.progress ), 
       }, 
@@ -246,6 +246,13 @@ const PathWithSlab: React.FC = () => {
       ScrollTrigger.killAll();
     };
   }, []); 
+
+  const isMobile = useIsMobile(450);
+
+  const smallScreen = `M${rightEdge/2},40 L${rightEdge/2},40 L${rightEdge/2},160 L2,300 L2,1850 L${rightEdge},1900 L${rightEdge},3040 L2,3140 L2,3290`
+
+  const d = isMobile ? smallScreen
+  : `M${rightEdge/2},40 L${rightEdge/2},40 L${rightEdge/2},160 L2,300 L2,1900 L${rightEdge},1950 L${rightEdge},3380 L2,3440 L2,3590`
 
   return (
     <svg
@@ -258,7 +265,7 @@ const PathWithSlab: React.FC = () => {
       <path
         ref={originalPathRef}
         id="mainPath"
-        d={`M0,40 L${rightEdge},40 L${rightEdge},340 L2,500 L2,1990 L${rightEdge},2100 L${rightEdge},3640 L2,3740 L2,3890`}
+        d={d ?? smallScreen}
         fill="none"
         stroke="#FF5B00"
         strokeWidth="4"
@@ -282,4 +289,4 @@ const PathWithSlab: React.FC = () => {
   );
 };
 
-export default PathWithSlab;
+export default LineSvgMobile;
