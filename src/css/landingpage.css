@@ -126,6 +126,23 @@
   top:2700px;
 }
 
+.svg-content-mobile{
+  position: fixed;
+  left: 0; /* <- fixed */ 
+  top: 550px;
+  height: 100%;
+  width: 100%; /* <- fixed */
+  max-width: 100%;
+  max-width: none;
+  z-index: 100;
+  pointer-events: none; 
+}
+
+.line-outlier-mobile{
+  position:fixed;
+  top:3000px;
+}
+
 
 .landing-show-reel {
   max-width: 60svw;
@@ -732,10 +749,14 @@
 }
 
 @media(max-width:1000px){
- 
+
+  .hero-container{
+    height:800px;
+  }
 
   .landing-title{
     font-size:3rem;
+    padding-left:1rem;
     width:100%;
     max-width:100%;
     text-align: left;
@@ -853,6 +874,7 @@
   .testimonial-top{
     width: 90%;
     max-width: 100%;
+    margin-top:100px;
     font-size:1.4rem;
     line-height: 1.45rem;
   }
@@ -884,6 +906,55 @@
     margin-right: auto;
     margin-left: auto;
   }
+
+  
+
+}
+
+
+/* Mostly for LINESVGMOBILE */
+@media(max-width:500px){
+  .hero-container{
+    height:700px;
+  }
+
+  .landing-title{
+    font-size:2.3rem;
+    padding-left:1rem;
+    width:100%;
+    max-width:100%;
+    text-align: left;
+  }
+
+  .landing-carousol{
+    height:350px;
+  }
+
+  .wrapperH{
+    max-height: 250px;
+  }
+
+  .slider{
+    max-height:250px;
+  }
+
+  .slide-image{
+    max-height:250px;
+    width:auto;
+  }
+
+  .line-outlier-mobile{
+    top:3300px;
+  }
+
+  .portfolio-tiles-landing{
+    height:650px;
+  }
+
+  .line-outlier-mobile{
+    top:3100px;
+  }
+  
 }
 
 

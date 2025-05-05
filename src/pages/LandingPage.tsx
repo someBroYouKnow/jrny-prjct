@@ -7,8 +7,12 @@ import AnimatedPathWithSlab from "../components/LineSvg/LineSvg";
 import HorizontalScrollSlider from "../components/HorizontalScroll/HorizontalScroll";
 import { PortfolioMiddleList } from "./Portfolio";
 import PartnerSlider from "../components/PartnerSlider/PartnerSlider";
+import useIsMobile from "../hooks/useIsMobile";
+import LineSvgMobile from "../components/LineSvg/LineSvgMobile";
 
 export default function LandingPage() {
+  const isMobile = useIsMobile(1010);
+
   return (
     <>
       <div className="landing-container">
@@ -27,9 +31,15 @@ export default function LandingPage() {
 
         <div className="landing-svg-container">
           <section className="svg-content">
-            <div className="content-svg">
-              <AnimatedPathWithSlab />
-            </div>
+            {isMobile ? (
+              <div className="content-svg-mobile">
+                <LineSvgMobile/>
+              </div>
+            ) : (
+              <div className="content-svg">
+                <AnimatedPathWithSlab />
+              </div>
+            )}
           </section>
 
           <div className="about-us-landing">
@@ -134,6 +144,7 @@ export default function LandingPage() {
                   we’ve crafted.{" "}
                 </p>
                 <div className="line-outlier"></div>
+                <div className="line-outlier-mobile"></div>
               </div>
 
               <div className="portfolio-tiles-landing">
