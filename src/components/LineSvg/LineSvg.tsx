@@ -235,7 +235,7 @@ const PathWithSlab: React.FC = () => {
       scrollTrigger: {
         trigger: ".line-outlier",
         start: "top top",
-        end: "+=4800", 
+        end: "+=4950", 
         scrub: true,  
         onUpdate: (self) => updatePaths(self.progress ), 
       }, 

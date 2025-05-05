@@ -123,7 +123,7 @@
 
 .line-outlier{
   position:fixed;
-  top:2700px;
+  top:2530px;
 }
 
 .svg-content-mobile{
@@ -626,31 +626,26 @@
 
 .features {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
   width: 90%;
-  padding: 0.2rem;
   margin: 0 auto;
+  padding: 0.2rem;
 }
 
 .feature-container {
+  flex: 1 1 calc(50% - 3rem);  
+  max-width: calc(50% - 3rem);
   display: flex;
-  flex-direction: column; 
-  flex-grow: 1;
+  flex-direction: column;
   gap: 0.2rem;
-  min-width: max(400px, 49%);
-  max-width: 49%;
-  padding: 0.6rem 1rem;
-  margin-right: auto;
-  margin-left: auto;
+  padding: 5px 9px;
+  margin: 0 auto;
   backdrop-filter: blur(4px);
-   background-color: rgba(
-    255,
-    255,
-    255,
-    0.05
-  ); 
+  background-color: rgba(255, 255, 255, 0.05);
 }
+
 
 .caption-title {
   max-width: 44svw;
@@ -896,8 +891,8 @@
 
   .features{
     flex-direction: column;
-    width:100%;
-    max-width: 100%;
+    width:90%;
+    max-width: 90%;
   }
 
   .feature-container{
