@@ -494,7 +494,8 @@
   flex-direction: column;
   gap:5px;
   align-items: center;
-  height:900px; 
+  height:750px; 
+  max-height: 750px;
 }
 
 .see-more{
@@ -514,6 +515,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  height:1100px;
 }
 
 .landing-portfolio-title-box {
@@ -522,7 +524,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin-bottom: 2rem;
+  height:260px;
 }
 
 .landing-portfolio-title {
