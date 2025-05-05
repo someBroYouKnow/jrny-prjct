@@ -235,8 +235,8 @@ const PathWithSlab: React.FC = () => {
       scrollTrigger: {
         trigger: ".line-outlier",
         start: "top top",
-        end: "+=4050", 
-        scrub: 1,  
+        end: "+=4300", 
+        scrub: true,  
         onUpdate: (self) => updatePaths(self.progress ), 
       }, 
     });
@@ -250,7 +250,7 @@ const PathWithSlab: React.FC = () => {
   return (
     <svg
       ref={svgRef}
-      viewBox={`0 0 ${rightEdge} 3800`}
+      viewBox={`0 0 ${rightEdge} 4000`}
       xmlns="http://www.w3.org/2000/svg"
       style={{ width: '100%', height: 'auto', pointerEvents: 'none' }}
     >
@@ -258,7 +258,7 @@ const PathWithSlab: React.FC = () => {
       <path
         ref={originalPathRef}
         id="mainPath"
-        d={`M0,40 L${rightEdge},40 L${rightEdge},280 L2,400 L2,1920 L${rightEdge},1990 L${rightEdge},3480 L2,3600 L2,3800`}
+        d={`M0,40 L${rightEdge},40 L${rightEdge},340 L2,500 L2,1990 L${rightEdge},2100 L${rightEdge},3640 L2,3740 L2,3890`}
         fill="none"
         stroke="#FF5B00"
         strokeWidth="4"
