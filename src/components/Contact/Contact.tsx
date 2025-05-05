@@ -1,4 +1,5 @@
 import useIsMobile from "../../hooks/useIsMobile";
+import Button from "../Button/Button";
 import "./contact.css";
 
 export default function Contact() {
@@ -77,10 +78,10 @@ export const ContactForm = () =>{
         className="footer-input form-textarea"
       />
     </div>
-    <button className="send-mail button button-alt">
+    <Button >
       <span className="send-mail-text">Send Mail</span>
       <img style={{marginLeft: "5px"}} src="/right-arrow.png" />
-    </button>
+    </Button>
   </div>
   )
 }
