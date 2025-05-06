@@ -1,4 +1,14 @@
+.portfolio-item-container {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 100svw; 
+  gap: 8rem;
+  background-image: url("/bg/portfolio.png");
+  background-position: top left; /* Positions image at the top-left */
+  background-repeat: no-repeat; /* Prevents tiling */
+  background-size: auto; /* Keeps original image size */
 
+}
 
 .project-header{ 
     min-width:96%;
@@ -12,13 +22,13 @@
     justify-content: space-between;
 }
 
-.portfolio-item-container {
+.portfolio-item-hero-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   max-width: 90svw;
   min-width: 90svw;
-  padding-top: 1rem;
+  padding-left: 6rem;
 }
 
 .project-box {
@@ -77,6 +87,8 @@ color: white;
   line-height: 100%;
   letter-spacing: 0%;
   color:white;
+  display: inline-block;
+  padding-left: 6rem;
 }
 
 .item-date-company{

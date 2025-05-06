@@ -15,19 +15,19 @@
   }
 
   .logo {  
-    width: 10svw;  /* Set a fixed width for logo */
-    height: auto;  /* Automatically adjust the height based on the image */
+    width: 6.3svw;  
+    height: auto;  
     margin:auto 0;
   }
   
   .logo img {
-    width: 100%;  /* Ensure the image takes up the full width */
-    height: auto;  /* Maintain aspect ratio */
+    width: 100%;  
+    height: auto;   
   }
   
 
 .navbar-list-item{
-  position:relative;
+  /* position:relative; */
   overflow: visible;
 }
 
@@ -78,7 +78,63 @@
 
 /* Base styles */
 .navbar {
-  position: relative;
+  /* position: relative; */
+}
+
+/* Mobile menu button */
+/* Remove this line */
+.navbar-mobile-container {
+  /* position: absolute; */ /* ❌ REMOVE THIS */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width:fit-content;
+}
+
+/* Ensure the whole mobile nav is isolated in its own overlay */
+.mobile-sidebar {
+  position: absolute; /* ✅ fix */
+  top: 10%;
+  border:3px solid red;
+  right: -100%;
+  width: 70%;
+  max-width: 300px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 200000;
+  transition: right 0.5s ease;
+  padding: 4rem 1.5rem; /* Ensure space from top */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  overflow:scroll;
+}
+
+.open{
+  right:0;
+}
+
+/* MOBILE */
+.navbar-list-mobile{
+  display:flex;
+  flex-direction: column;
+  color:white;
+  max-width: 90%;
+  margin-top:14rem;
+}
+
+.navbar-list-mobile li{
+  list-style: none;
+}
+
+.navbar-burger-icon{
+  /* border:100px solid white; */
+}
+
+/* Base styles */
+.navbar {
+  /* position: relative; */
 }
 
 /* Mobile menu button */
@@ -103,7 +159,7 @@
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  z-index: 1000;
+  z-index: 200000;
   transition: right 0.5s ease;
   padding: 4rem 1.5rem; /* Ensure space from top */
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -136,7 +192,7 @@
 
 .mobile-sidebar.open {
   right: 0;
-  z-index: 1000;
+  z-index: 200000;
 }
 
 /* Overlay */
@@ -147,7 +203,7 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 200000;
 }
 
 /* Mobile nav list */
@@ -158,7 +214,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  z-index: 1000;
+  z-index: 200000;
 }
 
 .navbar-list-mobile .navbar-list-item {
@@ -176,9 +232,8 @@
   font-weight: bold;
 }
 
-.navbar {
-  position: relative;
-  z-index: 1000;
+.navbar { 
+  z-index: 200000;
   min-width:500px;
 }
 

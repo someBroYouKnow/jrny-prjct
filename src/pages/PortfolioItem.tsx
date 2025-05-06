@@ -10,8 +10,8 @@ export default function PortfolioItem() {
   
   return (
     <>
-      <div className="portfolio-container">
-        <div className="portfolio-item-container">
+      <div className="portfolio-item-container">
+        <div className="portfolio-item-hero-container">
             <PortfolioItemContent id={portfolioId ?? ''} />
         </div>
 

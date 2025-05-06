@@ -110,3 +110,9 @@ body {
   font-family: 'Helvetica Neue';
   transform:translate(-50%, -50%);
 }
+
+.chat-with-us-container{
+  position:sticky;
+  right:10%;
+  bottom:200px;
+}
