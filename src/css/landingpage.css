@@ -747,6 +747,10 @@
   object-fit: cover; 
 }
 
+.landing-footer{
+  padding-left:6rem;
+}
+
 @media(max-width:1000px){
 
   .hero-container{

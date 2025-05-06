@@ -1,6 +1,4 @@
 import Carasoul from "../components/Carasoul/Carasoul";
-import Contact from "../components/Contact/Contact";
-import { useRef } from "react";
 import "./../css/landingpage.css";
 import ShowReel from "../components/ShowReel/ShowReel";
 import AnimatedPathWithSlab from "../components/LineSvg/LineSvg";
@@ -181,8 +179,10 @@ export default function LandingPage() {
         <div className="penultimate-container">
           <RightChoice />
         </div>
+          <div className="landing-footer">
 
         <Footer />
+          </div>
       </div>
     </>
   );

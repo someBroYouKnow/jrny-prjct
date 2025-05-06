@@ -99,7 +99,9 @@ export default function AboutUs() {
         ))}
         </div>
       </div> 
+      <div className="about-footer">
       <Footer />
+      </div>
     </div>
   )
 }

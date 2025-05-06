@@ -182,6 +182,10 @@
   align-items: center;
 }
 
+.about-footer{
+  padding-left:6rem;
+}
+
 @media(max-width:1000px){
   .about-us-container{
     width:100%;
