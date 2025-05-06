@@ -12,21 +12,59 @@
 }
 
 .blog-item-bottom{
-    padding-left:6rem;
+    /* padding-left:6rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.blog-item-company-minute{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.sentance{
+    font-family: Armstrong;
+font-weight: 400;
+font-size: 48PX;
+line-height: 56px;
+letter-spacing: 0%;
+color: white;
+margin-bottom: 15px;
+}
+
+.highlight{
+    font-family: Armstrong;
+font-weight: 400;
+font-size: 48PX;
+line-height: 56px;
+letter-spacing: 0%;
+color: #FF5B00;
+
+}
+
+.blog-item-caption{
+    font-family: 'Helvetica Neue';
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0%;
+color: #FFFFFF;
 }
 
 .blog-content-box{
     display:flex;
     flex-direction: column;
     gap:2rem;
-    max-width: 68svw;
+    max-width: 50svw;
     margin:0 auto; 
 }
 
 .blog-item-header{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     width: 100%; 
 }
 
@@ -38,10 +76,21 @@
 }
 
 .blog-item-company-name{
-    font-family: 'Armstrong';
-    font-size: 1.1rem;
-    color: white;
-    
+    font-family: Armstrong;
+font-weight: 400;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+
+}
+
+.blog-item-minute{
+    font-family: Armstrong;
+font-weight: 400;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #808186;
 }
 
 .blog-content-title{

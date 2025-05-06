@@ -36,7 +36,7 @@ export const BlogHero = ({route='base'}:BlogsProps)=>{
     <>
         <div className="blog-hero-container">
           <div className="blog-heading">
-            <div className="blog-heading-title">
+            <div className={`${route === 'base' ? 'blog-heading-title' : 'blog-heading-title-more'}`}>
               {`${route === "base" ? "" : "More "}`}{" "}
               <span className="jrny-span">Blogs</span>
             </div>
@@ -112,7 +112,7 @@ export const BlogTileMobile = ({ thumbnail, title, caption1, caption2, content }
         <img src={thumbnail} alt={title} />
       </div>
       <div className="blog-info-mobile">
-        <div className="minute-count-in-tile-m"><MinuteCount textString={content} /></div>
+        
 
         <div className="blog-tile-heading">{title}</div> 
  
@@ -120,6 +120,8 @@ export const BlogTileMobile = ({ thumbnail, title, caption1, caption2, content }
         <Tags tagTitle='Virtual Networking'/>
         <Tags tagTitle='Data'/>
         </div>
+
+        <div className="minute-count-in-tile-m"><MinuteCount textString={content} /></div>
       </div>
 
     </div>

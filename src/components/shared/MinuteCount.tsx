@@ -15,10 +15,11 @@ export default function MinuteCount({ textString }: { textString: string }) {
 
   return (
     <div style={{ 
-      fontSize: "1rem",
+      fontSize: "14px",
       display: "inline-block",
       fontFamily: "Armstrong",
-      color:"#808186"
+      color:"#808186",
+      fontWeight: 400
     }}> 
       <div > {estimatedTime} min read</div>
     </div>

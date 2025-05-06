@@ -7,6 +7,19 @@ import ShareOn from '../components/ShareOn/ShareOn';
 import Footer from '../components/shared/footer/Footer';
 
 
+const HighlightedSentence = ({ text }) => {
+  const words = text.trim().split(' ');
+  const lastTwo = words.slice(-2).join(' ');
+  const rest = words.slice(0, -2).join(' ');
+
+  return (
+    <p className="sentance">
+      {rest} <span className="highlight">{lastTwo}</span>
+    </p>
+  );
+};
+
+
 const Blog: BlogItemType =BlogItemExample; 
 
 export default function BlogItem() {
@@ -18,11 +31,12 @@ export default function BlogItem() {
         <div className="blog-content-box">
           <section className="blog-item-header">
             <div className="blog-content-title">
-                {Blog.title}
-            </div>
-            <div className="blog-item-caption">
+                <HighlightedSentence text={Blog.title} />
+                <div className="blog-item-caption">
               {Blog.caption1}
             </div>
+            </div>
+            
             <section className="blog-item-header-utils">
               <div className="blog-item-company-minute">
                 <div className="blog-item-company-name">2025 - JRNY</div>

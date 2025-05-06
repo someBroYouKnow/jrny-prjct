@@ -8,6 +8,8 @@
     background-position: top right; /* Positions image at the top-left */
     background-repeat: no-repeat; /* Prevents tiling */
     background-size: auto; /* Keeps original image size */
+    position: relative;
+    top: 50px;
     
 }
 
@@ -27,7 +29,21 @@
 
 .blog-heading-title{
     font-family: 'Armstrong';
-    font-size: 4rem; 
+    font-size: 72px; 
+font-weight: 400;
+line-height: 100%;
+letter-spacing: 0%;
+
+}
+
+.blog-heading-title-more{
+  font-family: Armstrong;
+font-weight: 400;
+font-size: 48px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #FFFFFF;
+
 }
 
 .blog-heading-description{
@@ -63,10 +79,13 @@
 }
 
 .blog-tile-heading {
-  font-size: 2.1rem;
+  font-size: 18px !important;
   font-family: 'Armstrong';
   color: white;
-  font-weight: bold;
+  font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+
 }
 .blog-tile-title-content-container{
   display: flex;
@@ -75,10 +94,18 @@
 }
 
 .blog-tile-description {
-  font-size: 1.3rem;
+  /* font-size: 1.3rem;
   color: #808186;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.5; */
+
+  font-family: 'Helvetica Neue';
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+letter-spacing: 0%;
+color: #808186;
+
 }
 
 .go-to-blog {
@@ -139,7 +166,7 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr));
   gap: 2rem; 
   width: 90%;
-  margin:0 auto;
+  /* margin:0 auto; */
 }
 
 /* Blog Tile Mobile */
@@ -151,6 +178,9 @@
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   aspect-ratio: 1/1; /* Adjust this ratio as needed */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .blog-tile-mobile:hover {
@@ -174,6 +204,7 @@
   display: flex;
   font-size:2rem;
   flex-direction: column;
+  gap: 10px;
 }
 
 .minute-count-in-tile-m {
