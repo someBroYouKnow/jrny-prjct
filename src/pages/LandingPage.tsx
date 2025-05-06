@@ -9,6 +9,7 @@ import { PortfolioMiddleList } from "./Portfolio";
 import PartnerSlider from "../components/PartnerSlider/PartnerSlider";
 import useIsMobile from "../hooks/useIsMobile";
 import LineSvgMobile from "../components/LineSvg/LineSvgMobile";
+import Footer from "../components/shared/footer/Footer";
 
 export default function LandingPage() {
   const isMobile = useIsMobile(1010);
@@ -181,9 +182,7 @@ export default function LandingPage() {
           <RightChoice />
         </div>
 
-        <div className="footer-container">
-          <Contact />
-        </div>
+        <Footer />
       </div>
     </>
   );
@@ -242,10 +241,6 @@ export const RightChoice = () => {
           </div>
         </div>
         <div className="testimonial-caption"></div>
-
-        <div className="footer-line">
-          <img src="landing_line.png" alt="" />
-        </div>
       </div>
     </>
   );

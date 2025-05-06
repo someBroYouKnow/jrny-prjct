@@ -58,7 +58,7 @@ const PartnerSlider: React.FC = () => {
     animationRef.current = gsap.to([firstPartner, secondPartner], {
       x: `-${totalWidth}px`,
       duration: 20, // slower speed for smoother animation
-      ease: "linear",
+      ease:"circ.in",
       repeat: -1, 
       onRepeat: () => {
         // Reset position when animation repeats

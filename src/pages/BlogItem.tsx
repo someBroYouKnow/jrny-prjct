@@ -4,6 +4,7 @@ import Contact from '../components/Contact/Contact';
 import { BlogItemExample, BlogItemType } from '../constants/blogs';
 import { BlogHero } from './Blogs';
 import ShareOn from '../components/ShareOn/ShareOn';
+import Footer from '../components/shared/footer/Footer';
 
 
 const Blog: BlogItemType =BlogItemExample; 
@@ -39,7 +40,7 @@ export default function BlogItem() {
     <div className="blog-item-bottom">
 
     <BlogHero route='derived'/>
-    <Contact/>
+    <Footer/>
     </div>
     </div>
     </>

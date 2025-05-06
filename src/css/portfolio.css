@@ -2,7 +2,6 @@
   width: 100%;
   min-height: 100vh;
   max-width: 100svw;
-  padding-top: 6rem;
   gap: 8rem;
   background-image: url("/bg/portfolio.png");
   background-position: top left; /* Positions image at the top-left */
