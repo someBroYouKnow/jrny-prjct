@@ -3,7 +3,7 @@
   height: 450px;
   max-height:450px;
   position:relative; 
-  z-index: 2000000;
+  z-index: 2000;
 }
 
 .slider{
@@ -20,12 +20,13 @@
     max-height:400px;
     border-radius: 8px;  
     color: #333;
-    z-index:2000000;
+    z-index:20000;
 }
 
 .card img {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    z-index:20000;
     /* object-fit: cover; */
 }

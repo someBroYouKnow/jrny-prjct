@@ -5,6 +5,7 @@
     justify-content: center;
     max-width: 90%;
     min-width:80%;
+    width:90%;
     gap:1.5rem;
     margin:0 auto;
     margin-bottom:12rem;
@@ -13,19 +14,23 @@
 
 .contact-us-heading{
     font-family: 'Armstrong';
-    font-size: 48px;
+    font-size: 3rem;
     line-height: 4rem;
-    width: 50%;
+    flex:0 0 65%;
     color: white;
 }
-
-.jrny-span-text-contact-us {
-    color: #FF5B00;
-    font-size: 48px;
+@media(max-width:1320px){
+    .contact-us-heading{
+        flex:0 0 50%;
+    }
 }
 
 .contact-us-row{
     display: flex;
+    align-items: flex-end;
+    justify-content: space-between; 
+    width:90%;
+    
 }
 
 .contact-us-box{
@@ -57,16 +62,26 @@
 .your-info{
     min-width:95%;
     display:flex;
-    gap:1rem;
-    flex-wrap: wrap; 
+    justify-content: space-between;
+    flex-wrap: nowrap; 
     max-width:100%;
 }
 
 .footer-input-div{ 
     position:relative;
-    min-width: 134px;
-    width:43%;
-    flex-grow: 1;
+    flex:0 0 45%;
+}
+
+@media(max-width:400px){
+    .your-info{ 
+        flex-direction: column;
+        justify-content: space-between;
+        gap:1rem;
+    }
+
+    .footer-input-div{
+        flex:0 0 90%;
+    }
 }
 
 .footer-input{
@@ -83,7 +98,7 @@
 
  
 
-.send-mail{
+.send-mail-contact-button{
     margin-left:auto;
 }
 
@@ -96,7 +111,13 @@
 
 .social-icons{
     display:flex;
-    gap:1rem;
+    gap:1rem; 
+}
+
+@media(max-width:1000px){
+    .social-icons{
+        margin-right:0;
+    }
 }
 
 .social-icons img{
@@ -108,8 +129,9 @@
     display:flex;
     gap:2rem;
     flex-wrap: wrap;
-    position: relative; 
-    top: 35px;
+    position: relative;  
+    top:10px;
+    justify-content: space-between;
 }
 
 .social-divs div{
@@ -205,18 +227,36 @@
     margin:0 auto;
 }
 
-.contact-form-mobile{
+.contact-form-mobile-container{
     min-width:80%;
     max-width: 100%;
     display:flex;
     flex-direction: column;
-    gap:3rem;
+    gap:1rem;
     justify-content: center;    
 }
 
+@media(max-width:1300px){
+    .contact-us-heading{
+        font-size:2rem;
+        line-height:1.8rem;
+    }
+}
+
 @media(max-width:1024px){
+
+    .contact-us-container{
+        padding:0;
+
+    }
+
     .contact-us-heading{ 
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         line-height: 2rem;
+    }
+
+    .contact-form{
+        width:90%;
+        margin:0 auto;
     }
 }

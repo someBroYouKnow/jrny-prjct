@@ -1,8 +1,7 @@
 .blog-item-container{
     width: 100%;
     min-height: 100vh;
-    max-width: 100svw;
-    padding: 0 7rem;
+    max-width: 100svw; 
     background-image: url("/bg/about.png");
     background-position: top right; /* Positions image at the top-left */
     background-repeat: no-repeat; /* Prevents tiling */
@@ -10,6 +9,10 @@
     display: flex;
     flex-direction: column;
     gap: 4rem;
+}
+
+.blog-item-bottom{
+    padding-left:6rem;
 }
 
 .blog-content-box{

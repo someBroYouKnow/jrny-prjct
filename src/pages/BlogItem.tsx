@@ -36,9 +36,11 @@ export default function BlogItem() {
                 {Blog.content}
             </div>
         </div>
+    <div className="blog-item-bottom">
 
     <BlogHero route='derived'/>
     <Contact/>
+    </div>
     </div>
     </>
   )
