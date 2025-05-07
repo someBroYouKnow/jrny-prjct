@@ -30,11 +30,12 @@
 }
   
 .contact-us-page-box{
-    background-color: black;
+    /* background-color: black; */
     max-width: 90%;
     margin:0 auto;
     margin-top:3rem;
     padding-left:2rem;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
  
