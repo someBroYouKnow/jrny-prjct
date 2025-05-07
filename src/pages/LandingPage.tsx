@@ -148,7 +148,7 @@ export default function LandingPage() {
 
               <div className="portfolio-tiles-landing">
                 <PortfolioMiddleList />
-                <button className="see-more">See More</button>
+                <a href="/portfolio"><button className="see-more">See More</button></a>
               </div>
             </section>
 
