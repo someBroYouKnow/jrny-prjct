@@ -1,5 +1,6 @@
 .contact-us-page-container {
-    min-height: 100vh; /* Ensures it occupies the full viewport height */
+    min-height: 60svh; /* Ensures it occupies the full viewport height */
+    height: calc(100svh - 80px);
     width: 100%;
     max-width: 100%;
     min-width: 0; /* Important: allow shrinking */
@@ -33,7 +34,10 @@
     max-width: 90%;
     margin:0 auto;
     margin-top:3rem;
+    padding-left:2rem;
 }
+
+ 
 
 
 /* MOBILE */

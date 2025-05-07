@@ -12,6 +12,10 @@ html, body {
   scrollbar-gutter: stable;
 }
 
+.pinMe{
+  
+  position:relative; 
+}
 
 .header {
   width: 100%;
@@ -112,7 +116,7 @@ body {
 }
 
 .chat-with-us-container{
-  position:sticky;
+  position:fixed;
   right:10%;
   bottom:200px;
 }
