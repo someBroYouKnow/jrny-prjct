@@ -54,6 +54,20 @@ export default function Carasoul() {
           compliment:
             "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         },
+        {
+          profilePic: "carousol_john.png",
+          profileName: "Emily Brown",
+          profileDesignation: "CTO, DEF",
+          compliment:
+            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        },
+        {
+          profilePic: "carousol_john.png",
+          profileName: "Emily Brown",
+          profileDesignation: "CTO, DEF",
+          compliment:
+            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        },
       ];
 
       // const images = cards.map(card=>(
