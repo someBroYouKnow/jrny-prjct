@@ -1,13 +1,12 @@
-import { useParams } from 'react-router';
-import '../css/blog-item.css'
-import Contact from '../components/Contact/Contact';
+
+import '../css/blog-item.css' 
 import { BlogItemExample, BlogItemType } from '../constants/blogs';
 import { BlogHero } from './Blogs';
 import ShareOn from '../components/ShareOn/ShareOn';
 import Footer from '../components/shared/footer/Footer';
 
 
-const HighlightedSentence = ({ text }) => {
+const HighlightedSentence = ({ text }:{text:string}) => {
   const words = text.trim().split(' ');
   const lastTwo = words.slice(-2).join(' ');
   const rest = words.slice(0, -2).join(' ');
@@ -22,8 +21,7 @@ const HighlightedSentence = ({ text }) => {
 
 const Blog: BlogItemType =BlogItemExample; 
 
-export default function BlogItem() {
-  const { blogId } = useParams();
+export default function BlogItem() { 
   
   return (
     <>
