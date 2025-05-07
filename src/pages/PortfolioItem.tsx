@@ -19,7 +19,9 @@ export default function PortfolioItem() {
             <span className="might-like">Project <span className="jrny-span"> you might Like!  </span></span>
       <PortfolioMiddleList />
         </div>
+        <div className="portfolio-item-footer">
       <Footer/>
+        </div>
     </div>   
     </>
  
@@ -31,7 +33,7 @@ interface PortfolioItemProps {
     videoLink?: string;
 }
 
-const PortfolioItemContent = ({}:PortfolioItemProps) =>{
+const PortfolioItemContent = ({id}:PortfolioItemProps) =>{ 
     return (
         <div className="project-box">
             <div className="project-header">
@@ -44,7 +46,7 @@ const PortfolioItemContent = ({}:PortfolioItemProps) =>{
                 </div>
 
             </div>
-            { true && 
+            { (id!==undefined) && 
                 <div className="project-video-container">
                 {/* <video src=""></video> */}
                 <img style={{width: "100%"}} src='/video.png' />
@@ -93,4 +95,3 @@ const PortfolioItemHeader = () =>{
         </div>
     )
 }
-1

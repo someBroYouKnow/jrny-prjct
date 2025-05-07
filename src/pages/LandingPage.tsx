@@ -75,6 +75,8 @@ export default function LandingPage() {
               </div>
 
               <div className="cards-section">
+                <div className="cards-section-grid-container">
+
                 <div className="profile-card ">
                   <img src="/jrny_example_profile_card.jpg" alt="" />
                   <div className="profile-caption">
@@ -110,6 +112,8 @@ export default function LandingPage() {
                       Event Specialist & Designer
                     </div>
                   </div>
+                </div>
+                                  
                 </div>
               </div>
             </section>
@@ -148,7 +152,10 @@ export default function LandingPage() {
 
               <div className="portfolio-tiles-landing">
                 <PortfolioMiddleList />
+                <div className="see-more-container">
+
                 <a href="/portfolio"><button className="see-more">See More</button></a>
+                </div>
               </div>
             </section>
 

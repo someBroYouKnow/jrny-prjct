@@ -80,6 +80,10 @@ color: white;
     align-items: flex-start;
 }
 
+.portfolio-item-middle-list{
+  padding-left:6rem;
+}
+
 .might-like {
   font-family: "Armstrong";
   font-weight: 400;
@@ -87,8 +91,7 @@ color: white;
   line-height: 100%;
   letter-spacing: 0%;
   color:white;
-  display: inline-block;
-  padding-left: 6rem;
+  display: inline-block; 
 }
 
 .item-date-company{
@@ -115,4 +118,8 @@ color: #808186
 /* letter-spacing: 0%;
 background-color: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%); */
 ;
+}
+
+.portfolio-item-footer{
+  padding-left:6rem;
 }

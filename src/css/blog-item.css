@@ -12,10 +12,9 @@
 }
 
 .blog-item-bottom{
-    /* padding-left:6rem; */
+    padding-left:6rem;
     display: flex;
-    flex-direction: column;
-    align-items: end;
+    flex-direction: column; 
 }
 
 .blog-item-company-minute{
