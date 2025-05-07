@@ -9,6 +9,7 @@ import useIsMobile from "../hooks/useIsMobile";
 import LineSvgMobile from "../components/LineSvg/LineSvgMobile";
 import Footer from "../components/shared/footer/Footer";
 
+
 export default function LandingPage() {
   const isMobile = useIsMobile(1010);
 

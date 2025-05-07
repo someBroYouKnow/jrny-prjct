@@ -5,6 +5,7 @@ import "./../css/portfolio.css";
 import FooterLine from "../components/shared/footer/FooterLine";
 import Footer from "../components/shared/footer/Footer";
 import { Link } from "react-router";
+import PartnerSlider from "../components/PartnerSlider/PartnerSlider";
 
 
 export default function Portfolio() {
@@ -39,8 +40,11 @@ export const PortfolioContent = ()=>{
     </p>
   </div>
   <div className="portfolio-partner-show">
+              <PartnerSlider />
+            </div>
+  {/* <div className="portfolio-partner-show">
     <PartnerShow />
-  </div>
+  </div> */}
 </div>
 <PortfolioMiddleList />
 </div>

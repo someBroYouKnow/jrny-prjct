@@ -1,5 +1,5 @@
 .portfolio-container {
-  width: 100%;
+  /* width: 100%; */
   min-height: 100vh;
   max-width: 100svw;
   gap: 8rem;
@@ -26,17 +26,22 @@
 .portfolio-our-projects {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+  position: relative;
+  top: 75px;
 }
 
 .our-projects-heading span {
-  font-family: "Armstrong";
-  font-size: 3.5rem;
+font-weight: 400;
+font-size: 72px;
+line-height: 100%;
+letter-spacing: 0%;
+font-family: "Armstrong";
 }
 
 .our-projects-p {
   font-size: 14px;
-  max-width: 30svw;
+  max-width: 25svw;
   text-align: left;
 }
 
@@ -83,6 +88,7 @@
   height: 100%; /* Take full height of parent tile */
   width: 100%; /* Take full width of parent tile */
   text-align: left;
+  gap: 15px;
 }
 
 .portfolio-link {
@@ -111,7 +117,7 @@
   object-fit: cover; /* Cover the entire area */
   aspect-ratio: 2/1;
   max-width: 100%; /* Prevent overflow */
-  max-height: 95%;
+  /* max-height: 95%; */
 }
 
 .tile-title {

@@ -118,7 +118,10 @@ export const SocialDivs = ()=>{
     </div>
     <div className="social-div-container">
       <div className="social-heading">Services</div>
-      <div className="social-example">kiminonawa@example.com</div>
+      <div className="social-example">Content creation</div>
+      <div className="social-example">Experience design</div>
+      <div className="social-example">Experimental Marketing</div>
+      <div className="social-example">Multimedia Production</div>
     </div>
   </div>
   )

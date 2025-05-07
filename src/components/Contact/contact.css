@@ -12,9 +12,9 @@
 
 .contact-us-heading{
     font-family: 'Armstrong';
-    font-size: 3rem;
+    font-size: 48px;
     line-height: 4rem;
-    flex:0 0 65%;
+    flex:0 0 60%;
     color: white;
 }
 @media(max-width:1320px){
@@ -27,13 +27,14 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between; 
-    width:95%;
+    /* width:95%; */
+    width: 90%;
     
 }
 
 .contact-us-box{
     display:flex;
-    gap:3rem;
+    gap:6rem;
     flex-wrap: no-wrap; 
     min-width:100%;
 }
@@ -96,7 +97,7 @@
 }
 
 .socials-container{
-    flex-grow: 1;
+    /* flex-grow: 1; */
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -135,13 +136,13 @@
 
 .social-heading{
     font-family: 'Armstrong';
-    font-size: 1.6rem;
+    font-size: 24px;
     font-weight:400;
     color: white;
 }
 
 .social-example{
-    font-size:0.8rem;
+    font-size: 14px;
     display:flex;
     flex-direction: column;
     color: #808186;

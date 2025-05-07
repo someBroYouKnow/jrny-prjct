@@ -29,6 +29,9 @@
   max-width: 90svw;
   min-width: 90svw;
   padding-left: 6rem;
+  /* position: relative;
+  top: 190px;
+} */
 }
 
 .project-box {
@@ -63,20 +66,27 @@ color: white;
 
 }
 
+.project-second-box{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .project-description,
 .project-second-description {
   text-align: left;
-  max-width: 30svw;
+  max-width: 32svw;
+  font-size: 14px;
 }
 
 .project-second-description {
-  max-width: 65svw;
+  max-width: 43svw;
 }
 
 .portfolio-item-middle-list {
     display:flex;
     flex-direction: column;
-    gap:1rem;
+    gap: 3rem;
     align-items: flex-start;
 }
 

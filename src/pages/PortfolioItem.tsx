@@ -62,16 +62,16 @@ const PortfolioItemContent = ({id}:PortfolioItemProps) =>{
             </div>
 
             {/* <div>
-                <div>
+                
                 <img src="/cards.png" />
                 <img src="/cards.png" />
                 <img src="/cards.png" />
-                </div>
-                <div>
+                
+               
                 <img src="/cards.png" />
                 <img src="/cards.png" />
                 <img src="/cards.png" />
-                </div>
+                
             </div> */}
 
         </div>

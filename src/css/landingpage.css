@@ -23,7 +23,7 @@
 }
 
 .button {
-  width: 200px; /* ~185px in 1920px */
+  width: 220px; /* ~185px in 1920px */
   height: 50px; /* ~48px in 1080px */
   padding: 0.3rem 1rem;
   display: flex;
@@ -31,11 +31,11 @@
   justify-content: center;
   position: relative;
   font-size: 1rem;
-  background-color: #ff4900;
+  background-color: #FF5B00;
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 0 0 2rem 0; /* Circular bottom right corner */
+  border-radius: 0 0 1rem 0; /* Circular bottom right corner */
   /* text-transform: uppercase; */
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 700;
@@ -63,7 +63,7 @@
 }
 
 .button-alt {
-  color: #ff4900;
+  color: #FF5B00;
   background-color: white;
 }
 
@@ -71,7 +71,7 @@
 .button-alt::after {
   content: "";
   position: absolute;
-  background-color: #ff4900;
+  background-color: #FF5B00;
 }
 
 .button-alt::before {
@@ -736,7 +736,8 @@
 
 .landing-line,
 .footer-line {
-  max-width: 100%;
+  /* max-width: 100%; */
+  max-width: 70%;
   width: 100%;
 }
 
