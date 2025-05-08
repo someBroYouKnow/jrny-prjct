@@ -2,12 +2,15 @@
   position: relative;
   color: white;
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 0.75rem;
+  font-size: 12px;
   padding: 0.42rem 1rem;
   border-radius: 24px;
-  display: inline-block;
+  display: flex;
   white-space: nowrap;
   background-color: transparent;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
 }
 
 .tag-button::before {

@@ -15,7 +15,7 @@
 
 .landing-svg-container {
   position: relative;
-  height: 4000px;
+  /* height: 4000px; */
 }
 
 .one-two-grid > div {
@@ -455,7 +455,7 @@
   flex-direction: column;
   gap: 50px;
   margin-top: 50px;
-  height: 1800px;
+  /* height: 1800px; */
   max-width: 100svw;
 }
 
@@ -598,6 +598,7 @@
   gap: 2rem;
   align-items: flex-start;
   justify-content: flex-start;
+  margin-top: 50px;
 }
 
 .right-choice-container {
@@ -610,16 +611,28 @@
 }
 
 .right-choice-h1 {
-  font-size: 3.5rem;
-  font-weight: 400;
+
+  font-family: Armstrong;
+font-weight: 400;
+font-size: 48px;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+margin-bottom: 0px;
 }
 
 .right-choice-p {
-  font-size: 2em;
-  font-weight: 400;
-  max-width: 50svw;
+
+  font-family: 'Helvetica Neue';
+font-weight: 400;
+font-size: 24px;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+  max-width: 35svw;
   color: #808186;
-  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 50px;
 }
 
 .about-us-home,
@@ -650,11 +663,15 @@
   max-width: calc(50% - 3rem);
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  padding: 5px 9px;
+  gap: 16px;
+  /* padding: 5px 9px; */
+  padding: 16px;
   margin: 0 auto;
-  backdrop-filter: blur(6px);
-  background-color: rgba(0, 0,0 , 0.1);
+  /* backdrop-filter: blur(6px);
+  background-color: rgba(0, 0,0 , 0.1); */
+border-radius: 0px 0px var(--Corner-Radius-14---L, 16px) 0px;
+background: rgba(255, 255, 255, 0.10);
+backdrop-filter: blur(4px);
 }
 
 .caption-title {
@@ -665,15 +682,19 @@
 }
 
 .feature-title {
-  font-family: "Armstrong";
-  font-weight: 520;
-  font-size: 2.3rem;
-  color: #ff4900;
+
+font-weight: 400;
+font-size: 32px;
+line-height: 100%;
+  color: #FF5B00  ;
 }
 
 .feature-caption {
-  line-height: 20px;
-  font-size: 0.98rem;
+
+  font-family: 'Helvetica Neue';
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
   padding: 0.4rem 0.1rem;
 }
 
