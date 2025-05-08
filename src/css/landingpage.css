@@ -734,6 +734,7 @@ line-height: 20px;
   height: 700px; /* Still fixed */
   padding-top: 20px;
   padding-left: 6rem;
+  width:100%;
 }
 
 .cards-section-grid-container {
