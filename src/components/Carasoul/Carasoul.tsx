@@ -1,7 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import "./carasoul.css";
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import gsap from "gsap";  
+import Card from "./Card";
+
+
 
 const cards = [
   {
@@ -84,6 +87,9 @@ export default function Carasoul() {
 
     useGSAP(()=>{
 
+      
+ 
+
       playMarkee();
       window.addEventListener('resize', handleResize);
  
@@ -132,7 +138,7 @@ export default function Carasoul() {
 
       return (
         <div className='carousel-component'>
-          <div className="carousel-slider" ref={carSliderRef}>
+          <div className="carousel-slider" ref={carSliderRef} id="yourID">
             <div className="carousel-container" ref={carTagRef}>
               {
               cards.map((card,index:number)=>(
@@ -163,35 +169,3 @@ export default function Carasoul() {
       );
     }
 
-  interface CardProps {
-  profileName: string;
-  profileDesignation: string;
-  compliment: string;
-  active: boolean;
-  onHover?: () => void;
-}
-
-const Card = ({
-  profileName,
-  profileDesignation,
-  compliment,
-  active,
-  onHover
-}: CardProps) => {
-  return (
-    <div
-      className={`profile-card-container`}
-      onMouseEnter={onHover}
-    >
-      <div className={`compliment ${active ? 'compliment-active' : ''}`}>
-        <span className="compliment-span">{compliment}</span>
-      </div>
-      <div className="profile-container">
-        <div className="profile-infor">
-          <span className="profile-name">{profileName}</span>
-          <span className="designation">{profileDesignation}</span>
-        </div>
-      </div>
-    </div>
-  );
-};

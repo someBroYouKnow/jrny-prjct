@@ -3,7 +3,11 @@
     flex-direction: column;
     gap:1rem;
     width:22svw;
-    height:250px;
+    height:200px;
+}
+
+.profile-card-container:hover{
+
 }
 
 .carousel-component{
@@ -91,6 +95,7 @@
     text-overflow: ellipsis; /* Adds ellipsis for overflowing text */
     white-space:wrap; /* Prevents text from wrapping to the next line */
 }
+
 
 .compliment-span{
     height:90%;
