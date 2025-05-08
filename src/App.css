@@ -115,8 +115,3 @@ body {
   transform:translate(-50%, -50%);
 }
 
-.chat-with-us-container{
-  position:fixed;
-  right:10%;
-  bottom:200px;
-}
