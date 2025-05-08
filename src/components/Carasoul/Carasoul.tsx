@@ -1,30 +1,8 @@
 import "./carasoul.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import { useState } from "react";
 
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
-
 export default function Carasoul() {
-  const [activeIndex, setActiveIndex] = useState(0)
-
+    const [active,setActive] = useState(false);
     const cards = [
         {
           profilePic: "/carousol_john.png",
@@ -69,49 +47,18 @@ export default function Carasoul() {
             "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         },
       ];
-
-      // const images = cards.map(card=>(
-      //   <span className="carousol-img-box">
-      //       <img src={`${card.profilePic}`} alt="picture" />
-      //   </span>
-      // ))
-
-    
-
-      
-
-      const changeSlide = (previousSlide: number, currentSlide: number, dataSize: number) => {
-        let activeSlide = 0
-        // right arrow
-        if (previousSlide < currentSlide) activeSlide = currentSlide - 2 === dataSize ? 0 : currentSlide - 2
-        // left arrow
-        else activeSlide = currentSlide + (currentSlide <= dataSize && currentSlide >= 2 ? -2 : dataSize - 2);
-        console.log({currentSlide, previousSlide, activeSlide});
-        setActiveIndex(activeSlide)
-    }
-
       return (
         <div className='carousel-component'>
-        
-      <Carousel 
-          renderDotsOutside={true}
-          focusOnSelect={true}
-            responsive={responsive}  
-            centerMode={true}
-            infinite={true} 
-            containerClass="carousel-container"
-            afterChange={(previousSlide, { currentSlide }) => changeSlide(previousSlide, currentSlide, cards.length)}
-           >
-            {cards.map((card, index) => (
-              <Card
-                key={index}  
-                profileName={card.profileName}
-                profileDesignation={card.profileDesignation}
-                compliment={card.compliment}
-                active={((activeIndex+cards.length-1)%cards.length)===index}
-              />
-            ))}
-          </Carousel>
+          <div className="carousel-slider">
+            <div className="carousel-container">
+              {
+              cards.map((card,index:number)=>(
+                <Card key={index} profileName={card.profileName} profileDesignation={card.profileDesignation}
+                      compliment={card.compliment} active={active} />
+              ))
+              }
+            </div>
+          </div>
         </div>
       );
     }
