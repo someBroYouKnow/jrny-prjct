@@ -1,9 +1,9 @@
 import { Link } from 'react-router';
 import './../css/about.css';
 import ShowReel from '../components/ShowReel/ShowReel';
-import Footer from '../components/shared/footer/Footer';
-import Tags from '../components/Tags/Tags';
+import Footer from '../components/shared/footer/Footer'; 
 import useIsMobile from '../hooks/useIsMobile';
+import TagSlider from '../components/TagSlider/TagSlider';
 
 const AboutUsMottoArray =[
   {title:"MISSION",
@@ -55,7 +55,9 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <Tags tagTitle='Virtual Networking'/>
+      <div className="about-tag-container">
+          <TagSlider/>
+      </div>
 
 
       <div className="about-main-container">

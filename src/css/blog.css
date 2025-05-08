@@ -136,8 +136,7 @@ color: #808186;
 }
 
 .tag-container{
-  display:flex;
-  gap:0.1rem;
+  display:flex; 
 }
 
   /* Desktop: 4 columns when viewport ≥ 1000px */
@@ -219,8 +218,7 @@ color: #808186;
 }
 
 .tag-container {
-  display: flex;
-  gap: 0.5rem;
+  display: flex; 
   flex-wrap: wrap;
 }
 

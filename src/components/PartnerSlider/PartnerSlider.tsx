@@ -3,8 +3,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import './PartnerSlider.css';
 
-// Define the type for a slide element
-type SlideElement = HTMLElement;
+ 
 
 const sliderImages = [
   '/assets/slider1.png',
@@ -57,9 +56,9 @@ const PartnerSlider: React.FC = () => {
     // Create infinite loop animation
     animationRef.current = gsap.to([firstPartner, secondPartner], {
       x: `-${totalWidth}px`,
-      duration: 20, // slower speed for smoother animation
-      ease:"circ.in",
+      duration: 20, // slower speed for smoother animation 
       repeat: -1, 
+      ease:"linear",
       onRepeat: () => {
         // Reset position when animation repeats
         gsap.set([firstPartner, secondPartner], { x: 0 });

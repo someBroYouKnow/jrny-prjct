@@ -90,12 +90,12 @@ body {
 .about-us-landing-paragraph, .landing-portfolio-paragraph
 {
   text-align: center;
-  font-family: 'Helvetica Neue';
+  font-family: 'Helvetica Neue', sans-serif;
   background: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 94.82%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* Makes the background visible through the text */
   background-clip: text;
-
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .addPlus{ 

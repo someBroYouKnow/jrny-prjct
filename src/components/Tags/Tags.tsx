@@ -2,10 +2,8 @@ import './Tags.css'
 
 export default function Tags({tagTitle}:{tagTitle:string}) {
   return (
-    <>
-        <button className="tag-button">
-             {tagTitle}
-        </button>
-    </>
+    <div className="tag-button">
+      <span className="tag-text">{tagTitle}</span>
+    </div>
   )
 }

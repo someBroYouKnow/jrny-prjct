@@ -1,35 +1,42 @@
 .tag-button {
-  all: unset;
+  position: relative;
   color: white;
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 0.8rem;
-  width: fit-content;
-  padding: 0.3rem 0.75rem;
-  
-  border-left: 1px solid;
-  border-right: 1px solid;
-  border-color: #C8C8C8;
-  
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  
+  font-size: 0.75rem;
+  padding: 0.42rem 1rem;
   border-radius: 24px;
-  
-  /* background: radial-gradient(circle at center, transparent 50%, rgba(200, 200, 200, 0.3) 100%); */
   display: inline-block;
   white-space: nowrap;
-  position: relative;
+  background-color: transparent;
 }
 
 .tag-button::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 4px;
-  background: radial-gradient(ellipse at center, transparent 0%, #C8C8C8 90%);
+  inset: 0;
+  border-radius: 24px;
+  padding: 1.1px; /* Border width */
+  background: linear-gradient(180deg, #141414 0%, #C8C8C8 51.5%, #141414 100%);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.tag-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: subtle radial gradient background */
+.tag-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: radial-gradient(circle at center, transparent 50%, rgba(200, 200, 200, 0.3) 100%);
   opacity: 0.1;
   pointer-events: none;
 }
