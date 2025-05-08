@@ -15,6 +15,8 @@
     padding-left:6rem;
     display: flex;
     flex-direction: column; 
+    position: relative;
+    top: 50px;
 }
 
 .blog-item-company-minute{
@@ -97,6 +99,27 @@ color: #808186;
     font-size: 3.5rem;
     letter-spacing: 0;
     line-height: 3.5rem;
+}
+
+.text-p{
+    font-family: 'Helvetica Neue';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    margin-top: 5px;
+}
+
+.text-p-1{
+    font-family: 'Helvetica Neue';
+    font-weight: 700;
+    margin-top: 35px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0%;
+    color: #FFFFFF;
 }
 
 .blog-content-area{
