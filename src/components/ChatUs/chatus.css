@@ -1,0 +1,95 @@
+.chat-with-us-container {
+    position: fixed;
+    right: 5%;
+    bottom: 80px;
+    z-index: 1000;
+  }
+  
+  .chat-hover-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Button styling */
+  .chat-with-us-btn {
+    padding: 1rem 2rem;
+    color: rgba(0, 0, 0, 10);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-bottom-right-radius: 0.5rem;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .chat-span {
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+
+  }
+  
+  /* Dropdown links - now ABOVE the button */
+  .chat-with-links-section {
+    width:100%;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(10px); /* Appear downward initially */
+    transition:
+      opacity 0.3s ease-out,
+      max-height 0.3s ease-out,
+      transform 0.3s ease-out,
+      padding 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    pointer-events: none;
+  }
+  
+  /* On hover: visible and smoothly slide UP */
+  .chat-hover-wrapper:hover .chat-with-links-section {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0); /* Slide up into place */
+    padding: 1rem;
+    pointer-events: auto;
+  }
+  
+  /* Link styles */
+  .chat-with-link {
+    width: 100%;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+  
+    /* Match button background + blur */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 0.5rem; /* Optional: give same rounding */
+  }
+  
+  
+  .chat-with-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  
