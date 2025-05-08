@@ -91,9 +91,9 @@ export default function AboutUs() {
                 <div className="person-designation">{person.personDesignation}</div>
               </div>
               <div className="social-links-favicon">
-                <a href={person.personSocials.linkedIn}><img src="/favicon/linkedIn.svg" alt="" /></a>
-                <a href={person.personSocials.instagram}><img src="/favicon/instagram.svg" alt="" /></a>
-                <a href={person.personSocials.facebook}><img src="/favicon/facebook.svg" alt="" /></a>
+                <a href={person.personSocials.linkedIn}><img src="/favicon/linkedin.svg" alt="" /></a>
+                {/* <a href={person.personSocials.instagram}><img src="/favicon/instagram.svg" alt="" /></a>
+                <a href={person.personSocials.facebook}><img src="/favicon/facebook.svg" alt="" /></a> */}
               </div>
             </div>
           </div>
