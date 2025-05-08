@@ -138,6 +138,7 @@ export default function Carasoul() {
               cards.map((card,index:number)=>(
                 <Card key={index} profileName={card.profileName} profileDesignation={card.profileDesignation}
                       compliment={card.compliment} active={active} />
+
               ))
               }
             </div>
@@ -162,25 +163,30 @@ export default function Carasoul() {
       );
     }
 
-    
-   
-interface CardProps { 
+  interface CardProps {
   profileName: string;
   profileDesignation: string;
-  compliment: string; 
-  active:boolean;
+  compliment: string;
+  active: boolean;
+  onHover?: () => void;
 }
 
-const Card = ({ 
+const Card = ({
   profileName,
   profileDesignation,
-  compliment ,
-  active
+  compliment,
+  active,
+  onHover
 }: CardProps) => {
   return (
-    <div className={`profile-card-container`}>
-      <div className={` compliment ${active ? 'compliment-active':''}`}> <span className="compliment-span">{compliment}</span></div>
-      <div className="profile-container"> 
+    <div
+      className={`profile-card-container`}
+      onMouseEnter={onHover}
+    >
+      <div className={`compliment ${active ? 'compliment-active' : ''}`}>
+        <span className="compliment-span">{compliment}</span>
+      </div>
+      <div className="profile-container">
         <div className="profile-infor">
           <span className="profile-name">{profileName}</span>
           <span className="designation">{profileDesignation}</span>
