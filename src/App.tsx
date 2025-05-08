@@ -23,7 +23,7 @@ export default function App() {
       <div className="container">
         <Outlet />
       </div>
-      {/* <ChatUs/> */}
+      <ChatUs/>
       </div>
     </>
   );
@@ -31,19 +31,19 @@ export default function App() {
 
 
 
-// const ChatUs = ()=>{
-//   return (
-//     <div className="chat-with-us-container">
-//     <section className="chat-with-links-section">
-//       <div className="chat-with-link">Facebook</div>
-//       <div className="chat-with-link">Instagram</div>
-//       <div className="chat-with-link">Youtube</div>
-//       <div className="chat-with-link">LinkedIn</div>
-//       <div className="chat-with-link">Whatsapp</div> 
-//     </section>
-//     <button className="chat-with-us-btn">
-//       <span className="chat-span">Chat With Us</span>
-//     </button>
-//   </div>
-//   )
-// }
+const ChatUs = ()=>{
+  return (
+    <div className="chat-with-us-container">
+    <section className="chat-with-links-section">
+      <div className="chat-with-link">Facebook</div>
+      <div className="chat-with-link">Instagram</div>
+      <div className="chat-with-link">Youtube</div>
+      <div className="chat-with-link">LinkedIn</div>
+      <div className="chat-with-link">Whatsapp</div> 
+    </section>
+    <button className="chat-with-us-btn">
+      <span className="chat-span">Chat With Us</span>
+    </button>
+  </div>
+  )
+}

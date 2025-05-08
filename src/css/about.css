@@ -60,6 +60,13 @@
   text-align: left;
 }
 
+.about-tag-container{ 
+  width:100%;
+  max-width: 100%;
+  padding: 0 6rem;
+  overflow-x:hidden; 
+}
+
 .about-main-container{
   display:flex;
   flex-direction: column;
@@ -87,6 +94,7 @@
   flex-direction: column;
   gap:0.5rem;
   padding:0.9rem 0.8rem;
+  backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, 0.05);
   border-bottom-right-radius: 20px;
 }

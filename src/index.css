@@ -17,6 +17,10 @@ body {
   box-sizing: border-box;
   color:white;
 }
+
+*{
+  box-sizing: border-box;
+}
   
 a{ 
   all:unset;
