@@ -80,6 +80,7 @@ const Button = ({ children, classList }: ButtonProps) => {
         {/* Actual content above border lines */}
         <span className="button-content">{children}</span>
       </button>
+
     </>
   );
 };

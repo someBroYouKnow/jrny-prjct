@@ -28,7 +28,7 @@ const TagSlider = () => {
     // Create the animation
     const animation = gsap.to(slider, {
       x: `-${containerWidth}px`, // Use exact pixel value
-      duration: 10,
+      duration: 28,
       ease: 'linear',
       repeat: -1, 
     });

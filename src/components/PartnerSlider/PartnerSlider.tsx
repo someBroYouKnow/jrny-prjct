@@ -56,7 +56,7 @@ const PartnerSlider: React.FC = () => {
     // Create infinite loop animation
     animationRef.current = gsap.to([firstPartner, secondPartner], {
       x: `-${totalWidth}px`,
-      duration: 20, // slower speed for smoother animation 
+      duration: 32, // slower speed for smoother animation 
       repeat: -1, 
       ease:"linear",
       onRepeat: () => {
