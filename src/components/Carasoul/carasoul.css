@@ -89,7 +89,7 @@
     backdrop-filter: blur(10px);  
     background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity for better effect */
     position: relative; 
-    color: #63656F; 
+    color: white;
     max-height: 200px; 
     overflow: hidden; /* Ensures content outside the box is hidden */
     text-overflow: ellipsis; /* Adds ellipsis for overflowing text */

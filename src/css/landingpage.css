@@ -347,7 +347,7 @@
 }
 
 .profile-card {
-  width: 338px;
+  width: 80%;
   height: 500px;
   border: 5px solid white;
   overflow: hidden;
@@ -746,7 +746,7 @@ line-height: 20px;
 }
 
 .profile-card {
-  width: 300px;
+  width: 80%;
   height: 430px;
 }
 
