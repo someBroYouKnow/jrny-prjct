@@ -179,7 +179,7 @@
 .person-info {
   display:flex;
   justify-content: space-between;
-  max-width: 85%;
+  /* max-width: 85%; */
 }
 
 .person-credentials{

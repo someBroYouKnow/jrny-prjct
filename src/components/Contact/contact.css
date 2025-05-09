@@ -34,7 +34,7 @@
 
 .contact-us-box{
     display:flex;
-    gap:6rem;
+    gap:4rem;
     flex-wrap: no-wrap; 
     min-width:100%;
 }
@@ -63,7 +63,7 @@
 
 .footer-input-div{ 
     position:relative;
-    flex:0 0 45%;
+    flex:0 0 49%;
 }
 
 @media(max-width:400px){
@@ -102,9 +102,9 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     gap:2rem;
-    margin-bottom:2rem;
+    /* margin-bottom:2rem; */
 }
 
 .social-icons{
