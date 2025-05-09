@@ -23,8 +23,8 @@ export default function App() {
       </div>
 
       <div className="container">
-      <ScrollToTop />
         <Outlet />
+      <ScrollToTop />
       </div>
       <ChatUs/>
       </div>
