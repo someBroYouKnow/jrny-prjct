@@ -5,7 +5,7 @@ const ChatUs = () => {
     <div className="chat-with-us-container">
       <div className="chat-hover-wrapper">
         <button className="chat-with-us-btn">
-          <span className="chat-span">Chat With Us</span>
+          <span className="chat-span">Connect With Us</span>
         </button>
         <div className="chat-with-links-section">
           <ChatUsSocialLink sns='Facebook'/>
