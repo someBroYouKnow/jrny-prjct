@@ -3,14 +3,17 @@
   height: 450px;
   max-height:450px;
   position:relative; 
-  z-index: 2000;
+  z-index: 2147483647;
+  width:100vw;
+  max-width: 100vw;
 }
 
 .slider{
     display: flex; 
-    gap:10px; 
+    gap:2px; 
     height:450px;
     max-height:450px;  
+    z-index: 2147483647;
 }
 
 
@@ -21,12 +24,15 @@
     border-radius: 8px;  
     color: #333;
     z-index:20000;
+    z-index: 2147483647;
+    position:relative;
 }
 
 .card img {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    z-index:20000;
+    z-index: 2147483647;
+    position:relative;
     /* object-fit: cover; */
 }

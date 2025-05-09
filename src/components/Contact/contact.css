@@ -83,6 +83,7 @@
     border:none;
     padding:1rem 0.7rem;
     width:100%;
+    color:white;
 }
 
 .form-textarea{
@@ -173,6 +174,8 @@
     top: 0px;
     left:  -7px;
   }
+
+
 
 .footer-textarea{
     min-width: 100%;

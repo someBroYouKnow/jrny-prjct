@@ -79,7 +79,7 @@ export default function Carasoul() {
     // Create the animation
     animationRef.current = gsap.to(carSlider, {
       x: `-${totalWidth}px`, // Use exact pixel value
-      duration: 12,
+      duration: 30,
       ease: 'linear',
       repeat: -1, 
     });
@@ -102,7 +102,7 @@ export default function Carasoul() {
       window.removeEventListener('resize', handleResize);
     };
 
-    },{scope:'carSliderRef'});
+    },[]);
 
 
      
