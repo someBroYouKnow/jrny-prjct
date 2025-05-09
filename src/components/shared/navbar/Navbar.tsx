@@ -15,6 +15,7 @@ export const NavBar = () => {
     const mainRoute = location.pathname.split("/")[1] || "";
     setActive(mainRoute || "/"); 
     setMobileMenuOpen(false);
+    window.scrollTo(0,0);
   }, [location.pathname]);
 
   const toggleMobileMenu = () => {
