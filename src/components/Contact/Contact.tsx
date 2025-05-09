@@ -78,10 +78,11 @@ export const ContactForm = () =>{
         className="footer-input form-textarea"
       />
     </div>
-    <button className='button button-alt send-mail-contact-button'>
+    <Button
+     classList='button button-alt send-mail-contact-button'>
       <span className="send-mail-text">Send Mail</span>
       <img style={{marginLeft: "5px"}} src="/right-arrow.png" />
-    </button>
+    </Button>
   </div>
   )
 }
