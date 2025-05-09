@@ -43,13 +43,12 @@ export default function HorizontalScrollSections() {
 
     // Timeline for horizontal slide + scaling
     const tl = gsap.timeline({
-      defaults: { ease: "power2.inOut" },
+      defaults: { ease: "linear" },
       scrollTrigger: {
         trigger: '.pinMe',
         start: "top top",
         end: `+=${maxSliderShift}`, // Add a bit more for spacing
-        scrub: 1, 
-        snap:1,
+        scrub: 1,  
         pin: ".landing-container",
         anticipatePin: 1,   
       },

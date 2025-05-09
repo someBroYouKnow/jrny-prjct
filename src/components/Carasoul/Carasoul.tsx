@@ -102,7 +102,7 @@ export default function Carasoul() {
       window.removeEventListener('resize', handleResize);
     };
 
-    },{scope:'carSliderRef'});
+    },[]);
 
 
      
