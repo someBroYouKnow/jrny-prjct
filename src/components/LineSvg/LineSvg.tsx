@@ -258,7 +258,7 @@ const PathWithSlab: React.FC = () => {
       <path
         ref={originalPathRef}
         id="mainPath"
-        d={`M0,40 L${rightEdge},40 L${rightEdge},340 L2,500 L2,1990 L${rightEdge},2100 L${rightEdge},3640 L2,3740 L2,3890`}
+        d={`M0,40 L${rightEdge},40 L${rightEdge},340 L2,420 L2,1900 L${rightEdge},2000 L${rightEdge},3500 L2,3580 L2,3890`}
         fill="none"
         stroke="#FF5B00"
         strokeWidth="4"
