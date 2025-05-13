@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Button.css';
+import './button.css';
 
 interface ButtonProps {
   children: React.ReactNode;
