@@ -12,14 +12,14 @@ const Button: React.FC<ButtonProps> = ({ children, variant = 'draw' }) => {
 
   const triggerExplosion = () => {
     setExplode(true);
-    setTimeout(() => setExplode(false), 500); // Match CSS animation duration
+    setTimeout(() => setExplode(false), 200); // Match CSS animation duration
   };
 
     const handleClick = () => {
     setActive(true);
     triggerExplosion();
     // Optional: reset animation after delay
-    setTimeout(() => setActive(false), 1000); // adjust to match CSS duration
+    setTimeout(() => setActive(false), 500); // adjust to match CSS duration
   };
 
   return (
@@ -28,9 +28,12 @@ const Button: React.FC<ButtonProps> = ({ children, variant = 'draw' }) => {
       onClick={handleClick}
       onMouseEnter={triggerExplosion}
     >
+      <div className="button-content">
       <div className="button-children">
         {children}
       </div>
+      </div>
+
       <span className="plusButton">
         +
         {explode && (

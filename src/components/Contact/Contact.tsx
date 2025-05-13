@@ -80,7 +80,7 @@ export const ContactForm = () =>{
     </div>
     <Button > 
       <span className="send-mail-text">Send Mail</span>
-      <img style={{marginLeft: "5px"}} src="/right-arrow.png" />
+      <img src="/right-arrow.png" />
     </Button>
   </div>
   )

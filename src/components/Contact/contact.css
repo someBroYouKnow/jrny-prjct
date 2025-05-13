@@ -212,11 +212,8 @@
 .send-mail-text{
     font-family: Helvetica Neue;
     font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0%;
-    text-align: center;
-    vertical-align: bottom;
+    font-size: 14px;  
+    text-align: center; 
 }
 
 
