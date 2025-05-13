@@ -15,6 +15,7 @@
     padding: 1rem 2.2rem;
     color: rgba(0, 0, 0, 10);
     backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(5.6px);
     cursor: pointer;
     background: rgba(255, 255, 255, 0.1);
     border: none;
@@ -42,6 +43,7 @@
     bottom: 100%;
     right: 0; 
     backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(5.6px);
     cursor: pointer;
     background: rgba(255, 255, 255, 0.1);
     

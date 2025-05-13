@@ -1,87 +1,46 @@
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
+import './Button.css';
 
-type ButtonProps = {
+interface ButtonProps {
   children: React.ReactNode;
-  classList: string;
-};
+  variant?: 'draw' | 'meet';
+}
 
-const Button = ({ children, classList }: ButtonProps) => {
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const topBorderRef = useRef<HTMLSpanElement>(null);
-  const leftBorderRef = useRef<HTMLSpanElement>(null);
+const Button: React.FC<ButtonProps> = ({ children, variant = 'draw' }) => {
+  const [explode, setExplode] = useState(false);
+  const [active, setActive] = useState(false);
 
-  useGSAP(() => {
-    const button = buttonRef.current;
-    const topLine = topBorderRef.current;
-    const leftLine = leftBorderRef.current;
+  const triggerExplosion = () => {
+    setExplode(true);
+    setTimeout(() => setExplode(false), 500); // Match CSS animation duration
+  };
 
-    if (!button || !topLine || !leftLine) return;
-
-    const expandTimeline = gsap.timeline({ paused: true });
-
-    expandTimeline.to(topLine, {
-      width: '100%',
-      duration: 0.5,
-      ease: 'power2.out',
-    }).to(
-      leftLine,
-      {
-        height: '100%',
-        duration: 0.5,
-        ease: 'power2.out',
-      },
-      '<' // sync
-    );
-
-    const fullExpand = () => {
-      gsap.to(topLine, {
-        width: '100%',
-        duration: 1,
-        ease: 'power2.inOut',
-      });
-      gsap.to(leftLine, {
-        height: '100%',
-        duration: 1,
-        ease: 'power2.inOut',
-      });
-    };
-
-    const resetLines = () => {
-      gsap.to([topLine, leftLine], {
-        width: 0,
-        height: 0,
-        duration: 0.3,
-        ease: 'power1.inOut',
-      });
-    };
-
-    button.addEventListener('mouseenter', () => expandTimeline.play());
-    button.addEventListener('mouseleave', resetLines);
-    button.addEventListener('mousedown', fullExpand);
-    button.addEventListener('mouseup', () => expandTimeline.play(0));
-
-    return () => {
-      button.removeEventListener('mouseenter', () => expandTimeline.play());
-      button.removeEventListener('mouseleave', resetLines);
-      button.removeEventListener('mousedown', fullExpand);
-      button.removeEventListener('mouseup', () => expandTimeline.play(0));
-    };
-  }, []);
+    const handleClick = () => {
+    setActive(true);
+    triggerExplosion();
+    // Optional: reset animation after delay
+    setTimeout(() => setActive(false), 1000); // adjust to match CSS duration
+  };
 
   return (
-    <>
-      <button ref={buttonRef} className={`custom-button ${classList}`}>
-        {/* Border lines (below content using z-index) */}
-        <span ref={topBorderRef} className="border-line top-line"></span>
-        <span ref={leftBorderRef} className="border-line left-line"></span>
-
-        {/* Actual content above border lines */}
-        <span className="button-content">{children}</span>
-      </button>
-
-    </>
+    <button
+      className={`button-base ${active ? 'active':''} ${variant} ${explode ? 'explode' : ''}`}
+      onClick={handleClick}
+      onMouseEnter={triggerExplosion}
+    >
+      <div className="button-children">
+        {children}
+      </div>
+      <span className="plusButton">
+        +
+        {explode && (
+          <>
+            <span className="projectile left" />
+            <span className="projectile top" />
+          </>
+        )}
+      </span>
+    </button>
   );
 };
 

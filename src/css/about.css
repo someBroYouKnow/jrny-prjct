@@ -95,14 +95,15 @@
   flex-direction: column;
   gap:0.5rem;
   /* padding:0.9rem 0.8rem; */
-  padding: 16px;
-  backdrop-filter: blur(8px);
+  padding: 16px; 
+
   background-color: rgba(0, 0,0 , 0.1);
   border-bottom-right-radius: 20px;
 
   border-radius: 0px 0px var(--Corner-Radius-14---L, 16px) 0px;
   background: rgba(255, 255, 255, 0.10);
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(5.6px);
 
 }
 
