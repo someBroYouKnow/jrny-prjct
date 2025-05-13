@@ -27,10 +27,8 @@ export default function LandingPage() {
           <section className="landing-carousol">
             <HorizontalScrollSlider />
           </section>
-        </div>
 
-        <div className="landing-svg-container">
-          <section className="svg-content">
+                    <section className="svg-content">
             {isMobile ? (
               <div className="content-svg-mobile">
                 <LineSvgMobile/>
@@ -41,6 +39,10 @@ export default function LandingPage() {
               </div>
             )}
           </section>
+        </div>
+
+        <div className="landing-svg-container">
+
 
           <div className="about-us-landing">
             <div className="about-us-section  ">
