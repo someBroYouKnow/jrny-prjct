@@ -22,8 +22,19 @@
   padding: 0.25rem 2rem;
   border: none;
   cursor: pointer; 
-  border-radius: 0 0 16px 0; /* Circular bottom right corner */
-  overflow: visible;
+  border-radius: 0 0 16px 0; /* Circular bottom right corner */ 
+}
+
+.plusButton{
+    position:absolute;
+    top:0;
+    left:0;
+    transform: translateX(-50%) translateY(-50%);
+    color:white; 
+}
+
+.button-base:hover.plusButton{
+    display:none;
 }
 
 .button-children {
@@ -84,8 +95,8 @@
 
 /* Active state animations (smooth transition ONLY when activating) */
 .button-base.active::before {
-  width: 99%;
-  height: 99%;
+  width: 100%;
+  height: 100%;
   opacity: 1;
   transition: 
     width var(--animation-duration-active) ease,
@@ -93,8 +104,8 @@
 }
 
 .button-base.active::after { 
-  width: 99%;
-  height: 99%;
+  width: 100%;
+  height: 100%;
   opacity: 1;
   transition: 
     height var(--animation-duration-active) ease,

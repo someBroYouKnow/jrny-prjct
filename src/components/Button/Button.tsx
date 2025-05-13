@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({ children, variant = 'draw' }) => {
       <div className="button-children">
         {children}
       </div>
-      {/* <span className="plusButton">+</span> */}
+      <span className="plusButton">+</span>
     </button>
   );
 };
