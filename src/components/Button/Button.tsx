@@ -12,7 +12,7 @@ const Button: React.FC<ButtonProps> = ({ children, variant = 'draw' }) => {
   const handleClick = () => {
     setActive(true);
     // Optional: reset animation after delay
-    setTimeout(() => setActive(false), 700); // adjust to match CSS duration
+    setTimeout(() => setActive(false), 1000); // adjust to match CSS duration
   };
 
   return (
