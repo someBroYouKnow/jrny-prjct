@@ -23,24 +23,22 @@
   border: none;
   cursor: pointer; 
   border-radius: 0 0 16px 0; /* Circular bottom right corner */ 
+  z-index:3;
 }
 
 .plusButton{
     position:absolute;
-    top:0;
+    top:1px;
     left:0;
-    transform: translateX(-50%) translateY(-50%);
-    color:white; 
+    transform: translateX(-40%) translateY(-50%);
+    color:white;  
 }
 
 .button-base:hover.plusButton{
     display:none;
 }
 
-.button-children {
-  position: relative;
-  z-index: 3; /* Higher z-index for content */
-}
+
 
 /* Using ::before for the top-right border path */
 .button-base::before {
@@ -50,9 +48,9 @@
   left: 0;
   width: 0;
   height: 0;
-  border-top: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-    border-radius: 0 0 17px 0; /* Circular bottom right corner */
+  border-top: 2px solid var(--border-color);
+  border-right: 2px solid var(--border-color);
+    border-radius: 0 0 20px 0; /* Circular bottom right corner */
 
   transition: all 0s;
   opacity: 0;
@@ -67,10 +65,10 @@
   left: 0;
   width: 0;
   height: 0;
-  border-bottom: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+  border-left: 2px solid var(--border-color);
   transition: all 0s;
-  border-radius: 0 0 17px 0; /* Circular bottom right corner */
+  border-radius: 0 0 20px 0; /* Circular bottom right corner */
   opacity: 0;
   z-index: 1; /* Lower z-index for borders */
 }
@@ -100,7 +98,7 @@
   opacity: 1;
   transition: 
     width var(--animation-duration-active) ease,
-    height var(--animation-duration-active) ease var(--animation-duration-active);
+    height var(--animation-duration-active) ease calc(var(--animation-duration-active)*2);
 }
 
 .button-base.active::after { 
@@ -109,6 +107,9 @@
   opacity: 1;
   transition: 
     height var(--animation-duration-active) ease,
-    width var(--animation-duration-active) ease var(--animation-duration-active);
+    width var(--animation-duration-active) ease calc(var(--animation-duration-active)*2);
 }
  
+.button-base.active{
+    z-index:3;
+}
