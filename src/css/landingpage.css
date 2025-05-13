@@ -151,8 +151,10 @@ top: 2020px;
 
 .landing-text-container {
   display: flex;
+  gap:40px;
   flex-direction: column;
-  margin-bottom: 80px;
+  margin-top:10px;
+  margin-bottom: 70px;
   height: 300px;
   max-height: 40%;
   width: 95%;
@@ -170,18 +172,10 @@ top: 2020px;
   margin-top: 0px;
 }
 
-.landing-buttons {
-  margin-top: 1rem;
-  display: flex;
-  gap: 2rem;
-}
 
 .contact-btn {
   color: #ff4900;
   background-color: white;
-}
-
-.about-btn {
 }
 
 .landing-page-matter-text {
@@ -692,6 +686,8 @@ text-align: center;
 border-radius: 0px 0px var(--Corner-Radius-14---L, 16px) 0px;
 background: rgba(255, 255, 255, 0.10);
 backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
 }
 
 .caption-title {

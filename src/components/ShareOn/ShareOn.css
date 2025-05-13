@@ -24,6 +24,8 @@
 .share-icon-button{
     background: #FFFFFF1A;
     backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(5.6px);
+
     height:50px;
     width:50px;
     border:none;

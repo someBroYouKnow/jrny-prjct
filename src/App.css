@@ -6,6 +6,7 @@ body {
   background-color: black;
   font-family: 'Helvetica Neue'; 
   position: relative;
+  z-index: 2;
 }
  
 html, body {
@@ -13,7 +14,7 @@ html, body {
 }
 
 .pinMe{
-  
+  background-color: black;
   position:relative; 
 }
 
@@ -31,7 +32,7 @@ html, body {
   left: 0;
   z-index: 200000;
   backdrop-filter: blur(5.6px);
-  -webkit-backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(5.6px);
   padding: 50px 6rem; /* Combine padding */
   height: 80px;
   box-sizing: border-box; /* Include padding in height calculation */

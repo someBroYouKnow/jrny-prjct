@@ -1,34 +1,103 @@
-.custom-button {
+:root {
+  --button-width: 220px;
+  --button-bg-color: #FF5B00;
+  --button-fg-color: white;
+  --border-color: #FFFFFF;
+  --animation-duration: 0.1s;
+  --animation-duration-active: 0.05s;
+}
+
+.button-base {
   position: relative;
-  overflow: hidden;
-  padding: 12px 24px;
-  font-size: 16px;
-  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: var(--button-width);
+  height: 50px;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  background-color: var(--button-bg-color);
+  color: var(--button-fg-color);
+  padding: 0.25rem 2rem;
   border: none;
-  cursor: pointer;
+  cursor: pointer; 
+  border-radius: 0 0 16px 0; /* Circular bottom right corner */
+  overflow: visible;
 }
 
-.button-content {
+.button-children {
   position: relative;
-  z-index: 2; /* Above lines */
+  z-index: 3; /* Higher z-index for content */
 }
 
-.border-line {
+/* Using ::before for the top-right border path */
+.button-base::before {
+  content: '';
   position: absolute;
-  background-color: black;
-  z-index: 1; /* Behind content */
-}
-
-.top-line {
   top: 0;
   left: 0;
-  height: 2px;
   width: 0;
-}
+  height: 0;
+  border-top: 0.125rem solid var(--border-color);
+  border-right: 0.125rem solid var(--border-color);
+    border-radius: 0 0 14px 0; /* Circular bottom right corner */
 
-.left-line {
+  transition: all 0s;
+  opacity: 0;
+  z-index: 1; /* Lower z-index for borders */
+}   
+
+/* Using ::after for the left-bottom border path */
+.button-base::after {
+  content: '';
+  position: absolute;
   top: 0;
   left: 0;
-  width: 2px;
+  width: 0;
   height: 0;
+  border-bottom: 0.125rem solid var(--border-color);
+  border-left: 0.125rem solid var(--border-color);
+  transition: all 0s;
+  border-radius: 0 0 14px 0; /* Circular bottom right corner */
+  opacity: 0;
+  z-index: 1; /* Lower z-index for borders */
 }
+
+/* Hover animations */
+.button-base:hover::before {
+  width: 50%; 
+  opacity: 1;
+  transition: 
+    height var(--animation-duration) ease,
+    width var(--animation-duration) ease var(--animation-duration);
+}
+
+.button-base:hover::after { 
+  height: 50%;
+  opacity: 1;
+  transition: 
+    width var(--animation-duration) ease,
+    height var(--animation-duration) ease var(--animation-duration);
+}
+
+
+/* Active state animations (smooth transition ONLY when activating) */
+.button-base.active::before {
+  width: 99%;
+  height: 99%;
+  opacity: 1;
+  transition: 
+    width var(--animation-duration-active) ease,
+    height var(--animation-duration-active) ease var(--animation-duration-active);
+}
+
+.button-base.active::after { 
+  width: 99%;
+  height: 99%;
+  opacity: 1;
+  transition: 
+    height var(--animation-duration-active) ease,
+    width var(--animation-duration-active) ease var(--animation-duration-active);
+}
+ 
