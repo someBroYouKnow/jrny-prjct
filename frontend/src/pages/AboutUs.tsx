@@ -4,6 +4,7 @@ import ShowReel from '../components/ShowReel/ShowReel';
 import Footer from '../components/shared/footer/Footer'; 
 import useIsMobile from '../hooks/useIsMobile';
 import TagSlider from '../components/TagSlider/TagSlider';
+import Button from '../components/Button/Button';
 
 const AboutUsMottoArray =[
   {title:"MISSION",
@@ -46,7 +47,9 @@ export default function AboutUs() {
             About <span className='jrny-span'>US</span>
           </div>
           <div className="about-landing-buttons">
-            <button className="button button-alt"><Link to='/contact-us'>Contact Us</Link></button>
+            <Button >
+              <Link to='/contact-us'>Contact Us</Link>
+              </Button>
           </div>
           <div className="about-landing-description">
           At JRNY, we believe every experience should be more than just a moment—it should be a memory that lasts. We are passionate about designing journeys that connect, inspire, and leave a lasting impact. Whether it's through seamless user experiences, immersive storytelling, or meaningful interactions, we make sure every step of the journey is unforgettable.
