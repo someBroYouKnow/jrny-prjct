@@ -48,7 +48,7 @@
 
 .plusButton {
   position: absolute;
-  top: 1px;
+  top: px;
   left: 0;
   transform: translateX(-40%) translateY(-50%);
   color: var(--button-fg-color);
@@ -57,7 +57,7 @@
 }
 
 .projectile {
-  position: absolute;
+  position: absolute; 
   width: 4px;
   height: 4px;
   background-color: var(--button-fg-color);
@@ -68,10 +68,10 @@
 }
 
 /* Left projectile */
-.projectile.left {
+.projectile.left { 
   width: 4px;
   height: 4px;
-  top: 50%;
+  top: -10%;
   left: 0%;
   transform: translate(-50%, -50%);
   animation-name: projectile-left;
@@ -89,11 +89,11 @@
 
 @keyframes projectile-left {
   0% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translateX(-50%) scale(10);
     opacity: 1;
   }
   100% {
-    transform: translate(-100%, -50%) scale(0.5);
+    transform: translateX(-100%) scale(0.5);
     opacity: 0;
   }
 }

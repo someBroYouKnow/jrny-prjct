@@ -1,5 +1,6 @@
 import useIsMobile from "../../hooks/useIsMobile";
 import Button from "../Button/Button";
+import Input from "../FormInput/FormInput";
 import "./contact.css";
 
 export default function Contact() {
@@ -56,10 +57,10 @@ export const ContactForm = () =>{
     <div className="contact-form">
     <div className="your-info">
       <div className="footer-input-div">
-        <input
+        <Input
           placeholder="Name"
           type="text"
-          className="footer-input"
+          classList="footer-input"
         />
       </div>
       <div className="footer-input-div">
@@ -78,7 +79,6 @@ export const ContactForm = () =>{
     </div>
     <Button classList={'button-white-theme'}> 
       <div className="send-mail-container">
-
       <span className="send-mail-text">Send Mail</span>
       <img src="/arrow-right.png" />
       </div>
