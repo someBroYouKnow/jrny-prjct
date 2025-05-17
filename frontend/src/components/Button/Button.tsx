@@ -4,9 +4,10 @@ import './button.css';
 interface ButtonProps {
   children: React.ReactNode;
   variant?: 'draw' | 'meet';
+  classList: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, variant = 'draw' }) => {
+const Button: React.FC<ButtonProps> = ({ children,classList, variant = 'draw' }) => {
   const [explode, setExplode] = useState(false);
   const [active, setActive] = useState(false);
 
@@ -24,16 +25,13 @@ const Button: React.FC<ButtonProps> = ({ children, variant = 'draw' }) => {
 
   return (
     <button
-      className={`button-base ${active ? 'active':''} ${variant} ${explode ? 'explode' : ''}`}
+      className={`button-base  ${active ? 'active':''} ${variant} ${explode ? 'explode' : ''} ${classList}`}
       onClick={handleClick}
       onMouseEnter={triggerExplosion}
     >
-      <div className="button-content">
-      <div className="button-children">
+      <div className="button-content"> 
         {children}
-      </div>
-      </div>
-
+      </div> 
       <span className="plusButton">
         +
         {explode && (

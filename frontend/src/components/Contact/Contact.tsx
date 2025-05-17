@@ -8,8 +8,7 @@ export default function Contact() {
     return (
       <div className="contact-us-container">
         <div className="social-container-mobile">
-        <SocialDivs />
-        {/* <SocialIcons /> */}
+        <SocialDivs /> 
         </div>
         <div className="contact-mobile-line">
           <img src="/landing_line.png" alt="" />
@@ -26,8 +25,7 @@ export default function Contact() {
     <>
       <div className="contact-us-container">
         <div className="contact-us-row">
-        < ContactHeading />
-        {/* <SocialIcons /> */}
+        < ContactHeading /> 
         </div>
         <div className="contactUsLine">
           <img src="/contact_line.png" />{" "}
@@ -78,9 +76,12 @@ export const ContactForm = () =>{
         className="footer-input form-textarea"
       />
     </div>
-    <Button > 
+    <Button classList={'button-white-theme'}> 
+      <div className="send-mail-container">
+
       <span className="send-mail-text">Send Mail</span>
-      <img src="/right-arrow.png" />
+      <img src="/arrow-right.png" />
+      </div>
     </Button>
   </div>
   )

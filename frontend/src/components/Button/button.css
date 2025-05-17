@@ -29,6 +29,8 @@
 .button-content{
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 
@@ -180,4 +182,24 @@
  
 .button-base.active{
     z-index:3;
+}
+
+
+.button-white-theme{
+  color:#FF5B00;
+  background-color: white;
+}
+
+.button-white-theme .plusButton{
+  color:#FF5B00;
+}
+
+.button-white-theme .projectile,
+.button-white-theme .projectile-left,
+.button-white-theme .projectile-right{
+  background-color:#FF5B00;
+}
+
+.button-white-theme::after, .button-white-theme::before{
+  border-color: #FF5B00 !important;
 }

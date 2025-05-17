@@ -209,6 +209,8 @@
 
 }
 
+
+
 .send-mail-text{
     font-family: Helvetica Neue;
     font-weight: 700;
@@ -216,6 +218,16 @@
     text-align: center; 
 }
 
+.send-mail-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* initial gap */
+  transition: gap 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); /* smooth easing */
+}
+
+.button-base:hover .send-mail-container {
+  gap: 2rem;
+}
 
 .contact-mobile-line img{
 
