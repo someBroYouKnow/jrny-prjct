@@ -64,10 +64,10 @@ export const ContactForm = () =>{
         />
       </div>
       <div className="footer-input-div">
-        <input
+        <Input
           placeholder="Email"
           type="email"
-          className="footer-input"
+          classList="footer-input"
         />
       </div>
     </div>

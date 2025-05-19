@@ -64,7 +64,7 @@
 }
 
 /* On hover: visible and smoothly slide UP */
-.chat-hover-wrapper:hover .chat-with-links-section {
+.chat-with-us-container:hover .chat-with-links-section {
   opacity: 1;
   max-height: 500px;
   transform: translateY(0%);

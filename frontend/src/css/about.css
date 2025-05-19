@@ -213,20 +213,29 @@
 @media(max-width:1000px){
   .about-us-container{
     width:100%;
-    max-width: 100%;
-    padding:0rem 3rem;
+    max-width: 100%; 
+    padding:0; 
   }
 
   .about-landing-container{
     max-width: 100%;
     width:100%;
+    padding:0;
+    margin:0 auto;
+    min-height: 50vh;
   }
 
   .about-landing-content{
     max-width: 100%;
     width:100%;
     padding:1rem 0.3rem;
+    align-items: center;
   }
+
+  .about-landing-header{
+    text-align: center;
+  }
+
 
   .about-main-tag{
     max-width: 100%;
@@ -243,6 +252,8 @@
   .about-people-tile-container {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    padding:0;
+    margin:0 auto;
   }
 
   .person-image{
@@ -270,7 +281,8 @@
 @media (max-width: 600px) {
   .about-people-tile-container {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1rem; 
+
   }
 }
 

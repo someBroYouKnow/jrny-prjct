@@ -172,14 +172,27 @@
 
 .social-container-mobile{
     display: flex;
-    flex-direction: column;
     gap:2rem;
+    width:90%;
 }
 
 .social-divs-mobile{
-    display:flex;
-    flex-direction: column;
+    display:grid;
+    grid-template-columns: 1fr 1fr; 
     gap:2rem; 
+    width:90%;
+    max-width: 90%;
+    margin:0 auto;
+}
+
+.social-divs-mobile .social-heading{
+    font-size:1.1rem;
+    word-break: break-all;
+}
+
+.social-divs-mobile .social-example{
+    font-size:0.6rem;
+    line-height: 0.8rem;
 }
 
 .contact-mobile-line{

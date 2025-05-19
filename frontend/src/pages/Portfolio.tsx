@@ -67,7 +67,7 @@ const PortfolioTile = ({videoLink, thumbnail, tileTitle}:PortfolioTileProps) =>{
   }
 
   return (
-    <div className="portfolio-tile-box">
+    <div className="portfolio-tile-box moveUp">
       <div className="tile-thumbnail">
         <Link to={'/portfolio/:abcd'} className='portfolio-link'>
         <img src={thumbnail ?? '/landing-video-card.png'} alt="" />

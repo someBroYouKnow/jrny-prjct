@@ -133,7 +133,7 @@ export const BlogTileMobileContainer = ()=>{
     <>
           <div className="blog-tile-container-mobile">
             {BlogItemArray.map((BlogItem: BlogItemType,index) => (
-              <div key={index}>
+              <div key={index} className='blog-tile-mobile'>
               <Link to={`/blog/${BlogItem.id}`} className="blog-link" key={BlogItem.id}>
               <BlogTileMobile thumbnail = {BlogItem.thumbnail}
                         title = {BlogItem.title}
