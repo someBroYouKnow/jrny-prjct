@@ -214,13 +214,20 @@ color: #FF5B00;
 
   .portfolio-tile-container {
     grid-template-columns: 1fr 1fr;
-    row-gap: 1rem;
-
-
+    row-gap: 0.2rem;
+    margin:0 auto;
+    max-height: 500px !important;
   }
 
   .portfolio-middle-list {
-    padding-right: 0; /* Remove right padding on mobile */
+    padding:0;
+    margin:0 auto ;
+    max-height: 90%;
+    display:block;
+  }
+
+  .portfolio-tile{
+    height:80%;
   }
 
   .portfolio-container {

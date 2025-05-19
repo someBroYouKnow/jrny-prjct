@@ -745,6 +745,7 @@ line-height: 20px;
   grid-template-rows: repeat(1, 1fr);
   gap: 1rem;
   width: 90%;
+  max-height: 98%;
 }
 
 .profile-card {
@@ -875,18 +876,37 @@ line-height: 20px;
     max-width: 90%;
   }
 
-  .cards-section {
+  .cards-section{
+    padding-left:0;
+    margin:0 auto;
+  }
+
+  .cards-section-grid-container {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    column-gap: 0.2rem;
-    row-gap: 0.2em;
-    padding: 0 1rem;
+    column-gap: 1rem;
+    row-gap: 0.4rem;
+    height:700px;
+    margin:0 auto;
   }
 
   .profile-card {
-    width: 80%;
-    max-width: 90%;
+    width: 98%;
+    max-width: 99%;
     height: 85%;
+  }
+
+  .profile-caption{
+    height:40%;
+  }
+
+  .profile-caption .heading{
+    font-size:1rem;
+  }
+
+  .profile-caption .description{
+    font-size:0.8rem;
+    line-height: 1rem;
   }
 
   .landing-portfolio-title-box {
@@ -913,6 +933,33 @@ line-height: 20px;
     width: 90%;
     max-width: 100%;
   }
+
+  .journeys-div{
+    height:2000px;
+  }
+
+  .landing-portfolio{
+
+    height:1400px;
+  }
+
+  .testimonial-bottom{
+    height:100px;
+  }
+
+  .carousol-container{
+    height:500px;
+  }
+
+  .portfolio-tiles-landing {
+    padding-left: 0;
+    margin:0 auto;
+    height:90%;
+    max-height:95%; 
+  }
+
+ 
+
 
   .right-choice-container {
     gap: 1rem;
@@ -964,6 +1011,10 @@ line-height: 20px;
   .feature-title {
     font-size: 1.4rem;
   }
+
+  .landing-footer {
+  padding-left: 0;
+  }
 }
 
 /* Mostly for LINESVGMOBILE */
@@ -1005,11 +1056,10 @@ line-height: 20px;
     top: 3460px;
   }
 
-  .portfolio-tiles-landing {
-    height: 650px;
-  }
+
 
   .line-outlier-mobile {
     top: 3100px;
   }
 }
+ 

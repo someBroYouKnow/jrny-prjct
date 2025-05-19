@@ -43,3 +43,18 @@
   opacity: 0.1;
   pointer-events: none;
 }
+
+@media(max-width:1000px){
+  .tag-button{
+    font-size:0.6rem;
+    padding:0.2rem 0.5rem;
+    height:30px;
+  }
+}
+
+@media(max-width:500px){
+  .tag-button{
+    font-size:0.4rem;
+    height:20px;
+  }
+}

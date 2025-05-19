@@ -133,3 +133,25 @@ background-color: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 
 .portfolio-item-footer{
   padding-left:6rem;
 }
+
+@media(max-width:1000px){
+  .portfolio-item-hero-container{
+    padding:0;
+    margin:0 auto;
+  }
+
+  .portfolio-item-middle-list{
+    padding:0;
+    margin:0 auto;
+    width:90%;
+  }
+
+  .portfolio-item-footer{
+    padding:0;
+    margin:0 auto;
+  }
+
+  .might-like{
+    display:inline-block;  
+  }
+}
