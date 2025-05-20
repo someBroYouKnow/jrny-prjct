@@ -26,6 +26,12 @@
   z-index:3;
 }
 
+@media(max-width:768px){
+  .button-base{
+    width:40svw;
+  }
+}
+
 .button-content{
     display: flex;
     justify-content: center;
