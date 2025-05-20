@@ -210,6 +210,22 @@
   padding-left:6rem;
 }
 
+
+/* MOBILE CSS */
+.about-landing-buttons-mobile{
+  width:60%;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  margin:0 auto;
+}
+
+@media(max-width:800px){
+  .about-landing-buttons-mobile{
+    width:90%;
+  }
+}
+
+
 @media(max-width:1000px){
   .about-us-container{
     width:100%;
@@ -222,7 +238,7 @@
     width:100%;
     padding:0;
     margin:0 auto;
-    min-height: 50vh;
+    min-height: 20vh;
   }
 
   .about-landing-content{
@@ -234,6 +250,20 @@
 
   .about-landing-header{
     text-align: center;
+  }
+
+  .about-landing-description{
+    width:90%;
+    max-width: 100%;
+  }
+
+  .about-motto{
+    padding:0;
+    margin:0 auto;
+  }
+
+  .about-tag-container{
+    padding:0 2rem;
   }
 
 
@@ -278,11 +308,23 @@
 
 
 /* Optional: Adjust gaps for smaller screens */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .about-people-tile-container {
-    grid-template-columns: 1fr;
-    gap: 1rem; 
+    grid-template-columns: 1fr 1fr; 
+  width:80%;
+  gap:0.5rem;
+  margin:0 auto;
+  }
 
+  .person-tile{
+    width:90%;
+  }
+}
+
+@media (max-width: 350px) {
+  .about-people-tile-container {
+    grid-template-columns: 1fr; 
+    width:80%;
   }
 }
 

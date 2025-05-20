@@ -154,4 +154,14 @@ background-color: linear-gradient(92.49deg, #7C7C7C 0%, #FFFFFF 47.41%, #7C7C7C 
   .might-like{
     display:inline-block;  
   }
+
+  .project-description{
+    width:90%;
+    max-width: 92svw;
+  }
+
+  .project-second-description{
+    max-width: 92svw;
+    width:92svw;
+  }
 }
