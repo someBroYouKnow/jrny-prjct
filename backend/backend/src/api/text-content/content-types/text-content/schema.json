@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "text_contents",
+  "info": {
+    "singularName": "text-content",
+    "pluralName": "text-contents",
+    "displayName": "textContent"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "textContentField": {
+      "type": "blocks"
+    }
+  }
+}

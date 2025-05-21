@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolios",
+  "info": {
+    "singularName": "portfolio",
+    "pluralName": "portfolios",
+    "displayName": "Portfolio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "portfolioTitle": {
+      "type": "string"
+    },
+    "portfolioDescription": {
+      "type": "blocks"
+    },
+    "portfolioMoreAbout": {
+      "type": "blocks"
+    },
+    "portfolioVideo": {
+      "type": "string"
+    },
+    "portfolioImages": {
+      "type": "string"
+    }
+  }
+}
