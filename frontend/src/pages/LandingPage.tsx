@@ -8,6 +8,7 @@ import PartnerSlider from "../components/PartnerSlider/PartnerSlider";
 import useIsMobile from "../hooks/useIsMobile";
 import LineSvgMobile from "../components/LineSvg/LineSvgMobile";
 import Footer from "../components/shared/footer/Footer";
+import ExpandingVideo from "../components/ExpandingVideo/ExpandingVideo";
 
 
 export default function LandingPage() {
@@ -24,11 +25,11 @@ export default function LandingPage() {
               <span className="landing-page-matter-text">MATTER</span>
             </h1>
           </div>
-          <section className="landing-carousol">
-            <HorizontalScrollSlider />
+          <section className="landing-expanding-video"> 
+            <ExpandingVideo/>
           </section>
 
-                    <section className="svg-content">
+          <section className="svg-content">
             {isMobile ? (
               <div className="content-svg-mobile">
                 <LineSvgMobile/>

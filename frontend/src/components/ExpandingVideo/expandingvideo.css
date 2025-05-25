@@ -1,0 +1,141 @@
+/* Main wrapper */
+.expanding-video-wrapper {
+  min-height: 1500px;
+  background-color: #000000;
+}
+
+/* Container for the expanding video animation */
+.expanding-video-container {
+  position: relative;
+  height: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Left cards container */
+.left-cards {
+  position: absolute;
+  left: calc(50% - 280px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+/* Right cards container */
+.right-cards {
+  position: absolute;
+  right: calc(50% - 280px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+/* Card styling */
+.card {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  width: 6rem;
+  height: 8rem;
+}
+
+.card-image {
+  width: 100%;
+  height: 5.5rem;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 0.5rem;
+}
+
+.card-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Main video styling */
+.expanding-video {
+  width: 50vw;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  aspect-ratio: 16/9;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+}
+
+/* Background overlay */
+.background-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.2),
+    transparent,
+    rgba(0, 0, 0, 0.2)
+  );
+  pointer-events: none;
+}
+
+/* Scroll content section */
+.scroll-content {
+  height: 100vh;
+  background-color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-text {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .expanding-video-wrapper {
+    min-height: 120vh;
+  }
+
+  .expanding-video-container {
+    height: 120vh;
+  }
+
+  .left-cards {
+    left: calc(50% - 200px);
+  }
+  
+  .right-cards {
+    right: calc(50% - 200px);
+  }
+  
+  .card {
+    width: 5rem;
+    height: 6.5rem;
+  }
+  
+  .card-image {
+    height: 4.5rem;
+  }
+  
+  .expanding-video {
+    width: 60vw;
+  }
+}
