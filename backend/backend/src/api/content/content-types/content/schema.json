@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contents",
+  "info": {
+    "singularName": "content",
+    "pluralName": "contents",
+    "displayName": "Content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "contentTitle": {
+      "type": "string"
+    },
+    "textContent": {
+      "type": "blocks"
+    }
+  }
+}
