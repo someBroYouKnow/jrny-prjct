@@ -98,14 +98,12 @@
   align-items: center;
   width: 100%;
   max-width: 100svw;
-
-  position: relative;
-  height: 4000px;
+  position: relative; 
   position: relative;
 }
 
 .svg-content {
-  position: fixed;
+  position: absolute;
   left: 0; /* <- fixed */
   top: 520px;
   height: 100%;
@@ -151,12 +149,10 @@ top: 2020px;
 
 .landing-text-container {
   display: flex;
-  gap:40px;
+  gap:10px;
   flex-direction: column;
-  margin-top:10px;
-  margin-bottom: 70px;
-  height: 300px;
-  max-height: 40%;
+  margin-top:5px; 
+  max-height: 30%;
   width: 95%;
   justify-content: center;
   align-items: center;

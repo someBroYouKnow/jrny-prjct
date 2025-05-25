@@ -29,7 +29,9 @@ export default function LandingPage() {
             <ExpandingVideo/>
           </section>
 
-          <section className="svg-content">
+
+        </div>
+                  <section className="svg-content">
             {isMobile ? (
               <div className="content-svg-mobile">
                 <LineSvgMobile/>
@@ -40,7 +42,6 @@ export default function LandingPage() {
               </div>
             )}
           </section>
-        </div>
 
         <div className="landing-svg-container">
 

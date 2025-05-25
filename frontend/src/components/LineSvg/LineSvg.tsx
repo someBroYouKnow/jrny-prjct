@@ -233,9 +233,10 @@ const PathWithSlab: React.FC = () => {
 
     gsap.to(coverPathRef.current, {
       scrollTrigger: {
-        trigger: ".line-outlier",
+        trigger: ".pinMe",
         start: "top top",
-        end: "+=4930",  
+        end: "+=4930", 
+        markers: true,   
         onUpdate: (self) => updatePaths(self.progress ), 
       }, 
     });
