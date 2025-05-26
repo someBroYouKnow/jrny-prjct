@@ -35,8 +35,8 @@ useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top 40%",
-        end: "bottom 96%",
+        start: "top 35%",
+        end: "bottom 88%",
         scrub: true,
         markers: true, 
       }
