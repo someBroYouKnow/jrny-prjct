@@ -8,12 +8,11 @@ import PartnerSlider from "../components/PartnerSlider/PartnerSlider";
 import useIsMobile from "../hooks/useIsMobile";
 import LineSvgMobile from "../components/LineSvg/LineSvgMobile";
 import Footer from "../components/shared/footer/Footer";
-import ExpandingVideo from "../components/ExpandingVideo/ExpandingVideo";
+import ExpandingVideo from "../components/ExpandingVideo/ExpandingVideo";  
 
 
 export default function LandingPage() {
-  const isMobile = useIsMobile(1010);
-
+  const isMobile = useIsMobile(1010); 
   return (
     <>
       <div className="landing-container">

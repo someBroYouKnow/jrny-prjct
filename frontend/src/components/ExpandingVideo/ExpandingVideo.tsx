@@ -12,19 +12,17 @@ export default function ExpandingVideo() {
   const leftCardsRef = useRef(null);
   const rightCardsRef = useRef(null);
 
-  useGSAP(() => {
+useGSAP(() => {
     const video = videoRef.current;
     const leftCards = gsap.utils.toArray('.left-card');
     const rightCards = gsap.utils.toArray('.right-card');
 
     if (!video || !leftCards.length || !rightCards.length) return;
 
-    // Set initial styles
     gsap.set(video, {
-      width: '45vw',
-      height: 'auto',
-    });
-
+      scale: 0.4, // Start with video at 50% width 
+      transformOrigin: "center top", // Set transform origin to center
+    })
     gsap.set(leftCards, { 
       opacity: 1,
     });
@@ -32,26 +30,26 @@ export default function ExpandingVideo() {
     gsap.set(rightCards, { 
       opacity: 1,
     });
-
-    // Create ScrollTrigger animation
-    ScrollTrigger.create({
-      trigger: containerRef.current,
-      start: "top center",
-      end: "bottom 10%",
-      scrub: true,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        
-        // Animate video expansion
-        gsap.to(video, {
-          width: `${45 + (35 * progress)}vw`, // 45vw to 80vw
-          duration: 0.1,
-          y: `${50 * progress}px`, // Move up as it expands
-        });
-
  
+    // Create timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 40%",
+        end: "bottom 96%",
+        scrub: true,
+        markers: true, 
       }
     });
+
+    // Add video expansion animation to timeline
+    // tl.to(video, {
+    //   width: '60vw', // 45vw to 75vw (30vw increase) 
+    // });
+
+    tl.to(video,{
+      scale: 1,  
+    })
 
     return () => {
       ScrollTrigger.getAll().forEach(st => st.kill());
@@ -86,7 +84,7 @@ export default function ExpandingVideo() {
         {/* Main Video */}
         <video
           ref={videoRef}
-          src="https://www.w3schools.com/html/mov_bbb.mp4"
+         src="https://cdn-front.freepik.com/revamp/temp/hero/1905-AnonymousHome1920x1080.webm"
           autoPlay
           muted
           loop
